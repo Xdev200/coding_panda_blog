@@ -39,90 +39,131 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   const categoryVariant = CATEGORY_VARIANT_MAP[post.category] ?? "default";
+  // const shareUrl = `https://x.com/share?url=${encodeURIComponent(
+  //   `${process.env.NEXT_PUBLIC_SITE_URL || ""}/${post.slug}`
+  // )}&text=${encodeURIComponent(post.title + ".\nCheck it out 👉")}`;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      {/* Back link */}
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 font-space font-bold text-sm text-retro-black dark:text-retro-white border-2 border-retro-black dark:border-retro-white px-4 py-2 shadow-neo dark:shadow-neo-dark hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover transition-all duration-100 mb-10 focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-yellow bg-retro-white dark:bg-retro-dark-surface"
-      >
-        ← All Posts
-      </Link>
-
-      {/* Cover color strip */}
-      <div
-        className="w-full h-48 border-2 border-b-0 border-retro-black dark:border-retro-white flex items-center justify-center"
-        style={{ backgroundColor: post.coverColor }}
-        aria-hidden="true"
-      >
-        <span className="font-archivo font-black text-8xl text-retro-black opacity-15 select-none">
-          {post.title.charAt(0)}
-        </span>
-      </div>
-
-      {/* Article card */}
-      <article className="border-2 border-retro-black dark:border-retro-white shadow-neo-xl dark:shadow-neo-dark-xl bg-retro-white dark:bg-retro-dark-surface">
-        <div className="p-8 sm:p-12">
-          {/* Meta row */}
-          <div className="flex items-center gap-3 flex-wrap mb-6">
+    <article className="max-w-3xl mt-8 mx-auto px-4 sm:px-6 lg:px-0 pb-16">
+      {/* ── Header Section ── */}
+      <div className="border-b-2 border-retro-black dark:border-retro-white pb-8 mb-8">
+        {/* Date + Category Badges Row */}
+        <div className="flex items-center gap-4 mb-6 flex-wrap">
+          <p className="font-space text-sm font-medium text-gray-500 dark:text-gray-400">
+            {formatDate(post.date)}
+          </p>
+          <span className="font-space text-base text-gray-400 dark:text-gray-500" aria-hidden="true">|</span>
+          <div className="flex items-center gap-3 flex-wrap">
             <Badge label={post.category} variant={categoryVariant as "default"} />
             {post.featured && <Badge label="Featured" variant="outline" />}
+            {post.tags?.slice(0, 2).map((tag) => (
+              <Badge key={tag} label={tag} variant="outline" />
+            ))}
           </div>
-
-          <h1 className="font-archivo font-black text-3xl sm:text-4xl lg:text-5xl text-retro-black dark:text-retro-white leading-tight mb-6">
-            {post.title}
-          </h1>
-
-          {/* Post meta */}
-          <div className="flex flex-wrap gap-4 items-center border-y-2 border-retro-black dark:border-retro-white py-4 mb-8 border-dashed">
-            <div className="font-space text-sm text-gray-600 dark:text-gray-400">
-              <span className="font-bold text-retro-black dark:text-retro-white">{post.author}</span>
-            </div>
-            <div className="font-space text-sm text-gray-600 dark:text-gray-400">
-              {formatDate(post.date)}
-            </div>
-            <div className="font-space text-sm font-bold bg-retro-black dark:bg-retro-white text-retro-white dark:text-retro-black px-2 py-1 ml-auto">
-              {formatReadTime(post.readTime)}
-            </div>
-          </div>
-
-          {/* Excerpt / content */}
-          <div className="font-space text-base leading-relaxed text-gray-800 dark:text-gray-200 space-y-4">
-            <p className="text-lg font-medium text-retro-black dark:text-retro-white">{post.excerpt}</p>
-            {post.content ? (
-              <div 
-                className="prose prose-retro dark:prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: post.content }} 
-              />
-            ) : (
-              <>
-                <p>
-                  This is a demo article page. In a full implementation, the blog
-                  post content would be loaded from MDX files or a CMS, rendered
-                  with a markdown processor, and displayed here with full
-                  typography styling.
-                </p>
-                <p>
-                  NeoBrutalism design combines raw, unrefined aesthetics with modern
-                  usability. Thick borders, flat drop shadows, and high-contrast
-                  color palettes create interfaces that stand out in a sea of
-                  identical-looking websites.
-                </p>
-              </>
-            )}
-          </div>
-
-          {/* Tags */}
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-10 pt-6 border-t-2 border-retro-black dark:border-retro-white border-dashed">
-              {post.tags.map((tag) => (
-                <Badge key={tag} label={`#${tag}`} variant="outline" />
-              ))}
-            </div>
-          )}
         </div>
-      </article>
-    </div>
+
+        {/* Title */}
+        <h1 className="font-archivo font-black text-4xl lg:text-5xl text-retro-black dark:text-retro-white leading-tight mb-4">
+          {post.title}
+        </h1>
+
+        {/* Excerpt */}
+        <p className="font-space text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-10">
+          {post.excerpt}
+        </p>
+
+        {/* Author + Share Row */}
+        <div className="flex justify-between items-center">
+          <div className="flex gap-4 items-center">
+            {/* Author Avatar */}
+            <div className="relative flex h-12 w-12 border-2 border-retro-black dark:border-retro-white rounded-full overflow-hidden bg-retro-yellow items-center justify-center">
+              <span className="font-archivo font-black text-lg text-retro-black select-none">
+                {post.author
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")
+                  .toUpperCase()}
+              </span>
+            </div>
+            {/* Author Name */}
+            <div>
+              <h5 className="font-archivo text-lg font-black text-retro-black dark:text-retro-white">
+                {post.author}
+              </h5>
+              <p className="font-space text-sm text-gray-500 dark:text-gray-400">
+                {formatReadTime(post.readTime)}
+              </p>
+            </div>
+          </div>
+
+          {/* Share Button
+          <a
+            href={shareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-archivo font-bold text-sm border-2 border-retro-black dark:border-retro-white px-4 py-2 shadow-neo dark:shadow-neo-dark hover:translate-y-[2px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover transition-all duration-100 bg-retro-white dark:bg-retro-dark-surface text-retro-black dark:text-retro-white"
+          >
+            Share on 𝕏
+          </a> */}
+        </div>
+      </div>
+
+      {/* ── Article Content ── */}
+      <div className="font-space text-lg text-retro-black dark:text-retro-white leading-relaxed">
+        {post.content ? (
+          <div
+            className="prose prose-lg prose-neutral dark:prose-invert max-w-none
+              prose-headings:font-archivo prose-headings:font-black prose-headings:text-retro-black dark:prose-headings:text-retro-white
+              prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-10
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:font-space prose-p:text-lg prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-p:leading-relaxed
+              prose-a:text-retro-black dark:prose-a:text-retro-yellow prose-a:underline prose-a:underline-offset-4 prose-a:decoration-retro-yellow hover:prose-a:decoration-retro-black
+              prose-strong:text-retro-black dark:prose-strong:text-retro-white
+              prose-img:mx-auto prose-img:max-w-[600px] prose-img:w-full prose-img:my-8 prose-img:border-2 prose-img:border-retro-black dark:prose-img:border-retro-white prose-img:shadow-neo dark:prose-img:shadow-neo-dark
+              prose-blockquote:border-l-4 prose-blockquote:border-retro-yellow prose-blockquote:bg-retro-yellow/10 prose-blockquote:px-6 prose-blockquote:py-4
+              prose-code:bg-retro-black prose-code:text-retro-yellow prose-code:px-2 prose-code:py-0.5 prose-code:text-sm prose-code:font-mono prose-code:rounded-none prose-code:border-2 prose-code:border-retro-black
+              prose-pre:bg-retro-black prose-pre:border-2 prose-pre:border-retro-black dark:prose-pre:border-retro-white prose-pre:shadow-neo dark:prose-pre:shadow-neo-dark
+              prose-ul:list-disc prose-ol:list-decimal
+              prose-li:font-space prose-li:text-lg"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        ) : (
+          <div className="space-y-6">
+            <p className="text-lg text-gray-800 dark:text-gray-200">
+              This is a demo article page. In a full implementation, the blog
+              post content would be loaded from MDX files or a CMS, rendered
+              with a markdown processor, and displayed here with full
+              typography styling.
+            </p>
+            <p className="text-lg text-gray-800 dark:text-gray-200">
+              NeoBrutalism design combines raw, unrefined aesthetics with modern
+              usability. Thick borders, flat drop shadows, and high-contrast
+              color palettes create interfaces that stand out in a sea of
+              identical-looking websites.
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* ── Tags ── */}
+      {post.tags && post.tags.length > 0 && (
+        <div className="flex flex-wrap gap-2 mt-12 pt-6 border-t-2 border-retro-black dark:border-retro-white border-dashed">
+          {post.tags.map((tag) => (
+            <Badge key={tag} label={`#${tag}`} variant="outline" />
+          ))}
+        </div>
+      )}
+
+      {/* ── Separator ── */}
+      <hr className="my-12 border-t-2 border-retro-black dark:border-retro-white" />
+
+      {/* ── Back Button ── */}
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 font-archivo font-bold text-sm border-2 border-retro-black dark:border-retro-white px-5 py-3 shadow-neo dark:shadow-neo-dark hover:translate-y-[2px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover transition-all duration-100 bg-retro-yellow text-retro-black focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-yellow"
+      >
+        ← Back to blogs
+      </Link>
+    </article>
   );
 }

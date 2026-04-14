@@ -15,23 +15,24 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
   return (
     <Link
       href={`/${post.slug}`}
-      className="group block focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-yellow"
+      className="group block h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-yellow"
       aria-label={`Read: ${post.title}`}
     >
       <article
         className={`
+          h-full flex flex-col
           border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark bg-retro-white dark:bg-retro-dark-surface
           transition-all duration-100
           group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-neo-hover dark:group-hover:shadow-neo-dark-hover
-          ${featured ? "md:flex md:gap-0" : ""}
+          ${featured ? "md:flex md:flex-row md:gap-0" : ""}
         `}
       >
         {/* Color cover strip */}
         <div
-          className={`
-            border-b-2 border-retro-black dark:border-retro-white
-            ${featured ? "md:w-48 md:border-b-0 md:border-r-2 flex-shrink-0" : "h-40"}
-          `}
+          // className={`
+          //   border-b-2 border-retro-black dark:border-retro-white
+          //   ${featured ? "md:w-48 md:border-b-0 md:border-r-2 flex-shrink-0" : "h-40"}
+          // `}
           style={{ backgroundColor: post.coverColor }}
           aria-hidden="true"
         >
@@ -45,7 +46,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6 flex flex-col gap-3">
+        <div className="p-6 flex flex-col gap-3 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
             <Badge
               label={post.category}
