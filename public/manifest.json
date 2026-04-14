@@ -1,0 +1,39 @@
+{
+  "name": "Coding Panda Blog",
+  "short_name": "CodingPanda",
+  "description": "Modern web development articles and React component guides from the Coding Panda team.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FDE047",
+  "background_color": "#FAFAFA",
+  "categories": ["design", "technology"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Read Blogs",
+      "short_name": "Blogs",
+      "description": "Browse all blog posts",
+      "url": "/",
+      "icons": [{ "src": "/icons/icon-192x192.svg", "sizes": "192x192" }]
+    }
+  ]
+}

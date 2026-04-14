@@ -1,0 +1,471 @@
+<svg width="100%" viewBox="0 0 680 660" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">3D Coding Panda</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">A 3D-style cute panda character with round form, sitting at a glowing laptop, wearing glasses and headphones, for a blog hero section.</desc>
+
+  <defs>
+    <!-- Head base: warm white with subtle ivory -->
+    <radialGradient id="headGrad" cx="42%" cy="38%" r="58%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#F0EDE8"/>
+      <stop offset="100%" stop-color="#D6D0C8"/>
+    </radialGradient>
+
+    <!-- Ear dark -->
+    <radialGradient id="earDark" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#3D3530"/>
+      <stop offset="100%" stop-color="#1A1410"/>
+    </radialGradient>
+
+    <!-- Ear inner -->
+    <radialGradient id="earInner" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#5A5050"/>
+      <stop offset="100%" stop-color="#3A3030"/>
+    </radialGradient>
+
+    <!-- Eye patch 3D -->
+    <radialGradient id="patchL" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#3D3530"/>
+      <stop offset="100%" stop-color="#1A1410"/>
+    </radialGradient>
+    <radialGradient id="patchR" cx="65%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#3D3530"/>
+      <stop offset="100%" stop-color="#1A1410"/>
+    </radialGradient>
+
+    <!-- Eye iris -->
+    <radialGradient id="irisGrad" cx="38%" cy="32%" r="60%">
+      <stop offset="0%" stop-color="#5B8FD4"/>
+      <stop offset="60%" stop-color="#1E4FA0"/>
+      <stop offset="100%" stop-color="#0D2A60"/>
+    </radialGradient>
+
+    <!-- Body -->
+    <radialGradient id="bodyGrad" cx="38%" cy="28%" r="62%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="55%" stop-color="#EAE6DF"/>
+      <stop offset="100%" stop-color="#C8C2B8"/>
+    </radialGradient>
+
+    <!-- Belly -->
+    <radialGradient id="bellyGrad" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#F5F2ED"/>
+      <stop offset="100%" stop-color="#DDD8CF"/>
+    </radialGradient>
+
+    <!-- Arm dark -->
+    <radialGradient id="armGrad" cx="35%" cy="28%" r="65%">
+      <stop offset="0%" stop-color="#4A4540"/>
+      <stop offset="100%" stop-color="#1F1C18"/>
+    </radialGradient>
+
+    <!-- Laptop screen glow -->
+    <radialGradient id="screenGrad" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#1A2540"/>
+      <stop offset="100%" stop-color="#0A0F1E"/>
+    </radialGradient>
+
+    <!-- Laptop body -->
+    <linearGradient id="lapTopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3A3F50"/>
+      <stop offset="100%" stop-color="#22252F"/>
+    </linearGradient>
+
+    <!-- Desk -->
+    <linearGradient id="deskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4A3F35"/>
+      <stop offset="100%" stop-color="#2E2620"/>
+    </linearGradient>
+
+    <!-- Coffee cup -->
+    <linearGradient id="cupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5A4FD4"/>
+      <stop offset="100%" stop-color="#3A2FA0"/>
+    </linearGradient>
+
+    <!-- Headphone -->
+    <linearGradient id="hpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#5B21B6"/>
+    </linearGradient>
+
+    <!-- Glasses purple -->
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+
+    <!-- Nose -->
+    <radialGradient id="noseGrad" cx="38%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#4A4540"/>
+      <stop offset="100%" stop-color="#1A1410"/>
+    </radialGradient>
+
+    <!-- Blush -->
+    <radialGradient id="blushGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDA4AF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FB7185" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Paw -->
+    <radialGradient id="pawGrad" cx="38%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#4A4540"/>
+      <stop offset="100%" stop-color="#1F1C18"/>
+    </radialGradient>
+
+    <!-- Screen clip -->
+    <clipPath id="screenClip">
+      <rect x="192" y="257" width="296" height="183" rx="6"/>
+    </clipPath>
+  <mask id="imagine-text-gaps-nornk6" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="680" height="660" fill="white"/><rect x="196.98956298828125" y="268.5555114746094" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="196.98956298828125" y="284.5555114746094" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="196.98956298828125" y="300.5555114746094" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="196.98956298828125" y="316.5555114746094" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="196.98956298828125" y="332.5555419921875" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="196.98956298828125" y="348.5555419921875" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="196.98956298828125" y="364.5555419921875" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="196.98956298828125" y="380.5555114746094" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="196.98956298828125" y="396.5555114746094" width="14.02086067199707" height="15.805609703063965" fill="black" rx="2"/><rect x="218" y="267.611083984375" width="41.10734176635742" height="16.7500581741333" fill="black" rx="2"/><rect x="254" y="267.611083984375" width="41.107357025146484" height="16.7500581741333" fill="black" rx="2"/><rect x="298" y="267.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="312" y="267.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="226.00001525878906" y="283.611083984375" width="34.48885154724121" height="16.7500581741333" fill="black" rx="2"/><rect x="256" y="283.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="266" y="283.611083984375" width="74.21471405029297" height="16.7500581741333" fill="black" rx="2"/><rect x="342" y="283.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="226.00001525878906" y="299.611083984375" width="47.73326873779297" height="16.7500581741333" fill="black" rx="2"/><rect x="264" y="299.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="274" y="299.611083984375" width="60.9776725769043" height="16.7500581741333" fill="black" rx="2"/><rect x="326" y="299.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="226.00001525878906" y="315.611083984375" width="34.48885154724121" height="16.751816749572754" fill="black" rx="2"/><rect x="254" y="315.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="264" y="315.611083984375" width="34.48883628845215" height="16.7500581741333" fill="black" rx="2"/><rect x="292" y="315.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="226.00001525878906" y="331.611083984375" width="34.48885154724121" height="16.7500581741333" fill="black" rx="2"/><rect x="250" y="331.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="260" y="331.611083984375" width="21.244418144226074" height="16.7500581741333" fill="black" rx="2"/><rect x="285" y="331.611083984375" width="21.244418144226074" height="16.7500581741333" fill="black" rx="2"/><rect x="302.0000305175781" y="331.611083984375" width="60.9776725769043" height="16.7500581741333" fill="black" rx="2"/><rect x="218" y="347.611083984375" width="14.625898361206055" height="16.7500581741333" fill="black" rx="2"/><rect x="526.3778076171875" y="435.6110534667969" width="21.244418144226074" height="16.7500581741333" fill="black" rx="2"/><rect x="73.82411193847656" y="285.611083984375" width="54.351776123046875" height="16.7500581741333" fill="black" rx="2"/><rect x="557.1333618164062" y="260.6110534667969" width="47.733253479003906" height="16.7500581741333" fill="black" rx="2"/><rect x="72.57969665527344" y="185.61106872558594" width="80.84061431884766" height="16.7500581741333" fill="black" rx="2"/><rect x="522.6482543945312" y="180.61106872558594" width="100.70355224609375" height="16.751802444458008" fill="black" rx="2"/></mask></defs>
+
+  <!-- ===== GROUND SHADOW ===== -->
+  <ellipse cx="340" cy="618" rx="210" ry="18" fill="#000" opacity="0.18" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.18;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== DESK ===== -->
+  <rect x="95" y="496" width="490" height="20" rx="6" fill="url(#deskGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="95" y="512" width="490" height="5" rx="2" fill="#1A1410" style="fill:rgb(26, 20, 16);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- desk side highlight -->
+  <rect x="95" y="496" width="490" height="4" rx="3" fill="#6A5A4E" style="fill:rgb(106, 90, 78);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- legs -->
+  <rect x="125" y="516" width="14" height="55" rx="4" fill="#3A3028" style="fill:rgb(58, 48, 40);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="541" y="516" width="14" height="55" rx="4" fill="#3A3028" style="fill:rgb(58, 48, 40);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="125" y="516" width="5" height="55" rx="3" fill="#5A4A3E" style="fill:rgb(90, 74, 62);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="541" y="516" width="5" height="55" rx="3" fill="#5A4A3E" style="fill:rgb(90, 74, 62);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== LAPTOP BASE ===== -->
+  <!-- base bottom edge (3D side) -->
+  <rect x="190" y="462" width="300" height="10" rx="3" fill="#181A22" style="fill:rgb(24, 26, 34);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- base top surface -->
+  <rect x="188" y="450" width="304" height="14" rx="5" fill="url(#lapTopGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="188" y="450" width="304" height="4" rx="3" fill="#5A5F72" style="fill:rgb(90, 95, 114);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- keyboard rows -->
+  <rect x="200" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="218" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="236" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="254" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="272" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="290" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="308" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="326" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="344" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="362" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="380" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="398" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="416" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="434" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="452" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="470" y="453" width="14" height="5" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- trackpad -->
+  <rect x="310" y="460" width="60" height="8" rx="4" fill="#1E2030" stroke="#3A3F52" stroke-width="1" style="fill:rgb(30, 32, 48);stroke:rgb(58, 63, 82);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="310" y="460" width="60" height="3" rx="2" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== LAPTOP SCREEN ===== -->
+  <!-- screen outer frame (3D thickness on bottom/right) -->
+  <rect x="187" y="248" width="308" height="208" rx="14" fill="#181A22" style="fill:rgb(24, 26, 34);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="190" y="245" width="300" height="210" rx="13" fill="url(#lapTopGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- screen bezel -->
+  <rect x="190" y="245" width="300" height="210" rx="13" fill="#1E2030" stroke="#3A3F52" stroke-width="1.5" style="fill:rgb(30, 32, 48);stroke:rgb(58, 63, 82);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- screen surface -->
+  <rect x="192" y="257" width="296" height="183" rx="6" fill="url(#screenGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- screen shine strip -->
+  <rect x="192" y="257" width="296" height="14" rx="6" fill="#2A3560" opacity="0.5" style="fill:rgb(42, 53, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- camera dot -->
+  <circle cx="340" cy="252" r="3" fill="#2E3244" style="fill:rgb(46, 50, 68);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="252" r="1.5" fill="#1A1C26" style="fill:rgb(26, 28, 38);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== CODE ON SCREEN ===== -->
+  <g clip-path="url(#screenClip)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <!-- line numbers gutter -->
+    <rect x="192" y="257" width="22" height="183" fill="#0D1025" style="fill:rgb(13, 16, 37);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <text x="204" y="280" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">1</text>
+    <text x="204" y="296" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">2</text>
+    <text x="204" y="312" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">3</text>
+    <text x="204" y="328" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">4</text>
+    <text x="204" y="344" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">5</text>
+    <text x="204" y="360" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">6</text>
+    <text x="204" y="376" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">7</text>
+    <text x="204" y="392" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">8</text>
+    <text x="204" y="408" font-family="monospace" font-size="10" fill="#3A4060" text-anchor="middle" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">9</text>
+    <!-- code lines -->
+    <text x="222" y="280" font-family="monospace" font-size="11" fill="#C792EA" style="fill:rgb(199, 146, 234);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">const</text>
+    <text x="258" y="280" font-family="monospace" font-size="11" fill="#82AAFF" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto"> panda</text>
+    <text x="302" y="280" font-family="monospace" font-size="11" fill="#89DDFF" style="fill:rgb(137, 221, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto"> =</text>
+    <text x="316" y="280" font-family="monospace" font-size="11" fill="#FFCB6B" style="fill:rgb(255, 203, 107);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto"> {</text>
+
+    <text x="230" y="296" font-family="monospace" font-size="11" fill="#F07178" style="fill:rgb(240, 113, 120);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">name</text>
+    <text x="260" y="296" font-family="monospace" font-size="11" fill="#89DDFF" style="fill:rgb(137, 221, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">:</text>
+    <text x="270" y="296" font-family="monospace" font-size="11" fill="#C3E88D" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto"> "BambooJS"</text>
+    <text x="346" y="296" font-family="monospace" font-size="11" fill="#E2E8F0" style="fill:rgb(226, 232, 240);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">,</text>
+
+    <text x="230" y="312" font-family="monospace" font-size="11" fill="#F07178" style="fill:rgb(240, 113, 120);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">coffee</text>
+    <text x="268" y="312" font-family="monospace" font-size="11" fill="#89DDFF" style="fill:rgb(137, 221, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">:</text>
+    <text x="278" y="312" font-family="monospace" font-size="11" fill="#FFCB6B" style="fill:rgb(255, 203, 107);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto"> Infinity</text>
+    <text x="330" y="312" font-family="monospace" font-size="11" fill="#E2E8F0" style="fill:rgb(226, 232, 240);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">,</text>
+
+    <text x="230" y="328" font-family="monospace" font-size="11" fill="#F07178" style="fill:rgb(240, 113, 120);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">bugs</text>
+    <text x="258" y="328" font-family="monospace" font-size="11" fill="#89DDFF" style="fill:rgb(137, 221, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">:</text>
+    <text x="268" y="328" font-family="monospace" font-size="11" fill="#C792EA" style="fill:rgb(199, 146, 234);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto"> null</text>
+    <text x="296" y="328" font-family="monospace" font-size="11" fill="#E2E8F0" style="fill:rgb(226, 232, 240);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">,</text>
+
+    <text x="230" y="344" font-family="monospace" font-size="11" fill="#C792EA" style="fill:rgb(199, 146, 234);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">ship</text>
+    <text x="254" y="344" font-family="monospace" font-size="11" fill="#89DDFF" style="fill:rgb(137, 221, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">:</text>
+    <text x="264" y="344" font-family="monospace" font-size="11" fill="#E2E8F0" style="fill:rgb(226, 232, 240);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto"> () </text>
+    <text x="289" y="344" font-family="monospace" font-size="11" fill="#89DDFF" style="fill:rgb(137, 221, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">=&gt;</text>
+    <text x="306" y="344" font-family="monospace" font-size="11" fill="#82AAFF" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto"> deploy()</text>
+
+    <text x="222" y="360" font-family="monospace" font-size="11" fill="#FFCB6B" style="fill:rgb(255, 203, 107);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">}</text>
+
+    <!-- cursor blink -->
+    <rect x="222" y="368" width="7" height="11" rx="1" fill="#80CBC4" style="fill:rgb(128, 203, 196);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.600328;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" style="fill:rgb(128, 203, 196);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    </rect>
+  </g>
+
+  <!-- ===== COFFEE CUP ===== -->
+  <!-- steam -->
+  <path d="M520 408 Q524 397 520 386" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" opacity="0.6" style="fill:none;stroke:rgb(148, 163, 184);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <animate attributeName="d" values="M520 408 Q524 397 520 386;M520 408 Q516 397 520 386;M520 408 Q524 397 520 386" dur="1.8s" repeatCount="indefinite" style="fill:none;stroke:rgb(148, 163, 184);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  </path>
+  <path d="M532 412 Q536 399 532 387" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" opacity="0.5" style="fill:none;stroke:rgb(148, 163, 184);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <animate attributeName="d" values="M532 412 Q536 399 532 387;M532 412 Q528 399 532 387;M532 412 Q536 399 532 387" dur="2.3s" repeatCount="indefinite" style="fill:none;stroke:rgb(148, 163, 184);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  </path>
+  <!-- cup side 3d -->
+  <path d="M510 424 L520 468 L558 468 L568 424 Z" fill="#2D2870" style="fill:rgb(45, 40, 112);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- cup face -->
+  <path d="M510 420 L518 464 L556 464 L564 420 Z" fill="url(#cupGrad)" rx="4" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- cup highlight -->
+  <path d="M513 420 L519 440 L523 440 L517 420 Z" fill="#8B7FE8" opacity="0.4" style="fill:rgb(139, 127, 232);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- liquid top -->
+  <ellipse cx="537" cy="422" rx="27" ry="7" fill="#2D2870" style="fill:rgb(45, 40, 112);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="537" cy="420" rx="26" ry="6" fill="#4338CA" style="fill:rgb(67, 56, 202);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- handle -->
+  <path d="M562 432 Q582 432 582 447 Q582 462 562 462" fill="none" stroke="#2D2870" stroke-width="5" stroke-linecap="round" style="fill:none;stroke:rgb(45, 40, 112);color:rgb(0, 0, 0);stroke-width:5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M562 432 Q580 432 580 447 Q580 462 562 462" fill="none" stroke="#4A40B0" stroke-width="3" stroke-linecap="round" style="fill:none;stroke:rgb(74, 64, 176);color:rgb(0, 0, 0);stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- saucer -->
+  <ellipse cx="537" cy="471" rx="36" ry="7" fill="#3A3028" style="fill:rgb(58, 48, 40);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="537" cy="469" rx="34" ry="5" fill="#4A4038" style="fill:rgb(74, 64, 56);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- js label -->
+  <text x="537" y="448" font-family="monospace" font-size="11" fill="#C4B5FD" text-anchor="middle" font-weight="bold" style="fill:rgb(196, 181, 253);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">JS</text>
+
+  <!-- ===== PANDA BODY ===== -->
+  <!-- body shadow -->
+  <ellipse cx="342" cy="490" rx="90" ry="20" fill="#000" opacity="0.15" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- body main 3D sphere-like -->
+  <ellipse cx="340" cy="445" rx="88" ry="72" fill="#C8C2B8" style="fill:rgb(200, 194, 184);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="340" cy="438" rx="86" ry="70" fill="url(#bodyGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- belly -->
+  <ellipse cx="340" cy="452" rx="52" ry="46" fill="url(#bellyGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- belly highlight -->
+  <ellipse cx="328" cy="432" rx="22" ry="18" fill="#FFFFFF" opacity="0.4" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- LEFT ARM (dark, 3D) -->
+  <!-- arm shadow side -->
+  <path d="M265 458 Q232 468 212 475" fill="none" stroke="#111008" stroke-width="32" stroke-linecap="round" style="fill:none;stroke:rgb(17, 16, 8);color:rgb(0, 0, 0);stroke-width:32px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- arm main -->
+  <path d="M265 454 Q234 464 214 470" fill="none" stroke="url(#armGrad)" stroke-width="28" stroke-linecap="round" style="fill:none;color:rgb(0, 0, 0);stroke-width:28px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- arm highlight -->
+  <path d="M268 448 Q240 456 222 461" fill="none" stroke="#5A5550" stroke-width="8" stroke-linecap="round" opacity="0.5" style="fill:none;stroke:rgb(90, 85, 80);color:rgb(0, 0, 0);stroke-width:8px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- paw left -->
+  <ellipse cx="207" cy="472" rx="20" ry="14" fill="#1F1C18" style="fill:rgb(31, 28, 24);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="207" cy="470" rx="18" ry="13" fill="#3A3530" style="fill:rgb(58, 53, 48);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="207" cy="466" rx="10" ry="7" fill="#4A4540" opacity="0.5" style="fill:rgb(74, 69, 64);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="200" cy="463" r="4.5" fill="#2A2720" style="fill:rgb(42, 39, 32);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="213" cy="461" r="4.5" fill="#2A2720" style="fill:rgb(42, 39, 32);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="220" cy="467" r="4" fill="#2A2720" style="fill:rgb(42, 39, 32);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- RIGHT ARM (dark, 3D) -->
+  <path d="M415 458 Q448 468 468 475" fill="none" stroke="#111008" stroke-width="32" stroke-linecap="round" style="fill:none;stroke:rgb(17, 16, 8);color:rgb(0, 0, 0);stroke-width:32px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M415 454 Q446 464 466 470" fill="none" stroke="url(#armGrad)" stroke-width="28" stroke-linecap="round" style="fill:none;color:rgb(0, 0, 0);stroke-width:28px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M412 448 Q440 456 458 461" fill="none" stroke="#5A5550" stroke-width="8" stroke-linecap="round" opacity="0.5" style="fill:none;stroke:rgb(90, 85, 80);color:rgb(0, 0, 0);stroke-width:8px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- paw right -->
+  <ellipse cx="473" cy="472" rx="20" ry="14" fill="#1F1C18" style="fill:rgb(31, 28, 24);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="473" cy="470" rx="18" ry="13" fill="#3A3530" style="fill:rgb(58, 53, 48);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="473" cy="466" rx="10" ry="7" fill="#4A4540" opacity="0.5" style="fill:rgb(74, 69, 64);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="466" cy="463" r="4.5" fill="#2A2720" style="fill:rgb(42, 39, 32);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="479" cy="461" r="4.5" fill="#2A2720" style="fill:rgb(42, 39, 32);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="460" cy="467" r="4" fill="#2A2720" style="fill:rgb(42, 39, 32);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== PANDA HEAD ===== -->
+  <!-- head cast shadow on body -->
+  <ellipse cx="342" cy="340" rx="100" ry="28" fill="#000" opacity="0.12" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.12;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- EAR LEFT (behind head) -->
+  <circle cx="258" cy="232" r="40" fill="#1A1410" style="fill:rgb(26, 20, 16);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="258" cy="232" r="28" fill="url(#earDark)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="258" cy="232" r="18" fill="url(#earInner)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- ear highlight -->
+  <ellipse cx="250" cy="224" rx="8" ry="6" fill="#5A5550" opacity="0.4" style="fill:rgb(90, 85, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- EAR RIGHT (behind head) -->
+  <circle cx="422" cy="232" r="40" fill="#1A1410" style="fill:rgb(26, 20, 16);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="422" cy="232" r="28" fill="url(#earDark)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="422" cy="232" r="18" fill="url(#earInner)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="414" cy="224" rx="8" ry="6" fill="#5A5550" opacity="0.4" style="fill:rgb(90, 85, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- HEAD main sphere -->
+  <!-- shadow/dark underside -->
+  <ellipse cx="342" cy="320" rx="103" ry="100" fill="#C8C2B8" style="fill:rgb(200, 194, 184);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- head lit face -->
+  <circle cx="340" cy="308" r="100" fill="url(#headGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- strong highlight top-left -->
+  <ellipse cx="308" cy="260" rx="38" ry="28" fill="#FFFFFF" opacity="0.35" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.35;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- EYE PATCHES (dark, 3D volume) -->
+  <!-- left patch shadow -->
+  <ellipse cx="302" cy="308" rx="35" ry="30" fill="#1A1410" transform="rotate(-12,302,308)" style="fill:rgb(26, 20, 16);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left patch main -->
+  <ellipse cx="300" cy="306" rx="33" ry="28" fill="url(#patchL)" transform="rotate(-12,300,306)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left patch highlight -->
+  <ellipse cx="290" cy="296" rx="10" ry="7" fill="#5A5550" opacity="0.35" transform="rotate(-12,290,296)" style="fill:rgb(90, 85, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.35;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- right patch shadow -->
+  <ellipse cx="378" cy="308" rx="35" ry="30" fill="#1A1410" transform="rotate(12,378,308)" style="fill:rgb(26, 20, 16);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- right patch main -->
+  <ellipse cx="380" cy="306" rx="33" ry="28" fill="url(#patchR)" transform="rotate(12,380,306)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="372" cy="296" rx="10" ry="7" fill="#5A5550" opacity="0.35" transform="rotate(12,372,296)" style="fill:rgb(90, 85, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.35;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== GLASSES ===== -->
+  <!-- left lens outer frame -->
+  <rect x="274" y="290" width="52" height="36" rx="16" fill="none" stroke="#5B21B6" stroke-width="4" style="fill:none;stroke:rgb(91, 33, 182);color:rgb(0, 0, 0);stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left lens inner rim -->
+  <rect x="276" y="292" width="48" height="32" rx="14" fill="none" stroke="url(#glassGrad)" stroke-width="2" style="fill:none;color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left lens glass tint -->
+  <rect x="278" y="294" width="44" height="28" rx="12" fill="#A78BFA" opacity="0.12" style="fill:rgb(167, 139, 250);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.12;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left lens shine -->
+  <ellipse cx="287" cy="300" rx="7" ry="4" fill="#FFFFFF" opacity="0.3" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- right lens outer frame -->
+  <rect x="354" y="290" width="52" height="36" rx="16" fill="none" stroke="#5B21B6" stroke-width="4" style="fill:none;stroke:rgb(91, 33, 182);color:rgb(0, 0, 0);stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="356" y="292" width="48" height="32" rx="14" fill="none" stroke="url(#glassGrad)" stroke-width="2" style="fill:none;color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="358" y="294" width="44" height="28" rx="12" fill="#A78BFA" opacity="0.12" style="fill:rgb(167, 139, 250);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.12;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="367" cy="300" rx="7" ry="4" fill="#FFFFFF" opacity="0.3" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- bridge -->
+  <path d="M326 308 Q340 304 354 308" fill="none" stroke="url(#glassGrad)" stroke-width="3" stroke-linecap="round" mask="url(#imagine-text-gaps-nornk6)" style="fill:none;color:rgb(0, 0, 0);stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- temples -->
+  <path d="M274 308 Q256 310 246 314" fill="none" stroke="url(#glassGrad)" stroke-width="2.5" stroke-linecap="round" mask="url(#imagine-text-gaps-nornk6)" style="fill:none;color:rgb(0, 0, 0);stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M406 308 Q424 310 434 314" fill="none" stroke="url(#glassGrad)" stroke-width="2.5" stroke-linecap="round" style="fill:none;color:rgb(0, 0, 0);stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== EYES ===== -->
+  <!-- left eye white -->
+  <ellipse cx="300" cy="308" rx="17" ry="15" fill="#FFFFFF" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="300" cy="305" rx="14" ry="10" fill="#FFFFFF" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left iris 3D -->
+  <circle cx="303" cy="309" r="10" fill="url(#irisGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left pupil -->
+  <circle cx="305" cy="311" r="6" fill="#060E22" style="fill:rgb(6, 14, 34);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left shine -->
+  <circle cx="309" cy="305" r="3" fill="#FFFFFF" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="298" cy="308" r="1.5" fill="#FFFFFF" opacity="0.6" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- right eye white -->
+  <ellipse cx="380" cy="308" rx="17" ry="15" fill="#FFFFFF" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="380" cy="305" rx="14" ry="10" fill="#FFFFFF" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- right iris -->
+  <circle cx="383" cy="309" r="10" fill="url(#irisGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- right pupil -->
+  <circle cx="385" cy="311" r="6" fill="#060E22" style="fill:rgb(6, 14, 34);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- right shine -->
+  <circle cx="389" cy="305" r="3" fill="#FFFFFF" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="378" cy="308" r="1.5" fill="#FFFFFF" opacity="0.6" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== NOSE AREA ===== -->
+  <ellipse cx="340" cy="338" rx="26" ry="18" fill="#EAE4DC" style="fill:rgb(234, 228, 220);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="338" cy="336" rx="24" ry="16" fill="#F0EAE0" style="fill:rgb(240, 234, 224);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- nose bridge -->
+  <ellipse cx="340" cy="330" rx="13" ry="9" fill="url(#noseGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="340" cy="329" rx="12" ry="8" fill="#3A3530" style="fill:rgb(58, 53, 48);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- nose highlight -->
+  <ellipse cx="336" cy="326" rx="4" ry="3" fill="#6A6560" opacity="0.5" style="fill:rgb(106, 101, 96);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- nostrils -->
+  <circle cx="334" cy="333" r="3.5" fill="#111008" style="fill:rgb(17, 16, 8);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="346" cy="333" r="3.5" fill="#111008" style="fill:rgb(17, 16, 8);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== MOUTH ===== -->
+  <!-- frown line center -->
+  <path d="M340 343 L340 349" fill="none" stroke="#5A5550" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:rgb(90, 85, 80);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- smile -->
+  <path d="M320 352 Q340 368 360 352" fill="none" stroke="#3A3530" stroke-width="2.5" stroke-linecap="round" style="fill:none;stroke:rgb(58, 53, 48);color:rgb(0, 0, 0);stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== BLUSH ===== -->
+  <ellipse cx="280" cy="342" rx="18" ry="10" fill="url(#blushGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="400" cy="342" rx="18" ry="10" fill="url(#blushGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== HEADPHONES ===== -->
+  <!-- band shadow -->
+  <path d="M244 296 Q246 210 340 206 Q434 210 436 296" fill="none" stroke="#3B1E8A" stroke-width="12" stroke-linecap="round" mask="url(#imagine-text-gaps-nornk6)" style="fill:none;stroke:rgb(59, 30, 138);color:rgb(0, 0, 0);stroke-width:12px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- band main -->
+  <path d="M244 294 Q246 208 340 204 Q434 208 436 294" fill="none" stroke="url(#hpGrad)" stroke-width="9" stroke-linecap="round" mask="url(#imagine-text-gaps-nornk6)" style="fill:none;color:rgb(0, 0, 0);stroke-width:9px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- band highlight -->
+  <path d="M248 290 Q250 212 340 208 Q430 212 432 290" fill="none" stroke="#C4B5FD" stroke-width="2.5" stroke-linecap="round" opacity="0.4" mask="url(#imagine-text-gaps-nornk6)" style="fill:none;stroke:rgb(196, 181, 253);color:rgb(0, 0, 0);stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- left cup shadow -->
+  <rect x="228" y="287" width="26" height="34" rx="11" fill="#2E1065" style="fill:rgb(46, 16, 101);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left cup main -->
+  <rect x="226" y="284" width="26" height="34" rx="11" fill="url(#hpGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left cup highlight -->
+  <rect x="228" y="286" width="10" height="14" rx="5" fill="#C4B5FD" opacity="0.3" style="fill:rgb(196, 181, 253);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- left cup speaker dot -->
+  <circle cx="239" cy="301" r="4" fill="#3B1E8A" style="fill:rgb(59, 30, 138);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- right cup shadow -->
+  <rect x="426" y="287" width="26" height="34" rx="11" fill="#2E1065" style="fill:rgb(46, 16, 101);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- right cup main -->
+  <rect x="426" y="284" width="26" height="34" rx="11" fill="url(#hpGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="428" y="286" width="10" height="14" rx="5" fill="#C4B5FD" opacity="0.3" style="fill:rgb(196, 181, 253);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="439" cy="301" r="4" fill="#3B1E8A" style="fill:rgb(59, 30, 138);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== FLOATING CODE TAGS ===== -->
+  <g opacity="0.9" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <rect x="62" y="280" width="78" height="26" rx="6" fill="#0F172A" stroke="#4ADE80" stroke-width="1.5" style="fill:rgb(15, 23, 42);stroke:rgb(74, 222, 128);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <rect x="62" y="280" width="78" height="8" rx="6" fill="#1A2A1A" opacity="0.5" style="fill:rgb(26, 42, 26);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <text x="101" y="298" font-family="monospace" font-size="11" fill="#4ADE80" text-anchor="middle" style="fill:rgb(74, 222, 128);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">&lt;/code&gt;</text>
+  </g>
+  <g opacity="0.9" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <rect x="544" y="255" width="74" height="26" rx="6" fill="#0F172A" stroke="#60A5FA" stroke-width="1.5" style="fill:rgb(15, 23, 42);stroke:rgb(96, 165, 250);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <rect x="544" y="255" width="74" height="8" rx="6" fill="#1A1A2A" opacity="0.5" style="fill:rgb(26, 26, 42);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <text x="581" y="273" font-family="monospace" font-size="11" fill="#60A5FA" text-anchor="middle" style="fill:rgb(96, 165, 250);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">{ JS }</text>
+  </g>
+  <g opacity="0.85" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <rect x="68" y="180" width="90" height="26" rx="6" fill="#0F172A" stroke="#F472B6" stroke-width="1.5" style="fill:rgb(15, 23, 42);stroke:rgb(244, 114, 182);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <rect x="68" y="180" width="90" height="8" rx="6" fill="#2A1A1A" opacity="0.5" style="fill:rgb(42, 26, 26);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <text x="113" y="198" font-family="monospace" font-size="11" fill="#F472B6" text-anchor="middle" style="fill:rgb(244, 114, 182);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">npm run dev</text>
+  </g>
+  <g opacity="0.85" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <rect x="528" y="175" width="90" height="26" rx="6" fill="#0F172A" stroke="#FBBF24" stroke-width="1.5" style="fill:rgb(15, 23, 42);stroke:rgb(251, 191, 36);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <rect x="528" y="175" width="90" height="8" rx="6" fill="#2A2A1A" opacity="0.5" style="fill:rgb(42, 42, 26);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <text x="573" y="193" font-family="monospace" font-size="11" fill="#FBBF24" text-anchor="middle" style="fill:rgb(251, 191, 36);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">git push panda</text>
+  </g>
+
+  <!-- ===== BAMBOO LEFT ===== -->
+  <rect x="44" y="340" width="12" height="148" rx="6" fill="#166534" opacity="0.6" style="fill:rgb(22, 101, 52);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="44" y="340" width="5" height="148" rx="3" fill="#22C55E" opacity="0.3" style="fill:rgb(34, 197, 94);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="38" y="358" width="24" height="9" rx="4" fill="#15803D" opacity="0.6" style="fill:rgb(21, 128, 61);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="38" y="392" width="24" height="9" rx="4" fill="#15803D" opacity="0.6" style="fill:rgb(21, 128, 61);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="38" y="426" width="24" height="9" rx="4" fill="#15803D" opacity="0.6" style="fill:rgb(21, 128, 61);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="38" y="460" width="24" height="9" rx="4" fill="#15803D" opacity="0.6" style="fill:rgb(21, 128, 61);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="35" cy="346" rx="20" ry="9" fill="#22C55E" opacity="0.55" transform="rotate(-28,35,346)" style="fill:rgb(34, 197, 94);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.55;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="66" cy="370" rx="20" ry="9" fill="#16A34A" opacity="0.45" transform="rotate(22,66,370)" style="fill:rgb(22, 163, 74);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.45;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="34" cy="405" rx="18" ry="8" fill="#22C55E" opacity="0.4" transform="rotate(-18,34,405)" style="fill:rgb(34, 197, 94);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== BAMBOO RIGHT ===== -->
+  <rect x="624" y="340" width="12" height="148" rx="6" fill="#166534" opacity="0.6" style="fill:rgb(22, 101, 52);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="624" y="340" width="5" height="148" rx="3" fill="#22C55E" opacity="0.3" style="fill:rgb(34, 197, 94);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="618" y="358" width="24" height="9" rx="4" fill="#15803D" opacity="0.6" style="fill:rgb(21, 128, 61);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="618" y="392" width="24" height="9" rx="4" fill="#15803D" opacity="0.6" style="fill:rgb(21, 128, 61);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="618" y="426" width="24" height="9" rx="4" fill="#15803D" opacity="0.6" style="fill:rgb(21, 128, 61);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="618" y="460" width="24" height="9" rx="4" fill="#15803D" opacity="0.6" style="fill:rgb(21, 128, 61);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="645" cy="346" rx="20" ry="9" fill="#22C55E" opacity="0.55" transform="rotate(28,645,346)" style="fill:rgb(34, 197, 94);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.55;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="614" cy="370" rx="20" ry="9" fill="#16A34A" opacity="0.45" transform="rotate(-22,614,370)" style="fill:rgb(22, 163, 74);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.45;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="646" cy="405" rx="18" ry="8" fill="#22C55E" opacity="0.4" transform="rotate(18,646,405)" style="fill:rgb(34, 197, 94);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- sparkles -->
+  <circle cx="76" cy="128" r="4" fill="#FBBF24" opacity="0.7" style="fill:rgb(251, 191, 36);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="92" cy="108" r="2.5" fill="#F472B6" opacity="0.6" style="fill:rgb(244, 114, 182);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="58" cy="112" r="3" fill="#60A5FA" opacity="0.6" style="fill:rgb(96, 165, 250);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="600" cy="120" r="4" fill="#4ADE80" opacity="0.7" style="fill:rgb(74, 222, 128);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="622" cy="100" r="2.5" fill="#F472B6" opacity="0.55" style="fill:rgb(244, 114, 182);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.55;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="580" cy="108" r="3" fill="#FBBF24" opacity="0.55" style="fill:rgb(251, 191, 36);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.55;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="552" cy="145" r="2" fill="#60A5FA" opacity="0.45" style="fill:rgb(96, 165, 250);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.45;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="118" cy="150" r="2" fill="#4ADE80" opacity="0.45" style="fill:rgb(74, 222, 128);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.45;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</svg>
