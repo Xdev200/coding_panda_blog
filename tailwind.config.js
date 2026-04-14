@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,6 +22,8 @@ module.exports = {
           green: "#4ADE80",
           orange: "#FB923C",
           purple: "#C084FC",
+          "dark-bg": "#1A1A2E",
+          "dark-surface": "#25253E",
         },
       },
       boxShadow: {
@@ -28,6 +31,10 @@ module.exports = {
         "neo-lg": "6px 6px 0px #0A0A0A",
         "neo-xl": "8px 8px 0px #0A0A0A",
         "neo-hover": "2px 2px 0px #0A0A0A",
+        "neo-dark": "4px 4px 0px #FAFAFA",
+        "neo-dark-lg": "6px 6px 0px #FAFAFA",
+        "neo-dark-xl": "8px 8px 0px #FAFAFA",
+        "neo-dark-hover": "2px 2px 0px #FAFAFA",
       },
     },
   },

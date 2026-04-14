@@ -9,11 +9,11 @@ const SIZE_STYLES = {
 
 const VARIANT_STYLES = {
   primary:
-    "bg-retro-yellow text-retro-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover",
+    "bg-retro-yellow text-retro-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover",
   secondary:
-    "bg-retro-black text-retro-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover",
+    "bg-retro-black dark:bg-retro-white text-retro-white dark:text-retro-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover",
   outline:
-    "bg-transparent text-retro-black hover:bg-retro-yellow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover",
+    "bg-transparent text-retro-black dark:text-retro-white hover:bg-retro-yellow hover:text-retro-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover",
 } as const;
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,7 +31,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "font-bold font-space border-2 border-retro-black shadow-neo transition-all duration-100 active:translate-x-1 active:translate-y-1 active:shadow-none cursor-pointer",
+        "font-bold font-space border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark transition-all duration-100 active:translate-x-1 active:translate-y-1 active:shadow-none cursor-pointer",
         VARIANT_STYLES[variant],
         SIZE_STYLES[size],
         className

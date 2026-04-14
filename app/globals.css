@@ -9,6 +9,13 @@
     --color-retro-yellow: #FDE047;
     --color-retro-black: #0A0A0A;
     --color-retro-white: #FAFAFA;
+    --color-bg: #FAFAFA;
+    --color-text: #0A0A0A;
+  }
+
+  .dark {
+    --color-bg: #1A1A2E;
+    --color-text: #FAFAFA;
   }
 
   * {
@@ -20,10 +27,11 @@
   }
 
   body {
-    background-color: #FAFAFA;
-    color: #0A0A0A;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     font-family: 'Space Grotesk', sans-serif;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Focus ring reset — handled per-component via Tailwind */
@@ -33,6 +41,11 @@
 
   /* Selection */
   ::selection {
+    background: #FDE047;
+    color: #0A0A0A;
+  }
+
+  .dark ::selection {
     background: #FDE047;
     color: #0A0A0A;
   }

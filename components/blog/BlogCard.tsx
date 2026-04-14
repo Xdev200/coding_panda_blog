@@ -20,16 +20,16 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
     >
       <article
         className={`
-          border-2 border-retro-black shadow-neo bg-retro-white
+          border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark bg-retro-white dark:bg-retro-dark-surface
           transition-all duration-100
-          group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-neo-hover
+          group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-neo-hover dark:group-hover:shadow-neo-dark-hover
           ${featured ? "md:flex md:gap-0" : ""}
         `}
       >
         {/* Color cover strip */}
         <div
           className={`
-            border-b-2 border-retro-black
+            border-b-2 border-retro-black dark:border-retro-white
             ${featured ? "md:w-48 md:border-b-0 md:border-r-2 flex-shrink-0" : "h-40"}
           `}
           style={{ backgroundColor: post.coverColor }}
@@ -57,22 +57,22 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
           </div>
 
           <h2
-            className={`font-archivo font-black text-retro-black leading-tight ${
+            className={`font-archivo font-black text-retro-black dark:text-retro-white leading-tight ${
               featured ? "text-2xl md:text-3xl" : "text-xl"
             }`}
           >
             {post.title}
           </h2>
 
-          <p className="font-space text-sm text-gray-700 leading-relaxed line-clamp-3">
+          <p className="font-space text-sm text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3">
             {post.excerpt}
           </p>
 
-          <footer className="flex items-center justify-between mt-auto pt-2 border-t-2 border-retro-black border-dashed">
-            <span className="font-space text-xs font-semibold text-gray-600">
+          <footer className="flex items-center justify-between mt-auto pt-2 border-t-2 border-retro-black dark:border-retro-white border-dashed">
+            <span className="font-space text-xs font-semibold text-gray-600 dark:text-gray-400">
               {formatDate(post.date)}
             </span>
-            <span className="font-space text-xs font-bold bg-retro-black text-retro-white px-2 py-1">
+            <span className="font-space text-xs font-bold bg-retro-black dark:bg-retro-white text-retro-white dark:text-retro-black px-2 py-1">
               {formatReadTime(post.readTime)}
             </span>
           </footer>

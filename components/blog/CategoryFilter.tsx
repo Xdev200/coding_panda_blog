@@ -25,12 +25,12 @@ export function CategoryFilter({
           onClick={() => onSelect(cat.id)}
           aria-pressed={activeCategory === cat.id}
           className={cn(
-            "font-space font-bold text-sm px-4 py-2 border-2 border-retro-black transition-all duration-100",
+            "font-space font-bold text-sm px-4 py-2 border-2 border-retro-black dark:border-retro-white transition-all duration-100",
             "hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none",
             "focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-yellow",
             activeCategory === cat.id
-              ? "bg-retro-black text-retro-white shadow-none translate-x-[2px] translate-y-[2px]"
-              : "bg-retro-white text-retro-black shadow-neo"
+              ? "bg-retro-black dark:bg-retro-yellow text-retro-white dark:text-retro-black shadow-none translate-x-[2px] translate-y-[2px]"
+              : "bg-retro-white dark:bg-retro-dark-surface text-retro-black dark:text-retro-white shadow-neo dark:shadow-neo-dark"
           )}
         >
           {cat.label}
@@ -39,7 +39,7 @@ export function CategoryFilter({
               "ml-2 text-xs px-1.5 py-0.5 border border-current",
               activeCategory === cat.id
                 ? "bg-retro-yellow text-retro-black border-retro-yellow"
-                : "border-retro-black"
+                : "border-retro-black dark:border-retro-white"
             )}
           >
             {cat.count}

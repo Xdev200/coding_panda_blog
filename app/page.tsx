@@ -46,7 +46,7 @@ export default function BlogsPage() {
       <header className="mb-12">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/2">
-            <h1 className="sr-only">Blogs & Articles</h1>
+            <h1 className="sr-only">Blogs &amp; Articles</h1>
             <div className="relative w-full aspect-[680/660] max-w-xl mx-auto md:mx-0">
               <Image
                 src="/coding_panda_3d_hero.svg"
@@ -79,14 +79,14 @@ export default function BlogsPage() {
 
       {/* Post count */}
       {!isLoading && (
-        <p className="font-space text-sm text-gray-500 mb-6" aria-live="polite">
+        <p className="font-space text-sm text-gray-500 dark:text-gray-400 mb-6" aria-live="polite">
           Showing{" "}
-          <strong className="text-retro-black">{posts.length}</strong>{" "}
+          <strong className="text-retro-black dark:text-retro-white">{posts.length}</strong>{" "}
           {posts.length === 1 ? "post" : "posts"}
           {activeCategory !== "all" && (
             <>
               {" "}in{" "}
-              <strong className="text-retro-black capitalize">
+              <strong className="text-retro-black dark:text-retro-white capitalize">
                 {activeCategory}
               </strong>
             </>
@@ -99,7 +99,7 @@ export default function BlogsPage() {
 
       {isLoading && (
         <div className="flex justify-center items-center py-20">
-          <div className="w-12 h-12 border-4 border-retro-black border-t-retro-yellow rounded-full animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-retro-black dark:border-retro-white border-t-retro-yellow rounded-full animate-spin"></div>
         </div>
       )}
     </div>

@@ -7,7 +7,7 @@ const VARIANT_STYLES: Record<string, string> = {
   green: "bg-retro-green text-retro-black",
   orange: "bg-retro-orange text-retro-black",
   purple: "bg-retro-purple text-retro-black",
-  outline: "bg-transparent text-retro-black border-2 border-retro-black",
+  outline: "bg-transparent text-retro-black dark:text-retro-white border-2 border-retro-black dark:border-retro-white",
 };
 
 export const CATEGORY_VARIANT_MAP: Record<string, string> = {
@@ -28,7 +28,7 @@ export function Badge({ label, variant = "default", className }: BadgeProps) {
   return (
     <span
       className={cn(
-        "inline-block px-3 py-1 text-xs font-bold font-space uppercase tracking-wider border-2 border-retro-black shadow-neo-hover",
+        "inline-block px-3 py-1 text-xs font-bold font-space uppercase tracking-wider border-2 border-retro-black dark:border-retro-white shadow-neo-hover dark:shadow-neo-dark-hover",
         VARIANT_STYLES[variant] ?? VARIANT_STYLES.default,
         className
       )}

@@ -8,11 +8,11 @@ interface BlogGridProps {
 export function BlogGrid({ posts }: BlogGridProps) {
   if (posts.length === 0) {
     return (
-      <div className="border-2 border-retro-black shadow-neo bg-retro-yellow p-12 text-center">
-        <p className="font-archivo text-2xl font-black text-retro-black">
+      <div className="border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark bg-retro-yellow dark:bg-retro-dark-surface p-12 text-center">
+        <p className="font-archivo text-2xl font-black text-retro-black dark:text-retro-yellow">
           No posts found.
         </p>
-        <p className="font-space text-sm mt-2 text-gray-700">
+        <p className="font-space text-sm mt-2 text-gray-700 dark:text-gray-300">
           Try selecting a different category.
         </p>
       </div>
