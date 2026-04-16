@@ -7,33 +7,62 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Coding Panda Blogs",
+    default: "Coding Panda Blogs | Engineering Excellence",
     template: "%s | Coding Panda Blogs",
   },
   description:
-    "Articles on modern web development, React components, and design systems from the Coding Panda team.",
-  keywords: ["react", "webdev", "javascript", "design systems"],
-  authors: [{ name: "Coding Panda Team", url: "https://codingpanda.dev" }],
-  metadataBase: new URL("https://codingpanda.dev"),
+    "Insights on modern web development, React, AI/ML, and design systems from the Coding Panda engineering team.",
+  keywords: [
+    "Software Engineering",
+    "React Tutorial",
+    "Next.js SEO",
+    "AI Development",
+    "Web Design",
+    "Coding Panda",
+  ],
+  authors: [{ name: "Coding Panda Team", url: "https://codingpanda.taqnik.in" }],
+  metadataBase: new URL("https://codingpanda.taqnik.in"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://codingpanda.dev/blogs",
+    url: "https://codingpanda.taqnik.in",
     siteName: "Coding Panda",
-    title: "Coding Panda Blogs",
+    title: "Coding Panda Blogs | Modern Engineering Insights",
     description: "Deep dives into React, web development, and AI/ML.",
+    images: [
+      {
+        url: "/readme-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Coding Panda Blogs",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Coding Panda Blogs",
-    description: "Articles on modern web development,Frontend and AI/ML.",
+    title: "Coding Panda Blogs | Modern Engineering Insights",
+    description: "Articles on modern web development, Frontend, and AI/ML.",
+    images: ["/readme-banner.png"],
   },
   manifest: "/manifest.json",
   icons: {
     icon: "/icons/icon-192x192.png",
     apple: "/icons/apple-touch-icon.png",
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {

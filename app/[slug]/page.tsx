@@ -19,15 +19,35 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(slug);
   if (!post) return { title: "Post Not Found" };
 
+  const url = `https://codingpanda.taqnik.in/${slug}`;
+
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
+      url: url,
       publishedTime: post.date,
       authors: [post.author],
+      images: [
+        {
+          url: post.coverImage || "/readme-banner.png",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.coverImage || "/readme-banner.png"],
     },
   };
 }
@@ -43,8 +63,38 @@ export default async function BlogPostPage({ params }: PageProps) {
   //   `${process.env.NEXT_PUBLIC_SITE_URL || ""}/${post.slug}`
   // )}&text=${encodeURIComponent(post.title + ".\nCheck it out 👉")}`;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.coverImage || "https://codingpanda.taqnik.in/readme-banner.png",
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": post.author,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Coding Panda",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://codingpanda.taqnik.in/icons/icon-192x192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://codingpanda.taqnik.in/${slug}`
+    }
+  };
+
   return (
-    <article className="max-w-3xl mt-8 mx-auto px-4 sm:px-6 lg:px-0 pb-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <article className="max-w-3xl mt-8 mx-auto px-4 sm:px-6 lg:px-0 pb-16">
       {/* ── Header Section ── */}
       <div className="border-b-2 border-retro-black dark:border-retro-white pb-8 mb-8">
         {/* Date + Category Badges Row */}
@@ -216,5 +266,6 @@ export default async function BlogPostPage({ params }: PageProps) {
         ← Back to blogs
       </Link>
     </article>
+    </>
   );
 }
