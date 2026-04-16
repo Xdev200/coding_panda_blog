@@ -23,6 +23,36 @@ const columns: Column<BlogPost>[] = [
     accessor: (row) => <span className="font-bold">{row.title}</span>,
   },
   {
+    header: "Image",
+    accessor: (row) => (
+      <div className="flex items-center gap-3">
+        {row.coverImage ? (
+          <>
+            <div className="w-12 h-12 border border-retro-black dark:border-retro-white shadow-neo-sm overflow-hidden">
+              <img
+                src={row.coverImage}
+                alt={row.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <a
+              href={row.coverImage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-retro-blue hover:underline font-space"
+            >
+              View
+            </a>
+          </>
+        ) : (
+          <span className="text-[10px] text-retro-black/40 dark:text-retro-white/40 italic">
+            No Image
+          </span>
+        )}
+      </div>
+    ),
+  },
+  {
     header: "Category",
     accessor: (row) => (
       <span className="inline-block px-2 py-1 border-2 border-retro-black dark:border-retro-white bg-retro-blue/20 text-xs font-space">
@@ -42,6 +72,27 @@ const columns: Column<BlogPost>[] = [
         month: "short",
         day: "numeric",
       }),
+  },
+  {
+    header: "Tags",
+    accessor: (row) => (
+      <div className="flex flex-wrap gap-1">
+        {row.tags && row.tags.length > 0 ? (
+          row.tags.map((tag) => (
+            <span
+              key={tag}
+              className="inline-block px-2 py-0.5 border border-retro-black dark:border-retro-white bg-retro-blue/10 text-[10px] font-space font-bold uppercase"
+            >
+              {tag}
+            </span>
+          ))
+        ) : (
+          <span className="text-retro-black/40 dark:text-retro-white/40 text-xs italic">
+            None
+          </span>
+        )}
+      </div>
+    ),
   },
   {
     header: "Featured",

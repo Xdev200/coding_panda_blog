@@ -150,6 +150,7 @@ export const blogService = {
       category: dbPost.category || "general",
       readTime: dbPost.read_time || 5,
       coverColor: dbPost.cover_color || "#FDE047",
+      coverImage: dbPost.cover_image,
       tags: dbPost.tags || [],
       featured: dbPost.featured,
     };

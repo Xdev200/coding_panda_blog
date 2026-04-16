@@ -24,17 +24,7 @@ interface PostFormProps {
   isPending?: boolean;
 }
 
-/**
- * Color options for the post cover.
- */
-const COVER_COLORS = [
-  { value: "#FDE047", label: "Yellow" },
-  { value: "#F472B6", label: "Pink" },
-  { value: "#60A5FA", label: "Blue" },
-  { value: "#4ADE80", label: "Green" },
-  { value: "#FB923C", label: "Orange" },
-  { value: "#C084FC", label: "Purple" },
-];
+
 
 /**
  * PostForm component with NeoBrutalism styling.
@@ -45,6 +35,10 @@ const COVER_COLORS = [
 export function PostForm({ post, formAction, isPending }: PostFormProps) {
   const [tags, setTags] = useState<string[]>(post?.tags || []);
   const [tagInput, setTagInput] = useState("");
+  const [imageError, setImageError] = useState<string | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(
+    post?.coverImage || null
+  );
 
   const isEdit = Boolean(post);
 
@@ -70,9 +64,57 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
   };
 
   /**
+   * Handles image file selection with validation.
+   */
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    setImageError(null);
+
+    if (file) {
+      // 1. Format Validation
+      const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+      if (!allowedTypes.includes(file.type)) {
+        setImageError("Invalid format. Please use JPG, PNG, or WebP.");
+        return;
+      }
+
+      // 2. Size Validation (5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        setImageError("Image size exceeds 5MB limit.");
+        return;
+      }
+
+      // 3. Dimension Validation
+      const img = new Image();
+      img.src = URL.createObjectURL(file);
+      img.onload = () => {
+        URL.revokeObjectURL(img.src);
+        if (img.width < 600 || img.height < 300) {
+          setImageError("Image dimensions too small. Minimum 600x300px required.");
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setImagePreview(reader.result as string);
+        };
+        reader.readAsDataURL(file);
+      };
+      
+      img.onerror = () => {
+        setImageError("Error reading image file.");
+      };
+    }
+  };
+
+  /**
    * Wraps the form action to include tags and post ID.
    */
   const handleSubmit = (formData: FormData) => {
+    if (imageError) {
+      alert("Please fix image errors before saving.");
+      return;
+    }
     formData.set("tags", JSON.stringify(tags));
     if (post?.id) {
       formData.set("id", post.id);
@@ -171,30 +213,77 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
           />
         </div>
 
-        {/* Cover Color */}
-        <div>
-          <label htmlFor="cover_color" className={labelClassName}>
-            Cover Color
-          </label>
-          <div className="flex gap-2 flex-wrap">
-            {COVER_COLORS.map((color) => (
-              <label key={color.value} className="cursor-pointer">
-                <input
-                  type="radio"
-                  name="cover_color"
-                  value={color.value}
-                  defaultChecked={
-                    (post?.coverColor || "#FDE047") === color.value
-                  }
-                  className="sr-only peer"
-                />
-                <div
-                  className="w-10 h-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark peer-checked:ring-4 peer-checked:ring-retro-black dark:peer-checked:ring-retro-white transition-all"
-                  style={{ backgroundColor: color.value }}
-                  title={color.label}
-                />
+        {/* Cover Image Upload */}
+        <div className="md:col-span-2 space-y-2">
+          <div className="flex justify-between items-end">
+            <label className="block text-sm font-archivo font-black uppercase tracking-wider text-retro-black dark:text-retro-white">
+              Cover Image
+            </label>
+            <ul className="text-[10px] font-space text-retro-black/60 dark:text-retro-white/60 list-disc list-inside">
+              <li>JPG, PNG or WebP</li>
+              <li>Max size 5MB</li>
+              <li>Min 600x300px</li>
+            </ul>
+          </div>
+          
+          <div className="flex flex-col gap-4">
+            <div className={`relative group border-4 ${imageError ? 'border-retro-pink' : 'border-dashed border-retro-black dark:border-retro-white'}`}>
+              <input
+                type="file"
+                name="cover_image_file"
+                accept="image/*.jpg,image/*.jpeg,image/*.png,image/*.webp"
+                onChange={handleImageChange}
+                className="hidden"
+                id="coverImageInput"
+              />
+              <label
+                htmlFor="coverImageInput"
+                className="flex flex-col items-center justify-center w-full aspect-[21/9] bg-retro-white dark:bg-retro-dark-surface cursor-pointer hover:bg-retro-blue/5 transition-colors overflow-hidden"
+              >
+                {imagePreview ? (
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-8 w-8 text-retro-black dark:text-retro-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span className="font-space font-bold text-xs">
+                      Click to upload cover image
+                    </span>
+                  </div>
+                )}
               </label>
-            ))}
+            </div>
+
+            {imageError && (
+              <p className="text-retro-pink font-space font-bold text-xs bg-retro-pink/10 px-3 py-1 border-l-4 border-retro-pink">
+                ⚠️ {imageError}
+              </p>
+            )}
+
+            {/* Hidden input to pass existing cover image URL if no new file is selected */}
+            {post?.coverImage && (
+              <input
+                type="hidden"
+                name="existing_cover_image"
+                value={post.coverImage}
+              />
+            )}
           </div>
         </div>
 
@@ -264,7 +353,7 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
         {/* Content */}
         <div className="md:col-span-2">
           <label htmlFor="content" className={labelClassName}>
-            Content * (Markdown supported)
+            Content * (HTML or Markdown supported)
           </label>
           <textarea
             id="content"

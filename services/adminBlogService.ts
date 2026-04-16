@@ -44,6 +44,7 @@ function mapSupabasePost(dbPost: Record<string, unknown>): BlogPost {
     category: (dbPost.category as string) || "general",
     readTime: (dbPost.read_time as number) || 5,
     coverColor: (dbPost.cover_color as string) || "#FDE047",
+    coverImage: dbPost.cover_image as string | undefined,
     tags: (dbPost.tags as string[]) || [],
     featured: dbPost.featured as boolean | undefined,
   };
@@ -120,6 +121,7 @@ export const adminBlogService = {
         tags: input.tags,
         featured: input.featured,
         cover_color: input.cover_color,
+        cover_image: input.cover_image,
         read_time: input.read_time,
         date: new Date().toISOString().split("T")[0],
       })
@@ -157,6 +159,8 @@ export const adminBlogService = {
     if (input.featured !== undefined) updateData.featured = input.featured;
     if (input.cover_color !== undefined)
       updateData.cover_color = input.cover_color;
+    if (input.cover_image !== undefined)
+      updateData.cover_image = input.cover_image;
     if (input.read_time !== undefined) updateData.read_time = input.read_time;
 
     const { data, error } = await supabase

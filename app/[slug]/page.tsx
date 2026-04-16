@@ -108,6 +108,57 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </div>
 
+      {/* ── Banner Image ── */}
+      <div className="relative w-full aspect-[21/9] mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
+        {post.coverImage ? (
+          <img
+            src={post.coverImage}
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <>
+            {/* Decorative fallback pattern */}
+            <div
+              className="absolute inset-0 opacity-10 bg-retro-yellow"
+              style={{
+                backgroundImage:
+                  "linear-gradient(45deg, #0A0A0A 25%, transparent 25%), linear-gradient(-45deg, #0A0A0A 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #0A0A0A 75%), linear-gradient(-45deg, transparent 75%, #0A0A0A 75%)",
+                backgroundSize: "20px 20px",
+                backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
+              }}
+            />
+
+            {/* Center icon + label */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12 text-retro-black/40 dark:text-retro-white/40"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              <span className="font-archivo font-black text-sm tracking-widest uppercase text-retro-black/40 dark:text-retro-white/40 select-none">
+                {post.title}
+              </span>
+            </div>
+          </>
+        )}
+
+        {/* Category pill overlay */}
+        <div className="absolute top-4 left-4">
+          <Badge label={post.category} variant={categoryVariant as "default"} />
+        </div>
+      </div>
+
       {/* ── Article Content ── */}
       <div className="font-space text-lg text-retro-black dark:text-retro-white leading-relaxed">
         {post.content ? (

@@ -24,6 +24,7 @@
 
 ## Phase 6: Documentation
 - [x] 6.1 Update `README.md` with Supabase setup instructions <!-- id: 12 -->
+- [x] 6.2 README viral/lead-magnet rewrite with hero banner, badges, architecture diagrams, and premium copy <!-- id: 31 -->
 
 ## Phase 7: Rebranding (Coding Panda)
 - [x] 7.1 Update brand name in `Navbar` and `Footer` <!-- id: 13 -->
@@ -48,3 +49,34 @@
 - [x] 9.4 Update PWA manifest `start_url` and shortcuts <!-- id: 28 -->
 - [x] 9.5 Update test suites and imports for new route structure <!-- id: 29 -->
 - [x] 9.6 Verify build and 100% test pass rate <!-- id: 30 -->
+
+## Phase 10: Admin Backend Service [COMPLETED]
+- [x] 10.1 Install `@supabase/ssr` and create SSR client infrastructure <!-- id: 32 -->
+- [x] 10.2 Create `profiles` table with RLS policies and triggers <!-- id: 33 -->
+- [x] 10.3 Add admin CRUD RLS policies on `posts` table <!-- id: 34 -->
+- [x] 10.4 Extend type system with CreatePostInput, UpdatePostInput, UserProfile types <!-- id: 35 -->
+- [x] 10.5 Create `adminBlogService.ts` with server-side CRUD operations <!-- id: 36 -->
+- [x] 10.6 Create `userService.ts` for user management <!-- id: 37 -->
+- [x] 10.7 Implement Next.js middleware for admin route protection <!-- id: 38 -->
+- [x] 10.8 Build NeoBrutalism login page with server actions <!-- id: 39 -->
+- [x] 10.9 Create admin dashboard with stats cards and quick actions <!-- id: 40 -->
+- [x] 10.10 Build posts management pages (list, create, edit, delete) <!-- id: 41 -->
+- [x] 10.11 Build users management pages (list, create, edit, delete) <!-- id: 42 -->
+- [x] 10.12 Create reusable admin components (DataTable, PostForm, UserForm, StatsCard, AdminSidebar) <!-- id: 43 -->
+- [x] 10.13 Verify TypeScript compilation (0 errors) and route protection <!-- id: 44 -->
+
+## Phase 11: Tag Management Enhancements
+- [x] 11.1 Display tags column in admin posts table view <!-- id: 45 -->
+- [x] 11.2 Verify tag input functionality in post creation form and Supabase sync <!-- id: 46 -->
+
+## Phase 12: Image Management & Branding Refinement
+- [x] 12.1 Replace cover color with image upload in `PostForm` <!-- id: 47 -->
+- [x] 12.2 Implement image upload to Supabase Storage in server actions <!-- id: 48 -->
+- [x] 12.3 Update post detail page to render uploaded cover images <!-- id: 49 -->
+- [x] 12.4 Add image preview and view CTA to admin posts table <!-- id: 50 -->
+- [x] 12.5 Sync `cover_image` field with database and handling existing images on update <!-- id: 51 -->
+
+## Phase 13: Security & Stability [COMPLETED]
+- [x] 13.1 Fix RLS policy on tags table by setting sync function to SECURITY DEFINER <!-- id: 52 -->
+- [x] 13.2 Fix image upload by adding storage RLS policies and server-side error handling <!-- id: 53 -->
+- [x] 13.3 Add image requirement rules and client-side validation (format, size, dimension) <!-- id: 54 -->

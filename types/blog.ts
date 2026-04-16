@@ -19,6 +19,7 @@ export interface BlogPost {
   category: string;
   readTime: number; // For backward compatibility with UI
   coverColor: string; // For backward compatibility with UI
+  coverImage?: string; // S3 bucket image URL
   tags: string[];
   featured?: boolean;
 }
@@ -46,6 +47,7 @@ export interface CreatePostInput {
   tags: string[];
   featured: boolean;
   cover_color: string;
+  cover_image?: string;
   read_time: number;
 }
 
@@ -63,5 +65,6 @@ export interface UpdatePostInput {
   tags?: string[];
   featured?: boolean;
   cover_color?: string;
+  cover_image?: string;
   read_time?: number;
 }
