@@ -1,8 +1,7 @@
 import Link from "next/link";
 
 const FOOTER_LINKS = [
-  { href: "https://retroui.dev/docs", label: "Documentation" },
-  { href: "https://github.com/Logging-Studio/RetroUI", label: "GitHub" },
+  { href: "https://github.com/Xdev200", label: "GitHub" },
   { href: "/", label: "Blog" },
 ] as const;
 

@@ -29,7 +29,7 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <Link
-              href="https://github.com/Logging-Studio/RetroUI"
+              href="https://github.com/Xdev200"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-10 h-10 border-2 border-retro-black dark:border-retro-white bg-retro-white dark:bg-retro-dark-surface text-retro-black dark:text-retro-white shadow-neo dark:shadow-neo-dark hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover transition-all focus:outline-none focus:ring-2 focus:ring-retro-yellow"
