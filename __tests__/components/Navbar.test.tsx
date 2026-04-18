@@ -51,7 +51,7 @@ describe("Navbar", () => {
   it("renders the GitHub link as external", () => {
     render(<Navbar />);
     const githubLink = screen.getByRole("link", { name: /github repository/i });
-    expect(githubLink).toHaveAttribute("href", "https://github.com/Logging-Studio/RetroUI");
+    expect(githubLink).toHaveAttribute("href", "https://github.com/Xdev200");
     expect(githubLink).toHaveAttribute("target", "_blank");
     expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");
   });

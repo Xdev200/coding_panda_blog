@@ -3,7 +3,6 @@ const config = {
   testEnvironment: "jest-environment-jsdom",
   setupFilesAfterFramework: [],
   setupFilesAfterEach: [],
-  setupFilesAfterFramework: [],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
@@ -25,6 +24,7 @@ const config = {
   collectCoverageFrom: [
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
+    "services/**/*.{ts,tsx}",
     "lib/**/*.{ts,tsx}",
     "!**/*.d.ts",
     "!**/node_modules/**",

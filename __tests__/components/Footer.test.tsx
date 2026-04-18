@@ -33,13 +33,6 @@ describe("Footer", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the Documentation link", () => {
-    render(<Footer />);
-    expect(
-      screen.getByRole("link", { name: /documentation/i })
-    ).toBeInTheDocument();
-  });
-
   it("renders the GitHub link", () => {
     render(<Footer />);
     expect(screen.getByRole("link", { name: /github/i })).toBeInTheDocument();

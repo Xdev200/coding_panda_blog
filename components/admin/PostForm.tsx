@@ -132,7 +132,7 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
     "block font-space font-bold text-sm text-retro-black dark:text-retro-white mb-2";
 
   return (
-    <form action={handleSubmit} className="space-y-6">
+    <form action={handleSubmit} className="space-y-6" aria-label="Post Form">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Title */}
         <div className="md:col-span-2">
