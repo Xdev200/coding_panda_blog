@@ -101,3 +101,9 @@
 - [x] 16.2 Add "Status" indicator to `PostsTable` (Scheduled vs Published) <!-- id: 67 -->
 - [x] 16.3 Verify admin access to future posts <!-- id: 68 -->
 - [x] 16.4 Verify public hiding of future posts <!-- id: 69 -->
+
+## Phase 17: User Management Permissions & Bugfixes
+- [x] 17.1 Create `createAdminClient` for auth administrative operations <!-- id: 70 -->
+- [x] 17.2 Fix "User not allowed" error by using admin client in `userService` <!-- id: 71 -->
+- [x] 17.3 Manual verification after adding `SUPABASE_SERVICE_ROLE_KEY` to environment <!-- id: 72 -->
+

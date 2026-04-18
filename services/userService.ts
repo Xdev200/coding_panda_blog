@@ -8,6 +8,7 @@
  */
 
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import type { UserProfile, CreateUserInput, UpdateUserInput } from "@/types/user";
 
 /**
@@ -69,9 +70,10 @@ export const userService = {
    */
   async createUser(input: CreateUserInput): Promise<UserProfile> {
     const supabase = await createClient();
+    const adminClient = createAdminClient();
 
     // Create auth user with metadata
-    const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+    const { data: authData, error: authError } = await adminClient.auth.admin.createUser({
       email: input.email,
       password: input.password,
       email_confirm: true,
@@ -133,7 +135,8 @@ export const userService = {
 
     // Also update user_metadata if role changed
     if (input.role) {
-      await supabase.auth.admin.updateUserById(id, {
+      const adminClient = createAdminClient();
+      await adminClient.auth.admin.updateUserById(id, {
         user_metadata: { role: input.role },
       });
     }
@@ -149,10 +152,10 @@ export const userService = {
    * @throws Error if deletion fails
    */
   async deleteUser(id: string): Promise<void> {
-    const supabase = await createClient();
+    const adminClient = createAdminClient();
 
     // Delete from auth (profile cascades)
-    const { error } = await supabase.auth.admin.deleteUser(id);
+    const { error } = await adminClient.auth.admin.deleteUser(id);
 
     if (error) {
       console.error(`Error deleting user ${id}:`, error);
