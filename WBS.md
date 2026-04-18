@@ -80,3 +80,11 @@
 - [x] 13.1 Fix RLS policy on tags table by setting sync function to SECURITY DEFINER <!-- id: 52 -->
 - [x] 13.2 Fix image upload by adding storage RLS policies and server-side error handling <!-- id: 53 -->
 - [x] 13.3 Add image requirement rules and client-side validation (format, size, dimension) <!-- id: 54 -->
+
+## Phase 14: Google Indexing & Advanced SEO [COMPLETED]
+- [x] 14.1 Implement `robots.ts` and dynamic `sitemap.ts` <!-- id: 55 -->
+- [x] 14.2 Enhance `layout.tsx` metadata with specific OG/Twitter images and `metadataBase` <!-- id: 56 -->
+- [x] 14.3 Add dynamic metadata and canonical URLs to blog post pages <!-- id: 57 -->
+- [x] 14.4 Implement JSON-LD `Article` structured data for rich search results <!-- id: 58 -->
+- [x] 14.5 Refactor homepage to Server Component for pre-rendered SEO metadata <!-- id: 59 -->
+- [x] 14.6 Verify production build and route generation for SEO crawlers <!-- id: 60 -->
