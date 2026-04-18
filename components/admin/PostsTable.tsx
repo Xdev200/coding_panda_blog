@@ -108,6 +108,24 @@ const columns: Column<BlogPost>[] = [
       </span>
     ),
   },
+  {
+    header: "Status",
+    accessor: (row) => {
+      const today = new Date().toISOString().split("T")[0];
+      const isFuture = row.date > today;
+      return (
+        <span
+          className={`inline-block px-2 py-1 border-2 border-retro-black dark:border-retro-white text-xs font-space font-bold ${
+            isFuture
+              ? "bg-retro-yellow animate-pulse"
+              : "bg-retro-green"
+          }`}
+        >
+          {isFuture ? "Scheduled" : "Published"}
+        </span>
+      );
+    },
+  },
 ];
 
 /**

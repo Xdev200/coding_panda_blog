@@ -88,3 +88,16 @@
 - [x] 14.4 Implement JSON-LD `Article` structured data for rich search results <!-- id: 58 -->
 - [x] 14.5 Refactor homepage to Server Component for pre-rendered SEO metadata <!-- id: 59 -->
 - [x] 14.6 Verify production build and route generation for SEO crawlers <!-- id: 60 -->
+
+## Phase 15: Post Date Customization
+- [x] 15.1 Add `date` field to `CreatePostInput` and `UpdatePostInput` types <!-- id: 61 -->
+- [x] 15.2 Add date input field to `PostForm` with NeoBrutalism styling <!-- id: 62 -->
+- [x] 15.3 Update `createPost` and `updatePost` server actions to handle custom dates <!-- id: 63 -->
+- [x] 15.4 Update `adminBlogService` to support custom dates in creation and updates <!-- id: 64 -->
+- [x] 15.5 Manual verification of date persistence in Supabase <!-- id: 65 -->
+
+## Phase 16: Post Scheduling
+- [x] 16.1 Implement date filtering in `blogService.ts` for public pages <!-- id: 66 -->
+- [x] 16.2 Add "Status" indicator to `PostsTable` (Scheduled vs Published) <!-- id: 67 -->
+- [x] 16.3 Verify admin access to future posts <!-- id: 68 -->
+- [x] 16.4 Verify public hiding of future posts <!-- id: 69 -->

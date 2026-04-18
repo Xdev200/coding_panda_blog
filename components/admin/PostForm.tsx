@@ -213,6 +213,21 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
           />
         </div>
 
+        {/* Publish Date */}
+        <div>
+          <label htmlFor="date" className={labelClassName}>
+            Publish Date *
+          </label>
+          <input
+            id="date"
+            name="date"
+            type="date"
+            required
+            defaultValue={post?.date || new Date().toISOString().split("T")[0]}
+            className={inputClassName}
+          />
+        </div>
+
         {/* Cover Image Upload */}
         <div className="md:col-span-2 space-y-2">
           <div className="flex justify-between items-end">

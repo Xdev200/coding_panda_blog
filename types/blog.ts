@@ -49,6 +49,7 @@ export interface CreatePostInput {
   cover_color: string;
   cover_image?: string;
   read_time: number;
+  date?: string;
 }
 
 /**
@@ -67,4 +68,5 @@ export interface UpdatePostInput {
   cover_color?: string;
   cover_image?: string;
   read_time?: number;
+  date?: string;
 }
