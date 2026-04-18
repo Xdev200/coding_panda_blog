@@ -12,6 +12,7 @@ export const blogService = {
     const { data, error } = await supabase
       .from("posts")
       .select("*")
+      .lte("date", new Date().toISOString().split("T")[0])
       .order("date", { ascending: false });
 
     if (error) {
@@ -30,6 +31,7 @@ export const blogService = {
       .from("posts")
       .select("*")
       .eq("slug", slug)
+      .lte("date", new Date().toISOString().split("T")[0])
       .single();
 
     if (error) {
@@ -50,6 +52,7 @@ export const blogService = {
       .from("posts")
       .select("*")
       .eq("category", category)
+      .lte("date", new Date().toISOString().split("T")[0])
       .order("date", { ascending: false });
 
     if (error) {
@@ -70,6 +73,7 @@ export const blogService = {
       .from("posts")
       .select("*")
       .contains("tags", [tag])
+      .lte("date", new Date().toISOString().split("T")[0])
       .order("date", { ascending: false });
 
     if (error) {
@@ -88,6 +92,7 @@ export const blogService = {
       .from("posts")
       .select("*")
       .eq("featured", true)
+      .lte("date", new Date().toISOString().split("T")[0])
       .order("date", { ascending: false });
 
     if (error) {
@@ -102,7 +107,8 @@ export const blogService = {
    * Fetches all tags from Supabase.
    */
   async getAllTags(): Promise<BlogCategory[]> {
-    const { data: posts } = await supabase.from("posts").select("id");
+    const today = new Date().toISOString().split("T")[0];
+    const { data: posts } = await supabase.from("posts").select("id").lte("date", today);
     const totalPosts = posts?.length || 0;
 
     const { data: tags, error } = await supabase
@@ -123,7 +129,8 @@ export const blogService = {
       const { count } = await supabase
         .from("posts")
         .select("id", { count: "exact", head: true })
-        .contains("tags", [tag.name]);
+        .contains("tags", [tag.name])
+        .lte("date", today);
       
       categories.push({
         id: tag.name,

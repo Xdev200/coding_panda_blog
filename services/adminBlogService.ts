@@ -123,7 +123,7 @@ export const adminBlogService = {
         cover_color: input.cover_color,
         cover_image: input.cover_image,
         read_time: input.read_time,
-        date: new Date().toISOString().split("T")[0],
+        date: input.date || new Date().toISOString().split("T")[0],
       })
       .select()
       .single();
@@ -162,6 +162,7 @@ export const adminBlogService = {
     if (input.cover_image !== undefined)
       updateData.cover_image = input.cover_image;
     if (input.read_time !== undefined) updateData.read_time = input.read_time;
+    if (input.date !== undefined) updateData.date = input.date;
 
     const { data, error } = await supabase
       .from("posts")

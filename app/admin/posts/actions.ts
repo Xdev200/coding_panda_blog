@@ -72,6 +72,7 @@ export async function createPost(formData: FormData) {
     cover_color: "#FDE047", // Default or omitted if not used in DB strictly
     cover_image: coverImageUrl,
     read_time: parseInt(formData.get("read_time") as string) || 5,
+    date: (formData.get("date") as string) || undefined,
   };
 
   try {
@@ -144,6 +145,7 @@ export async function updatePost(formData: FormData) {
     featured: formData.get("featured") === "on",
     cover_image: coverImageUrl,
     read_time: parseInt(formData.get("read_time") as string) || 5,
+    date: (formData.get("date") as string) || undefined,
   };
 
   try {
