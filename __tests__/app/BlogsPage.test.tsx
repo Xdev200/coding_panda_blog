@@ -67,16 +67,17 @@ describe("BlogsPage", () => {
   });
 
   it("renders the page heading", async () => {
-    await act(async () => {
-      render(<BlogsPage />);
-    });
+    const Page = await BlogsPage();
+    render(Page);
+    // Heading is inside BlogsPageClient, which might be a 'sr-only' h1 or something else
+    // In BlogsPageClient it is <h1 className="sr-only">Blogs & Articles | Coding Panda</h1>
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
   });
 
   it("shows all posts by default", async () => {
-    await act(async () => {
-      render(<BlogsPage />);
-    });
+    const Page = await BlogsPage();
+    render(Page);
+    
     await waitFor(() => {
       const postItems = screen.getAllByTestId("post-item");
       expect(postItems.length).toBe(MOCK_POSTS.length);
@@ -84,9 +85,8 @@ describe("BlogsPage", () => {
   });
 
   it("filters posts when a category is selected", async () => {
-    await act(async () => {
-      render(<BlogsPage />);
-    });
+    const Page = await BlogsPage();
+    render(Page);
     
     // Wait for categories to load
     await waitFor(() => screen.getByText("Design"));
@@ -103,9 +103,9 @@ describe("BlogsPage", () => {
   });
 
   it("shows post count summary after loading", async () => {
-    await act(async () => {
-      render(<BlogsPage />);
-    });
+    const Page = await BlogsPage();
+    render(Page);
+    
     await waitFor(() => {
       expect(screen.getByText(/Showing/)).toBeInTheDocument();
       expect(screen.getByText("2")).toBeInTheDocument();
