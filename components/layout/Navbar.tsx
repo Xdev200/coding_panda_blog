@@ -22,7 +22,7 @@ export function Navbar() {
             href="/"
             className="font-archivo font-black text-retro-black dark:text-retro-yellow text-2xl tracking-tight hover:underline focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-black dark:focus-visible:ring-retro-yellow transition-colors"
           >
-            Coding Panda
+            Coding Panda (UNDER CONSTRUCTION)
           </Link>
 
           {/* Actions */}
