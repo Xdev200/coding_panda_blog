@@ -22,9 +22,9 @@ export const interactionService = {
         .select('*')
         .eq('post_id', postId)
         .eq('session_id', sessionId)
-        .single();
+        .maybeSingle();
 
-      if (fetchError && fetchError.code !== 'PGRST116') { // PGRST116 is "no rows returned"
+      if (fetchError) {
         throw fetchError;
       }
 
@@ -115,9 +115,9 @@ export const interactionService = {
       .select('type')
       .eq('post_id', postId)
       .eq('session_id', sessionId)
-      .single();
+      .maybeSingle();
 
-    if (error) return null;
+    if (error || !data) return null;
     return data.type as 'like' | 'dislike' | null;
   }
 };
