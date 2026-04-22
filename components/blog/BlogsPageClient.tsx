@@ -41,10 +41,10 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       {/* Page header */}
       <header className="mb-12">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-full md:w-1/2">
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 text-center md:text-left">
+          <div className="w-full md:w-5/12">
             <h1 className="sr-only">Blogs &amp; Articles | Coding Panda</h1>
-            <div className="relative w-full aspect-[680/660] max-w-xl mx-auto md:mx-0">
+            <div className="relative w-full aspect-square max-w-[280px] sm:max-w-md mx-auto md:mx-0">
               <Image
                 src="/coding_panda_3d_hero.svg"
                 alt="Coding Panda 3D Hero"
@@ -55,8 +55,8 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
             </div>
           </div>
 
-          <div className="w-full md:w-1/2">
-            <p className="font-space text-xl sm:text-2xl text-retro-black dark:text-retro-white leading-relaxed">
+          <div className="w-full md:w-7/12">
+            <p className="font-space text-lg sm:text-xl lg:text-2xl text-retro-black dark:text-retro-white leading-relaxed">
               I write about <span className="font-black underline decoration-retro-yellow decoration-4 underline-offset-4">Web Development</span>,{" "}
               <span className="font-black underline decoration-retro-yellow decoration-4 underline-offset-4">Frontend</span>, and{" "}
               <span className="font-black underline decoration-retro-yellow decoration-4 underline-offset-4">AI/ML (Gen AI)</span> — sharing what I learn, build, and experiment with along the way.

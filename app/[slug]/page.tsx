@@ -134,12 +134,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
 
         {/* Title */}
-        <h1 className="font-archivo font-black text-4xl lg:text-5xl text-retro-black dark:text-retro-white leading-tight mb-4">
+        <h1 className="font-archivo font-black text-3xl sm:text-4xl lg:text-5xl text-retro-black dark:text-retro-white leading-tight mb-4">
           {post.title}
         </h1>
 
         {/* Excerpt */}
-        <p className="font-space text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-10">
+        <p className="font-space text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-10">
           {post.excerpt}
         </p>
 
@@ -172,7 +172,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </div>
 
       {/* ── Banner Image ── */}
-      <div className="relative w-full aspect-[21/9] mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
+      <div className="relative w-full aspect-video md:aspect-[21/9] mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
         {post.coverImage ? (
           <div className="w-full h-full flex items-center justify-center bg-gray-50/50 dark:bg-retro-dark-bg/20">
             <img
