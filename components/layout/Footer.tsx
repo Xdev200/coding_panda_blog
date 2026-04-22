@@ -22,17 +22,6 @@ export function Footer() {
 
           <div className="flex flex-col gap-4 items-end">
             <SocialLinks iconOnly />
-            <nav aria-label="Footer navigation" className="flex flex-wrap gap-4">
-              {FOOTER_LINKS.map(({ href, label }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className="font-space text-sm text-gray-300 hover:text-retro-yellow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-retro-yellow"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
           </div>
         </div>
 
