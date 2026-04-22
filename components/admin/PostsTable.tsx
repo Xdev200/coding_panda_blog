@@ -23,32 +23,29 @@ const columns: Column<BlogPost>[] = [
     accessor: (row) => <span className="font-bold">{row.title}</span>,
   },
   {
-    header: "Image",
+    header: "Images",
     accessor: (row) => (
-      <div className="flex items-center gap-3">
-        {row.coverImage ? (
-          <>
-            <div className="w-12 h-12 border border-retro-black dark:border-retro-white shadow-neo-sm overflow-hidden">
-              <img
-                src={row.coverImage}
-                alt={row.title}
-                className="w-full h-full object-cover"
-              />
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          {row.coverImage ? (
+            <div className="w-10 h-10 border border-retro-black dark:border-retro-white shadow-neo-sm overflow-hidden" title="Cover Image">
+              <img src={row.coverImage} alt="Cover" className="w-full h-full object-cover" />
             </div>
-            <a
-              href={row.coverImage}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-bold text-retro-blue hover:underline font-space"
-            >
-              View
-            </a>
-          </>
-        ) : (
-          <span className="text-[10px] text-retro-black/40 dark:text-retro-white/40 italic">
-            No Image
-          </span>
-        )}
+          ) : (
+            <div className="w-10 h-10 border border-retro-black/20 dark:border-retro-white/20 flex items-center justify-center text-[10px] italic text-retro-black/40" title="No Cover">None</div>
+          )}
+          {row.thumbnailImage ? (
+            <div className="w-10 h-10 border border-retro-black dark:border-retro-white shadow-neo-sm overflow-hidden" title="Thumbnail Image">
+              <img src={row.thumbnailImage} alt="Thumbnail" className="w-full h-full object-cover" />
+            </div>
+          ) : (
+            <div className="w-10 h-10 border border-retro-black/20 dark:border-retro-white/20 flex items-center justify-center text-[10px] italic text-retro-black/40" title="No Thumbnail">None</div>
+          )}
+        </div>
+        <div className="flex gap-2">
+          {row.coverImage && <a href={row.coverImage} target="_blank" rel="noopener" className="text-[10px] font-bold text-retro-blue hover:underline">Cover</a>}
+          {row.thumbnailImage && <a href={row.thumbnailImage} target="_blank" rel="noopener" className="text-[10px] font-bold text-retro-blue hover:underline">Thumb</a>}
+        </div>
       </div>
     ),
   },

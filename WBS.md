@@ -107,3 +107,25 @@
 - [x] 17.2 Fix "User not allowed" error by using admin client in `userService` <!-- id: 71 -->
 - [x] 17.3 Manual verification after adding `SUPABASE_SERVICE_ROLE_KEY` to environment <!-- id: 72 -->
 
+
+## Phase 18: Engagement & Visual Enhancements [COMPLETED]
+- [x] 18.1 Add social sharing buttons (Twitter, LinkedIn, Copy Link) to article pages <!-- id: 73 -->
+- [x] 18.2 Implement session-based like/dislike functionality with optimistic updates <!-- id: 74 -->
+- [x] 18.3 Add brand social links (GitHub, Twitter, LinkedIn) to the footer <!-- id: 75 -->
+- [x] 18.4 Implement thumbnail image upload in post creation and editing forms <!-- id: 76 -->
+- [x] 18.5 Update database schema and service layer for engagement metrics and thumbnails <!-- id: 77 -->
+- [x] 18.6 Display thumbnails in BlogCard and Admin PostsTable <!-- id: 78 -->
+
+## Phase 19: Social Sharing Optimization [COMPLETED]
+- [x] 19.1 Install `react-share` dependency <!-- id: 79 -->
+- [x] 19.2 Refactor `ShareButtons.tsx` to use `react-share` <!-- id: 80 -->
+- [x] 19.3 Verify visual consistency with NeoBrutalist design <!-- id: 81 -->
+- [x] 19.4 Test sharing functionality <!-- id: 82 -->
+- [x] 19.5 Ensure respective thumbnail image is included in sharing metadata and buttons <!-- id: 83 -->
+## Phase 20: Performance & Reliability [COMPLETED]
+- [x] 20.1 Increase Server Actions body size limit to 4MB in `next.config.js` to support large image uploads <!-- id: 84 -->
+## Phase 21: Visual Refinement & Image Scaling [COMPLETED]
+- [x] 21.1 Implement non-cropping centered containment strategy for `BlogCard` thumbnails <!-- id: 85 -->
+- [x] 21.2 Apply centered containment to article banner and form previews (no cropping) <!-- id: 86 -->
+- [x] 21.3 Resolve syntax errors in `BlogCard` and `PostForm` from previous iterations <!-- id: 87 -->
+- [x] 21.4 Maintain label removal and grayscale removal for premium visual fidelity <!-- id: 88 -->

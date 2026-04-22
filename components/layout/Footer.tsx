@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SocialLinks from "./SocialLinks";
 
 const FOOTER_LINKS = [
   { href: "https://github.com/Xdev200", label: "GitHub" },
@@ -19,17 +20,20 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Footer navigation" className="flex flex-wrap gap-4">
-            {FOOTER_LINKS.map(({ href, label }) => (
-              <Link
-                key={label}
-                href={href}
-                className="font-space text-sm text-gray-300 hover:text-retro-yellow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-retro-yellow"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex flex-col gap-4 items-end">
+            <SocialLinks iconOnly />
+            <nav aria-label="Footer navigation" className="flex flex-wrap gap-4">
+              {FOOTER_LINKS.map(({ href, label }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="font-space text-sm text-gray-300 hover:text-retro-yellow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-retro-yellow"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
 
         <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-6">

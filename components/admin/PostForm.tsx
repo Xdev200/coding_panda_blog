@@ -39,6 +39,10 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
   const [imagePreview, setImagePreview] = useState<string | null>(
     post?.coverImage || null
   );
+  const [thumbPreview, setThumbPreview] = useState<string | null>(
+    post?.thumbnailImage || null
+  );
+  const [thumbError, setThumbError] = useState<string | null>(null);
 
   const isEdit = Boolean(post);
 
@@ -104,6 +108,32 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
       img.onerror = () => {
         setImageError("Error reading image file.");
       };
+    }
+  };
+
+  /**
+   * Handles thumbnail file selection.
+   */
+  const handleThumbChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    setThumbError(null);
+
+    if (file) {
+      const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+      if (!allowedTypes.includes(file.type)) {
+        setThumbError("Invalid format. Use JPG, PNG, or WebP.");
+        return;
+      }
+      if (file.size > 2 * 1024 * 1024) {
+        setThumbError("Thumbnail size exceeds 2MB limit.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setThumbPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -256,11 +286,13 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
                 className="flex flex-col items-center justify-center w-full aspect-[21/9] bg-retro-white dark:bg-retro-dark-surface cursor-pointer hover:bg-retro-blue/5 transition-colors overflow-hidden"
               >
                 {imagePreview ? (
-                  <img
-                    src={imagePreview}
-                    alt="Preview"
-                    className="w-full h-full object-cover"
-                  />
+                  <div className="w-full h-full flex items-center justify-center bg-gray-50/50 dark:bg-retro-dark-bg/20 p-4">
+                    <img
+                      src={imagePreview}
+                      alt="Preview"
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
                 ) : (
                   <div className="flex flex-col items-center gap-2">
                     <svg
@@ -297,6 +329,80 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
                 type="hidden"
                 name="existing_cover_image"
                 value={post.coverImage}
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Thumbnail Image Upload */}
+        <div className="md:col-span-2 space-y-2">
+          <div className="flex justify-between items-end">
+            <label className="block text-sm font-archivo font-black uppercase tracking-wider text-retro-black dark:text-retro-white">
+              Thumbnail Image (Square Recommended)
+            </label>
+            <ul className="text-[10px] font-space text-retro-black/60 dark:text-retro-white/60 list-disc list-inside">
+              <li>Max size 2MB</li>
+              <li>Square aspect preferred</li>
+            </ul>
+          </div>
+          
+          <div className="flex flex-col gap-4">
+            <div className={`relative group border-4 ${thumbError ? 'border-retro-pink' : 'border-dashed border-retro-black dark:border-retro-white'}`}>
+              <input
+                type="file"
+                name="thumbnail_image_file"
+                accept="image/*.jpg,image/*.jpeg,image/*.png,image/*.webp"
+                onChange={handleThumbChange}
+                className="hidden"
+                id="thumbnailImageInput"
+              />
+              <label
+                htmlFor="thumbnailImageInput"
+                className="flex flex-col items-center justify-center w-full aspect-video sm:aspect-square sm:max-w-[200px] bg-retro-white dark:bg-retro-dark-surface cursor-pointer hover:bg-retro-blue/5 transition-colors overflow-hidden"
+              >
+                {thumbPreview ? (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-50/50 dark:bg-retro-dark-bg/20 p-4">
+                    <img
+                      src={thumbPreview}
+                      alt="Thumbnail Preview"
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center gap-2 p-4 text-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-retro-black dark:text-retro-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span className="font-space font-bold text-[10px]">
+                      Upload Thumbnail
+                    </span>
+                  </div>
+                )}
+              </label>
+            </div>
+
+            {thumbError && (
+              <p className="text-retro-pink font-space font-bold text-xs bg-retro-pink/10 px-3 py-1 border-l-4 border-retro-pink">
+                ⚠️ {thumbError}
+              </p>
+            )}
+
+            {post?.thumbnailImage && (
+              <input
+                type="hidden"
+                name="existing_thumbnail_image"
+                value={post.thumbnailImage}
               />
             )}
           </div>

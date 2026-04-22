@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 import { Badge, CATEGORY_VARIANT_MAP } from "@/components/ui/Badge";
 import { formatDate, formatReadTime } from "@/lib/utils";
+import PostActions from "@/components/blog/PostActions";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -21,6 +22,32 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const url = `https://codingpanda.taqnik.in/${slug}`;
 
+  const images = [];
+  if (post.thumbnailImage) {
+    images.push({
+      url: post.thumbnailImage,
+      width: 400,
+      height: 400,
+      alt: `Thumbnail for ${post.title}`,
+    });
+  }
+  if (post.coverImage) {
+    images.push({
+      url: post.coverImage,
+      width: 1200,
+      height: 630,
+      alt: post.title,
+    });
+  }
+  if (images.length === 0) {
+    images.push({
+      url: "/readme-banner.png",
+      width: 1200,
+      height: 630,
+      alt: post.title,
+    });
+  }
+
   return {
     title: post.title,
     description: post.excerpt,
@@ -34,20 +61,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: url,
       publishedTime: post.date,
       authors: [post.author],
-      images: [
-        {
-          url: post.coverImage || "/readme-banner.png",
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
+      images: images,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [post.coverImage || "/readme-banner.png"],
+      images: images.map(img => img.url),
     },
   };
 }
@@ -59,9 +79,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   const categoryVariant = CATEGORY_VARIANT_MAP[post.category] ?? "default";
-  // const shareUrl = `https://x.com/share?url=${encodeURIComponent(
-  //   `${process.env.NEXT_PUBLIC_SITE_URL || ""}/${post.slug}`
-  // )}&text=${encodeURIComponent(post.title + ".\nCheck it out 👉")}`;
+
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -102,14 +120,17 @@ export default async function BlogPostPage({ params }: PageProps) {
           <p className="font-space text-sm font-medium text-gray-500 dark:text-gray-400">
             {formatDate(post.date)}
           </p>
-          <span className="font-space text-base text-gray-400 dark:text-gray-500" aria-hidden="true">|</span>
-          <div className="flex items-center gap-3 flex-wrap">
-            <Badge label={post.category} variant={categoryVariant as "default"} />
-            {post.featured && <Badge label="Featured" variant="outline" />}
-            {post.tags?.slice(0, 2).map((tag) => (
-              <Badge key={tag} label={tag} variant="outline" />
-            ))}
-          </div>
+          {post.tags && post.tags.length > 0 && (
+            <>
+              <span className="font-space text-base text-gray-400 dark:text-gray-500" aria-hidden="true">|</span>
+              <div className="flex items-center gap-3 flex-wrap">
+                {post.tags.slice(0, 2).map((tag) => (
+                  <Badge key={tag} label={tag} variant="outline" />
+                ))}
+              </div>
+            </>
+          )}
+          {post.featured && <Badge label="Featured" variant="outline" />}
         </div>
 
         {/* Title */}
@@ -146,26 +167,20 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Share Button
-          <a
-            href={shareUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-archivo font-bold text-sm border-2 border-retro-black dark:border-retro-white px-4 py-2 shadow-neo dark:shadow-neo-dark hover:translate-y-[2px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover transition-all duration-100 bg-retro-white dark:bg-retro-dark-surface text-retro-black dark:text-retro-white"
-          >
-            Share on 𝕏
-          </a> */}
+
         </div>
       </div>
 
       {/* ── Banner Image ── */}
       <div className="relative w-full aspect-[21/9] mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
         {post.coverImage ? (
-          <img
-            src={post.coverImage}
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
+          <div className="w-full h-full flex items-center justify-center bg-gray-50/50 dark:bg-retro-dark-bg/20">
+            <img
+              src={post.coverImage}
+              alt={post.title}
+              className="max-w-full max-h-full object-contain"
+            />
+          </div>
         ) : (
           <>
             {/* Decorative fallback pattern */}
@@ -203,10 +218,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </>
         )}
 
-        {/* Category pill overlay */}
-        <div className="absolute top-4 left-4">
-          <Badge label={post.category} variant={categoryVariant as "default"} />
-        </div>
+
       </div>
 
       {/* ── Article Content ── */}
@@ -245,6 +257,15 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         )}
       </div>
+
+      <PostActions 
+        postId={post.id!} 
+        title={post.title} 
+        slug={post.slug} 
+        likes={post.likesCount || 0} 
+        dislikes={post.dislikesCount || 0} 
+        thumbnailImage={post.thumbnailImage}
+      />
 
       {/* ── Tags ── */}
       {post.tags && post.tags.length > 0 && (

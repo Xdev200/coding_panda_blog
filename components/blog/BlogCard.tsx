@@ -27,21 +27,31 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
           ${featured ? "md:flex md:flex-row md:gap-0" : ""}
         `}
       >
-        {/* Color cover strip */}
+        {/* Visual Header (Image or Color) */}
         <div
-          // className={`
-          //   border-b-2 border-retro-black dark:border-retro-white
-          //   ${featured ? "md:w-48 md:border-b-0 md:border-r-2 flex-shrink-0" : "h-40"}
-          // `}
-          style={{ backgroundColor: post.coverColor }}
+          className={`
+            border-b-2 border-retro-black dark:border-retro-white overflow-hidden
+            ${featured ? "md:w-48 md:border-b-0 md:border-r-2 flex-shrink-0" : ""}
+          `}
+          style={{ backgroundColor: !post.thumbnailImage && !post.coverImage ? post.coverColor : undefined }}
           aria-hidden="true"
         >
-          {featured && (
-            <div className="h-40 md:h-full flex items-center justify-center">
-              <span className="text-5xl font-archivo font-black text-retro-black opacity-20 select-none">
-                {post.title.charAt(0)}
-              </span>
+          {post.thumbnailImage || post.coverImage ? (
+            <div className="w-full h-full flex items-center justify-center bg-gray-50/50 dark:bg-retro-dark-bg/20">
+              <img
+                src={post.thumbnailImage || post.coverImage}
+                alt=""
+                className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
+          ) : (
+            featured && (
+              <div className="h-full flex items-center justify-center">
+                <span className="text-5xl font-archivo font-black text-retro-black opacity-20 select-none">
+                  {post.title.charAt(0)}
+                </span>
+              </div>
+            )
           )}
         </div>
 

@@ -20,8 +20,22 @@ export interface BlogPost {
   readTime: number; // For backward compatibility with UI
   coverColor: string; // For backward compatibility with UI
   coverImage?: string; // S3 bucket image URL
+  thumbnailImage?: string; // New: Thumbnail image URL
+  likesCount?: number; // New: Like count
+  dislikesCount?: number; // New: Dislike count
   tags: string[];
   featured?: boolean;
+}
+
+/**
+ * Represents a user interaction with a post (like/dislike).
+ */
+export interface PostInteraction {
+  id: string;
+  postId: string;
+  sessionId: string;
+  type: 'like' | 'dislike';
+  createdAt: string;
 }
 
 /**
@@ -48,6 +62,7 @@ export interface CreatePostInput {
   featured: boolean;
   cover_color: string;
   cover_image?: string;
+  thumbnail_image?: string; // New
   read_time: number;
   date?: string;
 }
@@ -67,6 +82,8 @@ export interface UpdatePostInput {
   featured?: boolean;
   cover_color?: string;
   cover_image?: string;
+  thumbnail_image?: string; // New
   read_time?: number;
   date?: string;
 }
+
