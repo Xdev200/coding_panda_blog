@@ -10,21 +10,21 @@
   "categories": ["design", "technology"],
   "icons": [
     {
-      "src": "/icons/icon-192x192.svg",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/icon-512x512.svg",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/apple-touch-icon.svg",
+      "src": "/icons/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/svg+xml"
+      "type": "image/png"
     }
   ],
   "shortcuts": [
@@ -33,7 +33,7 @@
       "short_name": "Blogs",
       "description": "Browse all blog posts",
       "url": "/",
-      "icons": [{ "src": "/icons/icon-192x192.svg", "sizes": "192x192" }]
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
     }
   ]
 }
