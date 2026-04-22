@@ -17,7 +17,7 @@ export function CategoryFilter({
   return (
     <nav
       aria-label="Blog categories"
-      className="flex flex-wrap gap-2"
+      className="flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0"
     >
       {categories.map((cat) => (
         <button

@@ -20,9 +20,10 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-archivo font-black text-retro-black dark:text-retro-yellow text-2xl tracking-tight hover:underline focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-black dark:focus-visible:ring-retro-yellow transition-colors"
+            className="font-archivo font-black text-retro-black dark:text-retro-yellow text-xl sm:text-2xl tracking-tight hover:underline focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-black dark:focus-visible:ring-retro-yellow transition-colors truncate"
           >
-            Coding Panda (UNDER CONSTRUCTION)
+            <span className="hidden sm:inline">Coding Panda (UNDER CONSTRUCTION)</span>
+            <span className="sm:hidden">Coding Panda</span>
           </Link>
 
           {/* Actions */}

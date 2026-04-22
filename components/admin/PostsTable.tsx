@@ -56,10 +56,12 @@ const columns: Column<BlogPost>[] = [
         {row.category}
       </span>
     ),
+    className: "hidden sm:table-cell",
   },
   {
     header: "Author",
     accessor: "author",
+    className: "hidden lg:table-cell",
   },
   {
     header: "Date",
@@ -69,6 +71,7 @@ const columns: Column<BlogPost>[] = [
         month: "short",
         day: "numeric",
       }),
+    className: "hidden md:table-cell",
   },
   {
     header: "Tags",
@@ -90,6 +93,7 @@ const columns: Column<BlogPost>[] = [
         )}
       </div>
     ),
+    className: "hidden xl:table-cell",
   },
   {
     header: "Featured",
@@ -104,6 +108,7 @@ const columns: Column<BlogPost>[] = [
         {row.featured ? "Yes" : "No"}
       </span>
     ),
+    className: "hidden sm:table-cell",
   },
   {
     header: "Status",
@@ -122,6 +127,7 @@ const columns: Column<BlogPost>[] = [
         </span>
       );
     },
+    className: "hidden md:table-cell",
   },
 ];
 

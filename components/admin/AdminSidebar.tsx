@@ -38,10 +38,17 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 /**
+ * AdminSidebar component props.
+ */
+interface AdminSidebarProps {
+  onNavItemClick?: () => void;
+}
+
+/**
  * AdminSidebar component with NeoBrutalism styling.
  * Highlights the active route and provides sign-out action.
  */
-export function AdminSidebar() {
+export function AdminSidebar({ onNavItemClick }: AdminSidebarProps) {
   const pathname = usePathname();
 
   /**
@@ -72,6 +79,7 @@ export function AdminSidebar() {
           <Link
             key={item.href}
             href={item.href}
+            onClick={onNavItemClick}
             className={`flex items-center gap-3 px-4 py-3 border-2 font-space text-sm font-medium transition-all ${
               isActive(item.href)
                 ? "border-retro-black dark:border-retro-white bg-retro-yellow text-retro-black shadow-neo dark:shadow-neo-dark"

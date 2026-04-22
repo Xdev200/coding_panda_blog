@@ -35,7 +35,7 @@ const columns: Column<UserProfile>[] = [
   },
   {
     header: "Email",
-    accessor: "email",
+    accessor: (row) => <span className="block max-w-[120px] sm:max-w-none truncate">{row.email}</span>,
   },
   {
     header: "Role",
@@ -57,6 +57,7 @@ const columns: Column<UserProfile>[] = [
         month: "short",
         day: "numeric",
       }),
+    className: "hidden md:table-cell",
   },
 ];
 
