@@ -158,6 +158,9 @@ export const blogService = {
       readTime: dbPost.read_time || 5,
       coverColor: dbPost.cover_color || "#FDE047",
       coverImage: dbPost.cover_image,
+      thumbnailImage: dbPost.thumbnail_image,
+      likesCount: dbPost.likes_count || 0,
+      dislikesCount: dbPost.dislikes_count || 0,
       tags: dbPost.tags || [],
       featured: dbPost.featured,
     };

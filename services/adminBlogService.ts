@@ -45,6 +45,9 @@ function mapSupabasePost(dbPost: Record<string, unknown>): BlogPost {
     readTime: (dbPost.read_time as number) || 5,
     coverColor: (dbPost.cover_color as string) || "#FDE047",
     coverImage: dbPost.cover_image as string | undefined,
+    thumbnailImage: dbPost.thumbnail_image as string | undefined,
+    likesCount: (dbPost.likes_count as number) || 0,
+    dislikesCount: (dbPost.dislikes_count as number) || 0,
     tags: (dbPost.tags as string[]) || [],
     featured: dbPost.featured as boolean | undefined,
   };
@@ -122,6 +125,7 @@ export const adminBlogService = {
         featured: input.featured,
         cover_color: input.cover_color,
         cover_image: input.cover_image,
+        thumbnail_image: input.thumbnail_image,
         read_time: input.read_time,
         date: input.date || new Date().toISOString().split("T")[0],
       })
@@ -161,6 +165,8 @@ export const adminBlogService = {
       updateData.cover_color = input.cover_color;
     if (input.cover_image !== undefined)
       updateData.cover_image = input.cover_image;
+    if (input.thumbnail_image !== undefined)
+      updateData.thumbnail_image = input.thumbnail_image;
     if (input.read_time !== undefined) updateData.read_time = input.read_time;
     if (input.date !== undefined) updateData.date = input.date;
 
