@@ -172,7 +172,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </div>
 
       {/* ── Banner Image ── */}
-      <div className="relative w-full aspect-video md:aspect-[21/9] mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
+      <div className="relative w-full aspect-video mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
         {post.coverImage ? (
           <div className="w-full h-full flex items-center justify-center bg-gray-50/50 dark:bg-retro-dark-bg/20">
             <img
