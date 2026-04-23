@@ -40,7 +40,7 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
   return (
     <div className="w-full">
       {/* Page header */}
-      <header className="min-h-[calc(100vh-80px)] flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <header className="min-h-[calc(100vh-8px)] flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 text-center lg:text-left">
           <div className="w-full lg:w-1/2">
             <h1 className="sr-only">Blogs &amp; Articles | Coding Panda</h1>
