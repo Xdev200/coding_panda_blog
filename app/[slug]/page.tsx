@@ -5,6 +5,7 @@ import { getPostBySlug, getAllPosts } from "@/lib/posts";
 import { Badge, CATEGORY_VARIANT_MAP } from "@/components/ui/Badge";
 import { formatDate, formatReadTime } from "@/lib/utils";
 import PostActions from "@/components/blog/PostActions";
+import { ImagePreloader } from "@/components/ui/ImagePreloader";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -112,6 +113,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* Preload critical cover image for LCP optimization */}
+      {post.coverImage && (
+        <ImagePreloader src={post.coverImage} />
+      )}
+
       <article className="max-w-3xl mt-8 mx-auto px-4 sm:px-6 lg:px-0 pb-16">
       {/* ── Header Section ── */}
       <div className="border-b-2 border-retro-black dark:border-retro-white pb-8 mb-8">
@@ -171,21 +178,24 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* ── Banner Image ── */}
-      <div className="relative w-full aspect-video mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
+      {/* ── Banner Image — original database URL with perf hints ── */}
+      <div className="relative w-full mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
         {post.coverImage ? (
-          <div className="w-full h-full flex items-center justify-center bg-gray-50/50 dark:bg-retro-dark-bg/20">
-            <img
-              src={post.coverImage}
-              alt={post.title}
-              className="max-w-full max-h-full object-contain"
-            />
-          </div>
+          <img
+            src={post.coverImage}
+            alt={post.title}
+            width={1280}
+            height={720}
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
+            className="w-full aspect-video object-contain"
+          />
         ) : (
           <>
             {/* Decorative fallback pattern */}
             <div
-              className="absolute inset-0 opacity-10 bg-retro-yellow"
+              className="absolute inset-0 opacity-10 bg-retro-yellow aspect-video"
               style={{
                 backgroundImage:
                   "linear-gradient(45deg, #0A0A0A 25%, transparent 25%), linear-gradient(-45deg, #0A0A0A 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #0A0A0A 75%), linear-gradient(-45deg, transparent 75%, #0A0A0A 75%)",
@@ -195,7 +205,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             />
 
             {/* Center icon + label */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 aspect-video">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-12 w-12 text-retro-black/40 dark:text-retro-white/40"

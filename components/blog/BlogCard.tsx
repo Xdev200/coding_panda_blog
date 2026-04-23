@@ -3,6 +3,16 @@ import { Badge, CATEGORY_VARIANT_MAP } from "@/components/ui/Badge";
 import { formatDate, formatReadTime } from "@/lib/utils";
 import type { BlogPost } from "@/types/blog";
 
+/**
+ * Blog card component for post listings.
+ *
+ * Renders the original database image directly with performance
+ * attributes (lazy loading, width/height for CLS prevention).
+ * No image URL transformation — the database URL is used as-is.
+ *
+ * @param post     - Blog post data from database.
+ * @param featured - Whether this card is displayed in the featured slot.
+ */
 interface BlogCardProps {
   post: BlogPost;
   featured?: boolean;
@@ -11,6 +21,9 @@ interface BlogCardProps {
 export function BlogCard({ post, featured = false }: BlogCardProps) {
   const categoryVariant =
     CATEGORY_VARIANT_MAP[post.category] ?? "default";
+
+  const imageSrc = post.thumbnailImage || post.coverImage;
+  const hasImage = !!imageSrc;
 
   return (
     <Link
@@ -27,26 +40,28 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
           ${featured ? "md:flex md:flex-row md:gap-0" : ""}
         `}
       >
-        {/* Visual Header (Image or Color) */}
+        {/* Visual Header — Original database image with perf attributes */}
         <div
           className={`
             border-b-2 border-retro-black dark:border-retro-white overflow-hidden
             ${featured ? "md:w-48 md:border-b-0 md:border-r-2 flex-shrink-0" : ""}
           `}
-          style={{ backgroundColor: !post.thumbnailImage && !post.coverImage ? post.coverColor : undefined }}
+          style={{ backgroundColor: !hasImage ? post.coverColor : undefined }}
           aria-hidden="true"
         >
-          {post.thumbnailImage || post.coverImage ? (
-            <div className="w-full h-full flex items-center justify-center bg-gray-50/50 dark:bg-retro-dark-bg/20">
-              <img
-                src={post.thumbnailImage || post.coverImage}
-                alt=""
-                className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
+          {hasImage ? (
+            <img
+              src={imageSrc}
+              alt=""
+              width={640}
+              height={360}
+              loading="lazy"
+              decoding="async"
+              className="w-full aspect-video transition-transform duration-300 group-hover:scale-105"
+            />
           ) : (
             featured && (
-              <div className="h-full flex items-center justify-center">
+              <div className="h-full flex items-center justify-center aspect-video">
                 <span className="text-5xl font-archivo font-black text-retro-black opacity-20 select-none">
                   {post.title.charAt(0)}
                 </span>
