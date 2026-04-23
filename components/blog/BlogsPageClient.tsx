@@ -39,35 +39,65 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
 
   return (
     <div className="w-full">
-      {/* Page header */}
-      <header className="min-h-[calc(100vh-8px)] flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 text-center lg:text-left">
+      {/* Page header - RetroUI styled hero */}
+      <header className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-10 right-10 w-32 h-32 bg-retro-pink/20 rounded-full blur-3xl -z-10" />
+        <div className="absolute bottom-20 left-10 w-48 h-48 bg-retro-blue/20 rounded-full blur-3xl -z-10" />
+        
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 text-center lg:text-left">
           <div className="w-full lg:w-1/2">
             <h1 className="sr-only">Blogs &amp; Articles | Coding Panda</h1>
-            <div className="relative w-full aspect-square max-w-[360px] sm:max-w-[460px] lg:max-w-[560px] mx-auto lg:mx-0 border-4 border-retro-black shadow-[12px_12px_0_rgba(0,0,0,1)] rounded-xl overflow-hidden bg-white dark:bg-gray-100">
-              <Image
-                src="/coding_panda_hero.png"
-                alt="Coding Panda Hero"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+            <div className="relative group">
+              {/* Image Container with RetroUI NeoBrutalism */}
+              <div className="relative w-full aspect-square max-w-[400px] sm:max-w-[480px] lg:max-w-[580px] mx-auto lg:mx-0 
+                border-[6px] border-retro-black dark:border-retro-white 
+                bg-white dark:bg-retro-black
+                shadow-[12px_12px_0_0_#0A0A0A] dark:shadow-[12px_12px_0_0_#FAFAFA]
+                hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0_0_#0A0A0A] dark:hover:shadow-[4px_4px_0_0_#FAFAFA]
+                transition-all duration-200 ease-in-out
+                rounded-none overflow-hidden"
+              >
+                <Image
+                  src="/coding_panda_hero.png"
+                  alt="Male Coding Panda Hero"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              
+              {/* RetroUI Accent Elements */}
+              <div className="absolute -top-6 -left-6 w-12 h-12 bg-retro-yellow border-4 border-retro-black hidden sm:block rotate-12 z-10" />
+              <div className="absolute -bottom-4 -right-4 w-10 h-10 bg-retro-blue border-4 border-retro-black hidden sm:block -rotate-12 z-10" />
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 space-y-6">
-            <p className="font-space text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-retro-black dark:text-retro-white leading-relaxed xl:leading-relaxed">
-              I write about <span className="font-black underline decoration-retro-yellow decoration-[6px] underline-offset-4">Web Development</span>,{" "}
-              <span className="font-black underline decoration-retro-yellow decoration-[6px] underline-offset-4">Frontend Engineering</span>, and{" "}
-              <span className="font-black underline decoration-retro-yellow decoration-[6px] underline-offset-4">AI/ML (Generative AI)</span> — sharing the real-world lessons, exciting experiments, and hands-on projects I build along the way.
+          <div className="w-full lg:w-1/2 space-y-8">
+            <div className="inline-block px-4 py-2 bg-retro-yellow border-4 border-retro-black shadow-[4px_4px_0_0_#0A0A0A] mb-4">
+              <span className="font-archivo text-retro-black uppercase tracking-widest text-sm font-bold">
+                Developer Journal
+              </span>
+            </div>
+            
+            <p className="font-space text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-retro-black dark:text-retro-white leading-tight font-bold">
+              I code, <span className="bg-retro-pink dark:text-retro-black px-2 py-0.5 border-b-4 border-retro-black inline-block transform -rotate-1">design</span>, and build{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10">Generative AI</span>
+                <span className="absolute bottom-1 left-0 w-full h-4 bg-retro-blue/40 -z-10" />
+              </span> — bridging the gap between code and creativity.
             </p>
-            <p className="font-space text-lg sm:text-xl lg:text-2xl text-retro-black/80 dark:text-retro-white/90 leading-relaxed">
-              From crafting pixel-perfect interfaces to integrating cutting-edge AI into modern web applications, I dive deep into the technologies shaping tomorrow’s digital experiences.
+            
+            <p className="font-space text-xl sm:text-2xl text-retro-black/90 dark:text-retro-white/90 leading-relaxed border-l-8 border-retro-green pl-6 py-2">
+              Deep dives into <span className="font-bold underline decoration-retro-yellow">Frontend Engineering</span>, cloud architectures, and the future of web experiences.
             </p>
-            <p className="font-space text-lg sm:text-xl lg:text-2xl text-retro-black/80 dark:text-retro-white/90 leading-relaxed">
-              Join me on this journey of continuous learning, building, and pushing the boundaries of what’s possible on the web.
-            </p>
+            
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <button className="px-8 py-4 bg-retro-black dark:bg-retro-white text-retro-white dark:text-retro-black font-archivo uppercase text-lg border-4 border-transparent hover:bg-retro-yellow hover:text-retro-black hover:border-retro-black shadow-[8px_8px_0_0_#FDE047] hover:shadow-none transition-all duration-200">
+                Start Reading
+              </button>
+            </div>
           </div>
         </div>
       </header>
