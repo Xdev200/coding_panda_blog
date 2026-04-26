@@ -194,3 +194,11 @@
 
 ## Phase 31: Footer Attribution [COMPLETED]
 - [x] 31.1 Add credits to Footer for Claude.ai, Antigravity, and RetroUI <!-- id: 139 -->
+
+## Phase 32: Open Source Readiness [COMPLETED]
+- [x] 32.1 Create `CONTRIBUTING.md` with engineering standards <!-- id: 140 -->
+- [x] 32.2 Create `CODE_OF_CONDUCT.md` with Contributor Covenant <!-- id: 141 -->
+- [x] 32.3 Create MIT `LICENSE` file <!-- id: 142 -->
+- [x] 32.4 Update `README.md` with contribution and license links <!-- id: 143 -->
+- [x] 32.5 Create `.env.example` for environment configuration <!-- id: 144 -->
+- [x] 32.6 Create `supabase/schema.sql` and add DB setup instructions to README <!-- id: 145 -->
