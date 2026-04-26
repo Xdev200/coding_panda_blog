@@ -151,9 +151,9 @@
 }
 
 /* For cover images within containers that prefer contain behavior */
-.optimized-img-container--cover .optimized-img {
+/* .optimized-img-container--cover .optimized-img {
   object-fit: contain;
-}
+} */
 
 /* <picture> element needs to fill container */
 .optimized-img-container picture {
