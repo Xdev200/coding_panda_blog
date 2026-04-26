@@ -57,7 +57,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
               height={360}
               loading="lazy"
               decoding="async"
-              className="w-full aspect-video transition-transform duration-300 group-hover:scale-105"
+              className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
             featured && (
@@ -84,9 +84,10 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
 
           <h2
             className={`font-archivo font-black text-retro-black dark:text-retro-white leading-tight ${
-              featured ? "text-2xl md:text-3xl" : "text-xl"
+              featured ? "text-h2" : "text-h3"
             }`}
           >
+
             {post.title}
           </h2>
 

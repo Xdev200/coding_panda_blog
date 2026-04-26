@@ -15,18 +15,6 @@ jest.mock("@/components/ui/Badge", () => ({
   CATEGORY_VARIANT_MAP: {},
 }));
 
-// Mock OptimizedImage component
-jest.mock("@/components/ui/OptimizedImage", () => ({
-  OptimizedImage: ({ src, alt }: { src: string; alt: string }) => (
-    <img src={src} alt={alt} data-testid="optimized-image" />
-  ),
-}));
-
-// Mock ImagePreloader component
-jest.mock("@/components/ui/ImagePreloader", () => ({
-  ImagePreloader: () => null,
-}));
-
 // Mock PostActions component (depends on LikeDislike which uses lucide-react)
 jest.mock("@/components/blog/PostActions", () => ({
   __esModule: true,
@@ -69,20 +57,30 @@ describe("BlogPostPage", () => {
       coverImage: "https://example.com/image.jpg"
     });
     
-    const Page = await BlogPostPage({ params: Promise.resolve({ slug: "test-post" }) });
+    // @ts-ignore - params/searchParams types in Next.js 15
+    const Page = await BlogPostPage({ 
+      params: Promise.resolve({ slug: "test-post" }),
+      searchParams: Promise.resolve({}) 
+    });
     render(Page);
     
     expect(screen.getByRole("heading", { level: 1, name: "Test Post" })).toBeInTheDocument();
     expect(screen.getByText("Test Author")).toBeInTheDocument();
-    // Now uses OptimizedImage component
-    expect(screen.getByTestId("optimized-image")).toHaveAttribute("src", "https://example.com/image.jpg");
+    // Now uses native img
+    const coverImg = screen.getByAltText("Test Post");
+    expect(coverImg).toBeInTheDocument();
+    expect(coverImg).toHaveAttribute("src", "https://example.com/image.jpg");
   });
 
   it("calls notFound if post is missing", async () => {
     (postsLib.getPostBySlug as jest.Mock).mockResolvedValue(null);
     
     try {
-        await BlogPostPage({ params: Promise.resolve({ slug: "missing" }) });
+        // @ts-ignore
+        await BlogPostPage({ 
+          params: Promise.resolve({ slug: "missing" }),
+          searchParams: Promise.resolve({})
+        });
     } catch (e) {
         // next.js notFound throws
     }
@@ -97,7 +95,11 @@ describe("BlogPostPage", () => {
         content: undefined
     });
 
-    const Page = await BlogPostPage({ params: Promise.resolve({ slug: "test-post" }) });
+    // @ts-ignore
+    const Page = await BlogPostPage({ 
+      params: Promise.resolve({ slug: "test-post" }),
+      searchParams: Promise.resolve({})
+    });
     render(Page);
 
     expect(screen.getByText(/This is a demo article page/i)).toBeInTheDocument();
@@ -119,7 +121,11 @@ describe("BlogPostPage", () => {
   describe("generateMetadata", () => {
     it("returns correct metadata for a post", async () => {
         (postsLib.getPostBySlug as jest.Mock).mockResolvedValue(MOCK_POST);
-        const metadata = await generateMetadata({ params: Promise.resolve({ slug: "test-post" }) });
+        // @ts-ignore
+        const metadata = await generateMetadata({ 
+          params: Promise.resolve({ slug: "test-post" }),
+          searchParams: Promise.resolve({})
+        });
         expect(metadata.title).toBe("Test Post");
         // Access openGraph safely — Next.js 15 types may vary
         expect(metadata.openGraph).toBeDefined();
@@ -127,7 +133,11 @@ describe("BlogPostPage", () => {
 
     it("returns 'Post Not Found' title if post missing", async () => {
         (postsLib.getPostBySlug as jest.Mock).mockResolvedValue(null);
-        const metadata = await generateMetadata({ params: Promise.resolve({ slug: "missing" }) });
+        // @ts-ignore
+        const metadata = await generateMetadata({ 
+          params: Promise.resolve({ slug: "missing" }),
+          searchParams: Promise.resolve({})
+        });
         expect(metadata.title).toBe("Post Not Found");
     });
   });
