@@ -235,11 +235,11 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
       <div className="font-space text-lg text-retro-black dark:text-retro-white leading-relaxed">
         {post.content ? (
           <div
-            className="text-xs  prose prose-lg prose-neutral dark:prose-invert max-w-none
+            className="prose prose-lg prose-neutral dark:prose-invert max-w-none
               prose-headings:font-archivo prose-headings:font-black prose-headings:text-retro-black dark:prose-headings:text-retro-white
               prose-h2:text-h2 prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-10
               prose-h3:text-h3 prose-h3:mt-8 prose-h3:mb-3
-              prose-p:font-space prose-p:text-body prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-p:leading-relaxed
+              prose-p:font-space prose-p:text-body prose-p:text-retro-black/80 dark:prose-p:text-retro-white/90 prose-p:leading-relaxed
               prose-a:text-retro-black dark:prose-a:text-retro-yellow prose-a:underline prose-a:underline-offset-4 prose-a:decoration-retro-yellow hover:prose-a:decoration-retro-black
               prose-strong:text-retro-black dark:prose-strong:text-retro-white
               prose-img:mx-auto prose-img:max-w-[600px] prose-img:w-full prose-img:my-8 prose-img:border-2 prose-img:border-retro-black dark:prose-img:border-retro-white prose-img:shadow-neo dark:prose-img:shadow-neo-dark

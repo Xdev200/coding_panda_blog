@@ -36,7 +36,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className = "", iconOnly = fa
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center justify-center p-2 border-2 border-black bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none hover:text-white ${link.color}`}
+          className={`flex items-center justify-center p-2 border-2 border-retro-black dark:border-retro-white bg-retro-white dark:bg-retro-dark-surface text-retro-black dark:text-retro-white shadow-neo dark:shadow-neo-dark transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none hover:text-white ${link.color}`}
           title={link.name}
         >
           {link.icon}

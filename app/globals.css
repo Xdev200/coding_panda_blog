@@ -65,11 +65,13 @@
   }
 
   body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    @apply bg-retro-white text-retro-black transition-colors duration-300;
     font-family: 'Space Grotesk', sans-serif;
     -webkit-font-smoothing: antialiased;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    @apply bg-retro-dark-bg text-retro-white;
   }
 
   /* Focus ring reset — handled per-component via Tailwind */
@@ -185,4 +187,71 @@
   .optimized-img {
     opacity: 1;
   }
+}
+
+/* =========================================================================
+   Dark Mode Overrides for Embedded Blog Content
+   ========================================================================= */
+
+/* Targeted overrides for common Tailwind patterns inside the blog content (prose) */
+.dark .prose {
+  /* Fix hardcoded white backgrounds in database-stored content */
+  div[class*="bg-white"], 
+  section[class*="bg-white"], 
+  .bg-white {
+    background-color: #25253E !important; /* retro-dark-surface */
+    color: #FAFAFA !important; /* retro-white */
+    border-color: #FAFAFA !important;
+  }
+
+  /* Fix hardcoded black text */
+  .text-black, 
+  .text-gray-900, 
+  .text-gray-800 {
+    color: #FAFAFA !important;
+  }
+
+  /* Fix hardcoded black borders */
+  .border-black, 
+  .border-gray-900, 
+  .border-gray-800 {
+    border-color: #FAFAFA !important;
+  }
+
+  /* Fix hardcoded shadows to use white shadow in dark mode */
+  div[class*="shadow-"], 
+  button[class*="shadow-"] {
+    --tw-shadow-color: rgba(250, 250, 250, 1) !important;
+    box-shadow: 4px 4px 0px #FAFAFA !important;
+  }
+
+  /* Fix comparison boxes (often used in functional programming posts) */
+  .bg-green-100, .bg-green-50 {
+    background-color: rgba(74, 222, 128, 0.1) !important; /* Green with opacity */
+    border-color: #4ADE80 !important;
+    color: #4ADE80 !important;
+  }
+  .bg-red-100, .bg-red-50, .bg-pink-100 {
+    background-color: rgba(244, 114, 182, 0.1) !important; /* Pink with opacity */
+    border-color: #F472B6 !important;
+    color: #F472B6 !important;
+  }
+
+  /* Ensure syntax highlighting text is readable */
+  pre code {
+    color: inherit; /* Respect parent color if not already handled */
+  }
+
+  /* CTA Boxes (often purple or yellow) */
+  .bg-retro-yellow {
+    color: #0A0A0A !important; /* Keep black text on yellow even in dark mode */
+  }
+  .bg-retro-pink {
+    color: #0A0A0A !important; /* Improve contrast on pink blocks */
+  }
+}
+
+/* Ensure the body transition is smooth */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

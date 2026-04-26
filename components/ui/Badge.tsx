@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 
 const VARIANT_STYLES: Record<string, string> = {
-  default: "bg-retro-yellow text-retro-black",
-  pink: "bg-retro-pink text-retro-black",
-  blue: "bg-retro-blue text-retro-black",
-  green: "bg-retro-green text-retro-black",
-  orange: "bg-retro-orange text-retro-black",
-  purple: "bg-retro-purple text-retro-black",
+  default: "bg-retro-yellow text-retro-black dark:text-retro-black",
+  pink: "bg-retro-pink text-retro-black dark:text-retro-black",
+  blue: "bg-retro-blue text-retro-black dark:text-retro-black",
+  green: "bg-retro-green text-retro-black dark:text-retro-black",
+  orange: "bg-retro-orange text-retro-black dark:text-retro-black",
+  purple: "bg-retro-purple text-retro-black dark:text-retro-black",
   outline: "bg-transparent text-retro-black dark:text-retro-white border-2 border-retro-black dark:border-retro-white",
 };
 

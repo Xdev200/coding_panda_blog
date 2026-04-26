@@ -55,13 +55,13 @@ const LikeDislike: React.FC<LikeDislikeProps> = ({ postId, initialLikes, initial
 
   return (
     <div className="flex flex-col gap-3">
-      <span className="text-sm font-bold uppercase tracking-wider text-gray-500">How's the Article?</span>
+      <span className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">How's the Article?</span>
       <div className="flex gap-4">
         <button
           onClick={() => handleToggle('like')}
           disabled={isLoading}
-          className={`flex items-center gap-2 px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none ${
-            userAction === 'like' ? 'bg-green-400' : 'bg-white hover:bg-green-100'
+          className={`flex items-center gap-2 px-4 py-2 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none ${
+            userAction === 'like' ? 'bg-retro-green' : 'bg-retro-white dark:bg-retro-dark-surface hover:bg-retro-green/10 text-retro-black dark:text-retro-white'
           }`}
         >
           <ThumbsUp className={`w-5 h-5 ${userAction === 'like' ? 'fill-current' : ''}`} />
@@ -71,8 +71,8 @@ const LikeDislike: React.FC<LikeDislikeProps> = ({ postId, initialLikes, initial
         <button
           onClick={() => handleToggle('dislike')}
           disabled={isLoading}
-          className={`flex items-center gap-2 px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none ${
-            userAction === 'dislike' ? 'bg-red-400' : 'bg-white hover:bg-red-100'
+          className={`flex items-center gap-2 px-4 py-2 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none ${
+            userAction === 'dislike' ? 'bg-retro-pink' : 'bg-retro-white dark:bg-retro-dark-surface hover:bg-retro-pink/10 text-retro-black dark:text-retro-white'
           }`}
         >
           <ThumbsDown className={`w-5 h-5 ${userAction === 'dislike' ? 'fill-current' : ''}`} />

@@ -31,13 +31,13 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title, slug, image }) => {
     }
   };
 
-  const buttonBaseClass = "flex items-center justify-center w-10 h-10 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none";
+  const buttonBaseClass = "flex items-center justify-center w-10 h-10 border-2 border-retro-black dark:border-retro-white bg-retro-white dark:bg-retro-dark-surface text-retro-black dark:text-retro-white shadow-neo dark:shadow-neo-dark transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none";
 
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center gap-2">
-        <Share2 className="w-4 h-4 text-gray-500" />
-        <span className="text-sm font-bold uppercase tracking-wider text-gray-500">Share Article</span>
+        <Share2 className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+        <span className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Share Article</span>
       </div>
       <div className="flex flex-wrap gap-3">
         <TwitterShareButton url={shareUrl} title={title}>
