@@ -63,7 +63,7 @@ export function AdminSidebar({ onNavItemClick }: AdminSidebarProps) {
   };
 
   return (
-    <aside className="w-64 min-h-[calc(100vh-4rem)] border-r-2 border-retro-black dark:border-retro-white bg-retro-white dark:bg-retro-dark-surface transition-colors">
+    <aside className="w-64 h-full border-r-2 border-retro-black dark:border-retro-white bg-retro-white dark:bg-retro-dark-surface transition-colors flex flex-col overflow-y-auto">
       {/* Admin Badge */}
       <div className="p-4 border-b-2 border-retro-black dark:border-retro-white">
         <div className="inline-block border-2 border-retro-black dark:border-retro-white bg-retro-green px-3 py-1 shadow-neo dark:shadow-neo-dark">
