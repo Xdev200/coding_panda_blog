@@ -6,6 +6,8 @@ import { CategoryFilter } from "@/components/blog/CategoryFilter";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { getAllPosts, getPostsByTag } from "@/lib/posts";
 import type { BlogPost, BlogCategory } from "@/types/blog";
+import { Pagination } from "@/components/ui/Pagination";
+import { Spinner } from "@/components/ui/Spinner";
 
 interface BlogsPageClientProps {
   initialPosts: BlogPost[];
@@ -16,19 +18,23 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
   const [activeCategory, setActiveCategory] = useState("all");
   const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 6; // Number of posts per page
   const blogGridRef = useRef<HTMLDivElement>(null);
 
   // Fetch posts when category changes
   useEffect(() => {
-    if (activeCategory === "all") {
-      setPosts(initialPosts);
-      return;
-    }
-
     const fetchPosts = async () => {
       setIsLoading(true);
-      const fetchedPosts = await getPostsByTag(activeCategory);
-      setPosts(fetchedPosts);
+      setCurrentPage(1); // Reset to first page on category change
+
+      if (activeCategory === "all") {
+        setPosts(initialPosts);
+      } else {
+        const fetchedPosts = await getPostsByTag(activeCategory);
+        setPosts(fetchedPosts);
+      }
+      
       setIsLoading(false);
     };
     fetchPosts();
@@ -38,9 +44,31 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
     setActiveCategory(categoryId);
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Smooth scroll back to top of grid
+    if (blogGridRef.current) {
+      const offset = 80; // Offset for navbar
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = blogGridRef.current.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   const scrollToGrid = () => {
     blogGridRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Pagination logic
+  const totalPages = Math.ceil(posts.length / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedPosts = posts.slice(startIndex, startIndex + pageSize);
 
   return (
     <div className="w-full">
@@ -52,7 +80,7 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
         
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 text-center lg:text-left">
           <div className="w-full lg:w-1/2">
-            <h1 className="sr-only">Blogs &amp; Articles | Coding Panda</h1>
+            <h1 className="sr-only">Blogs & Articles | Coding Panda</h1>
             <div className="relative group">
               {/* Image Container with RetroUI NeoBrutalism */}
               <div className="relative w-full aspect-square max-w-[400px] sm:max-w-[480px] lg:max-w-[580px] mx-auto lg:mx-0 
@@ -106,7 +134,7 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
         </div>
       </header>
 
-      <div ref={blogGridRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div ref={blogGridRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 scroll-mt-20">
         {/* Category filter */}
         <section className="mb-10" aria-label="Filter posts by category">
         <CategoryFilter
@@ -120,6 +148,10 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
       {!isLoading && (
         <p className="font-space text-sm text-gray-500 dark:text-gray-400 mb-6" aria-live="polite">
           Showing{" "}
+          <strong className="text-retro-black dark:text-retro-white">
+            {startIndex + 1} to {Math.min(startIndex + pageSize, posts.length)}
+          </strong>{" "}
+          of{" "}
           <strong className="text-retro-black dark:text-retro-white">{posts.length}</strong>{" "}
           {posts.length === 1 ? "post" : "posts"}
           {activeCategory !== "all" && (
@@ -134,13 +166,22 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
       )}
 
       {/* Blog grid */}
-      <BlogGrid posts={posts}  />
-
-      {isLoading && (
-        <div className="flex justify-center items-center py-20">
-          <div className="w-12 h-12 border-4 border-retro-black dark:border-retro-white border-t-retro-yellow rounded-full animate-spin"></div>
-        </div>
-      )}
+      <div className="min-h-[400px] relative">
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <Spinner text="Loading Posts..." size={48} />
+          </div>
+        ) : (
+          <>
+            <BlogGrid posts={paginatedPosts} />
+            <Pagination 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </>
+        )}
+      </div>
       </div>
     </div>
   );

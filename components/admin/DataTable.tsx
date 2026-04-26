@@ -9,7 +9,8 @@
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import { Pagination } from "../ui/Pagination";
 
 /**
  * Column definition for the DataTable.
@@ -41,11 +42,13 @@ interface DataTableProps<T> {
   renderActions?: (row: T) => React.ReactNode;
   /** Empty state message */
   emptyMessage?: string;
+  /** Number of items per page (default: 10) */
+  pageSize?: number;
 }
 
 /**
  * Generic DataTable component with NeoBrutalism styling.
- * Renders tabular data with customizable columns and row actions.
+ * Renders tabular data with customizable columns, row actions, and pagination.
  *
  * @template T - The row data type
  * @param props - DataTable properties
@@ -56,7 +59,10 @@ export function DataTable<T>({
   keyAccessor,
   renderActions,
   emptyMessage = "No data found.",
+  pageSize = 10,
 }: DataTableProps<T>) {
+  const [currentPage, setCurrentPage] = useState(1);
+
   /**
    * Resolves a cell value from either a key accessor or a function.
    */
@@ -82,55 +88,73 @@ export function DataTable<T>({
     );
   }
 
+  // Pagination logic
+  const totalPages = Math.ceil(data.length / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedData = data.slice(startIndex, startIndex + pageSize);
+
+  // If current page is out of bounds (can happen if data length changes), reset to page 1
+  if (currentPage > totalPages && totalPages > 0) {
+    setCurrentPage(1);
+  }
+
   return (
-    <div className="border-2 border-retro-black dark:border-retro-white bg-retro-white dark:bg-retro-dark-surface shadow-neo dark:shadow-neo-dark overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr className="border-b-2 border-retro-black dark:border-retro-white bg-retro-yellow/30 dark:bg-retro-dark-bg">
-            {columns.map((col, idx) => (
-              <th
-                key={idx}
-                className={`px-4 py-3 text-left font-archivo text-sm text-retro-black dark:text-retro-white font-black ${
-                  col.className || ""
-                }`}
-              >
-                {col.header}
-              </th>
-            ))}
-            {renderActions && (
-              <th className="px-4 py-3 text-right font-archivo text-sm text-retro-black dark:text-retro-white font-black">
-                Actions
-              </th>
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row) => (
-            <tr
-              key={String(row[keyAccessor])}
-              className="border-b border-retro-black/20 dark:border-retro-white/20 hover:bg-retro-yellow/10 dark:hover:bg-retro-dark-bg/50 transition-colors"
-            >
+    <div className="space-y-4">
+      <div className="border-2 border-retro-black dark:border-retro-white bg-retro-white dark:bg-retro-dark-surface shadow-neo dark:shadow-neo-dark overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b-2 border-retro-black dark:border-retro-white bg-retro-yellow/30 dark:bg-retro-dark-bg">
               {columns.map((col, idx) => (
-                <td
+                <th
                   key={idx}
-                  className={`px-4 py-3 font-space text-sm text-retro-black dark:text-retro-white ${
+                  className={`px-4 py-3 text-left font-archivo text-sm text-retro-black dark:text-retro-white font-black ${
                     col.className || ""
                   }`}
                 >
-                  {getCellValue(row, col.accessor)}
-                </td>
+                  {col.header}
+                </th>
               ))}
               {renderActions && (
-                <td className="px-4 py-3 text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    {renderActions(row)}
-                  </div>
-                </td>
+                <th className="px-4 py-3 text-right font-archivo text-sm text-retro-black dark:text-retro-white font-black">
+                  Actions
+                </th>
               )}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {paginatedData.map((row) => (
+              <tr
+                key={String(row[keyAccessor])}
+                className="border-b border-retro-black/20 dark:border-retro-white/20 hover:bg-retro-yellow/10 dark:hover:bg-retro-dark-bg/50 transition-colors"
+              >
+                {columns.map((col, idx) => (
+                  <td
+                    key={idx}
+                    className={`px-4 py-3 font-space text-sm text-retro-black dark:text-retro-white ${
+                      col.className || ""
+                    }`}
+                  >
+                    {getCellValue(row, col.accessor)}
+                  </td>
+                ))}
+                {renderActions && (
+                  <td className="px-4 py-3 text-right">
+                    <div className="flex items-center justify-end gap-2">
+                      {renderActions(row)}
+                    </div>
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <Pagination 
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 }

@@ -26,7 +26,7 @@ export default function AdminLayout({
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] relative">
+    <div className="flex min-h-screen relative overflow-x-hidden">
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -45,17 +45,23 @@ export default function AdminLayout({
         onClick={() => setIsSidebarOpen(false)}
       />
 
+      {/* Sidebar Container */}
       <div
         className={`
-          fixed lg:static inset-y-0 left-0 z-50 transform lg:transform-none transition-transform duration-300 ease-in-out
+          fixed inset-y-0 left-0 z-50 transform lg:transform-none transition-transform duration-300 ease-in-out
           ${isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}
       >
         <AdminSidebar onNavItemClick={() => setIsSidebarOpen(false)} />
       </div>
 
-      <main className="flex-1 bg-retro-white/50 dark:bg-retro-dark-bg p-4 sm:p-6 lg:p-8 overflow-y-auto transition-colors w-full">
-        {children}
+      {/* Main Content Area */}
+      <main 
+        className="flex-1 bg-retro-white/50 dark:bg-retro-dark-bg p-4 sm:p-6 lg:p-8 transition-colors w-full lg:ml-64 min-h-screen"
+      >
+        <div className="max-w-7xl mx-auto">
+          {children}
+        </div>
       </main>
     </div>
   );
