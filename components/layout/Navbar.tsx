@@ -15,15 +15,14 @@ const ThemeToggle = dynamic(
 export function Navbar() {
   return (
     <header className="border-b-2 border-retro-black dark:border-retro-white bg-retro-yellow dark:bg-retro-dark-bg sticky top-0 z-50 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-0 md:px-8">
+        <div className="flex items-center justify-between h-[var(--header-height)] px-4 md:px-0">
           {/* Logo */}
           <Link
             href="/"
-            className="font-archivo font-black text-retro-black dark:text-retro-yellow text-xl sm:text-2xl tracking-tight hover:underline focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-black dark:focus-visible:ring-retro-yellow transition-colors truncate"
+            className="font-archivo font-black text-retro-black dark:text-retro-yellow text-h3 tracking-tight hover:underline focus:outline-none focus-visible:ring-4 focus-visible:ring-retro-yellow transition-colors truncate"
           >
-            <span className="hidden sm:inline">Coding Panda</span>
-            <span className="sm:hidden">Coding Panda</span>
+            <span>Coding Panda</span>
           </Link>
 
           {/* Actions */}

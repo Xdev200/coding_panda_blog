@@ -139,67 +139,9 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
         <ImagePreloader src={coverImage} />
       )}
 
-      <article className="max-w-3xl mt-8 mx-auto px-4 sm:px-6 lg:px-0 pb-16">
-      {/* ── Header Section ── */}
-      <div className="border-b-2 border-retro-black dark:border-retro-white pb-8 mb-8">
-        {/* Date + Category Badges Row */}
-        <div className="flex items-center gap-4 mb-6 flex-wrap">
-          <p className="font-space text-sm font-medium text-gray-500 dark:text-gray-400">
-            {formatDate(post.date)}
-          </p>
-          {post.tags && post.tags.length > 0 && (
-            <>
-              <span className="font-space text-base text-gray-400 dark:text-gray-500" aria-hidden="true">|</span>
-              <div className="flex items-center gap-3 flex-wrap">
-                {post.tags.slice(0, 2).map((tag) => (
-                  <Badge key={tag} label={tag} variant="outline" />
-                ))}
-              </div>
-            </>
-          )}
-          {post.featured && <Badge label="Featured" variant="outline" />}
-        </div>
-
-        {/* Title */}
-        <h1 className="font-archivo font-black text-3xl sm:text-4xl lg:text-5xl text-retro-black dark:text-retro-white leading-tight mb-4">
-          {post.title}
-        </h1>
-
-        {/* Excerpt */}
-        <p className="font-space text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-10">
-          {post.excerpt}
-        </p>
-
-        {/* Author + Share Row */}
-        <div className="flex justify-between items-center">
-          <div className="flex gap-4 items-center">
-            {/* Author Avatar */}
-            <div className="relative flex h-12 w-12 border-2 border-retro-black dark:border-retro-white rounded-full overflow-hidden bg-retro-yellow items-center justify-center">
-              <span className="font-archivo font-black text-lg text-retro-black select-none">
-                {post.author
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")
-                  .toUpperCase()}
-              </span>
-            </div>
-            {/* Author Name */}
-            <div>
-              <h5 className="font-archivo text-lg font-black text-retro-black dark:text-retro-white">
-                {post.author}
-              </h5>
-              <p className="font-space text-sm text-gray-500 dark:text-gray-400">
-                {formatReadTime(post.readTime)}
-              </p>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-      {/* ── Banner Image ── */}
-      <div className="relative w-full mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
+      <article className="max-w-3xl mt-4 sm:mt-8 mx-auto pb-16">
+      {/* ── Banner Image (Top on mobile) ── */}
+      <div className="relative w-full mb-8 border-y-2 sm:border-2 border-retro-black dark:border-retro-white shadow-none sm:shadow-neo dark:sm:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
         {coverImage ? (
           <img
             src={coverImage}
@@ -209,26 +151,13 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
             loading="eager"
             decoding="sync"
             fetchPriority="high"
-            className="w-full aspect-video object-contain"
+            className="w-full aspect-video object-cover"
           />
         ) : (
-          <>
-            {/* Decorative fallback pattern */}
-            <div
-              className="absolute inset-0 opacity-10 bg-retro-yellow aspect-video"
-              style={{
-                backgroundImage:
-                  "linear-gradient(45deg, #0A0A0A 25%, transparent 25%), linear-gradient(-45deg, #0A0A0A 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #0A0A0A 75%), linear-gradient(-45deg, transparent 75%, #0A0A0A 75%)",
-                backgroundSize: "20px 20px",
-                backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
-              }}
-            />
-
-            {/* Center icon + label */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 aspect-video">
-              <svg
+          <div className="aspect-video bg-retro-yellow/5 flex flex-col items-center justify-center gap-2">
+             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-12 w-12 text-retro-black/40 dark:text-retro-white/40"
+                className="h-12 w-12 text-retro-black/10 dark:text-retro-white/10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -241,23 +170,76 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
                   d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              <span className="font-archivo font-black text-sm tracking-widest uppercase text-retro-black/40 dark:text-retro-white/40 select-none">
-                {post.title}
-              </span>
-            </div>
-          </>
+             <span className="font-archivo font-black text-[10px] uppercase tracking-widest opacity-20">NO IMAGE</span>
+          </div>
         )}
       </div>
+
+      <div className="px-4 sm:px-0">
+        {/* ── Header Section ── */}
+        <div className=" ">
+          {/* Date + Category Badges Row */}
+          <div className="flex items-baseline gap-3 mb-6 flex-wrap">
+            <p className="font-space text-xs font-medium text-gray-500 dark:text-gray-400">
+              {formatDate(post.date)}
+            </p>
+            {/* {post.tags && post.tags.length > 0 && (
+              <>
+                <span className="text-gray-300 dark:text-gray-600" aria-hidden="true">|</span>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {post.tags.slice(0, 2).map((tag) => (
+                    <Badge key={tag} label={tag} variant="outline" className="text-[10px] py-0 px-2" />
+                  ))}
+                </div>
+              </>
+            )} */}
+            {post.featured && <Badge label="Featured" variant="outline" className="text-[10px] py-0 px-2" />}
+          </div>
+
+          {/* Title */}
+          {/* <h1 className="font-archivo font-black text-h1 text-retro-black dark:text-retro-white leading-tight mb-6">
+            {post.title}
+          </h1> */}
+
+          {/* Excerpt */}
+          {/* <p className="font-space text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+            {post.excerpt}
+          </p> */}
+
+          {/* Author + Read Time */}
+          {/* <div className="flex items-center gap-3">
+              <div className="relative flex h-10 w-10 border-2 border-retro-black dark:border-retro-white rounded-full overflow-hidden bg-retro-yellow items-center justify-center">
+                <span className="font-archivo font-black text-sm text-retro-black select-none">
+                  {post.author
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .toUpperCase()}
+                </span>
+              </div>
+              <div>
+                <h5 className="font-archivo text-sm font-black text-retro-black dark:text-retro-white">
+                  {post.author}
+                </h5>
+                <p className="font-space text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                  {formatReadTime(post.readTime)}
+                </p>
+              </div>
+          </div> */}
+        </div>
+      </div>
+
+      <div className="px-4 sm:px-0">
 
       {/* ── Article Content ── */}
       <div className="font-space text-lg text-retro-black dark:text-retro-white leading-relaxed">
         {post.content ? (
           <div
-            className="prose prose-lg prose-neutral dark:prose-invert max-w-none
+            className="text-xs  prose prose-lg prose-neutral dark:prose-invert max-w-none
               prose-headings:font-archivo prose-headings:font-black prose-headings:text-retro-black dark:prose-headings:text-retro-white
-              prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-10
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:font-space prose-p:text-lg prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-p:leading-relaxed
+              prose-h2:text-h2 prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-10
+              prose-h3:text-h3 prose-h3:mt-8 prose-h3:mb-3
+              prose-p:font-space prose-p:text-body prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-p:leading-relaxed
               prose-a:text-retro-black dark:prose-a:text-retro-yellow prose-a:underline prose-a:underline-offset-4 prose-a:decoration-retro-yellow hover:prose-a:decoration-retro-black
               prose-strong:text-retro-black dark:prose-strong:text-retro-white
               prose-img:mx-auto prose-img:max-w-[600px] prose-img:w-full prose-img:my-8 prose-img:border-2 prose-img:border-retro-black dark:prose-img:border-retro-white prose-img:shadow-neo dark:prose-img:shadow-neo-dark
@@ -265,7 +247,7 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
               prose-code:bg-retro-black prose-code:text-retro-yellow prose-code:px-2 prose-code:py-0.5 prose-code:text-sm prose-code:font-mono prose-code:rounded-none prose-code:border-2 prose-code:border-retro-black
               prose-pre:bg-retro-black prose-pre:border-2 prose-pre:border-retro-black dark:prose-pre:border-retro-white prose-pre:shadow-neo dark:prose-pre:shadow-neo-dark
               prose-ul:list-disc prose-ol:list-decimal
-              prose-li:font-space prose-li:text-lg"
+              prose-li:font-space prose-li:text-body"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         ) : (
@@ -314,6 +296,7 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
       >
         ← Back to blogs
       </Link>
+      </div>
     </article>
     </>
   );

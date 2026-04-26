@@ -16,6 +16,10 @@ jest.mock("next/image", () => ({
   default: (props: any) => <img {...props} />,
 }));
 
+jest.mock("@/components/ui/Spinner", () => ({
+  Spinner: () => <div data-testid="spinner">Loading...</div>,
+}));
+
 const MOCK_CATEGORIES = [
   { id: "all", label: "All", count: 2 },
   { id: "tech", label: "Tech", count: 1 },
@@ -35,7 +39,9 @@ const MOCK_INITIAL_POSTS = [
     tags: ["tech"], 
     readTime: 5, 
     coverColor: "blue", 
-    featured: false 
+    featured: false,
+    isPublished: true,
+    useStaticImage: false
   },
   { 
     id: "2", 
@@ -49,7 +55,9 @@ const MOCK_INITIAL_POSTS = [
     tags: ["life"], 
     readTime: 5, 
     coverColor: "green", 
-    featured: false 
+    featured: false,
+    isPublished: true,
+    useStaticImage: false
   },
 ];
 

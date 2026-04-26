@@ -57,7 +57,7 @@ export default function AdminLayout({
 
       {/* Main Content Area */}
       <main 
-        className="flex-1 bg-retro-white/50 dark:bg-retro-dark-bg p-4 sm:p-6 lg:p-8 transition-colors w-full lg:ml-64 min-h-screen"
+        className="flex-1 bg-retro-white/50 dark:bg-retro-dark-bg p-[var(--container-padding)] transition-colors w-full lg:ml-64 min-h-screen"
       >
         <div className="max-w-7xl mx-auto">
           {children}
