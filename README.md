@@ -470,7 +470,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 <br />
 
-**Built with 🖤 and thick borders by [XDEV200](https://github.com/XDEV200)**
+**Built with 🖤  by [XDEV200](https://github.com/XDEV200)**
 
 *If this project helped you, consider giving it a ⭐ — it means more than you think.*
 

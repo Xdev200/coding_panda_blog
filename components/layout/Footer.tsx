@@ -40,9 +40,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-6">
-          <p className="font-space text-body-xs text-gray-500 dark:text-gray-400">
-            © {year} CodingPanda Powered by XDEV200 · MIT License · Built with ♥ and thick borders
+        <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-space text-xs text-gray-500 dark:text-gray-400">
+            © {year} CodingPanda · Powered by XDEV200 · MIT License · Built with ♥
+          </p>
+          <p className="font-space text-xs text-gray-500 dark:text-gray-400">
+            Brought to life with the support of Claude.ai, Antigravity, and RetroUI.dev
           </p>
         </div>
       </div>
