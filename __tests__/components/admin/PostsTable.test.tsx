@@ -45,7 +45,7 @@ describe("PostsTable", () => {
         render(<PostsTable posts={MOCK_POSTS} />);
         expect(screen.getByText("Yes")).toBeInTheDocument(); // Featured
         expect(screen.getByText("a")).toBeInTheDocument(); // Tag
-        expect(screen.getByText("None")).toBeInTheDocument(); // No tags for p2
+        expect(screen.getAllByText("None").length).toBeGreaterThan(0); // Multiple 'None' for images and tags
     });
 
     it("shows confirm dialog on delete", () => {

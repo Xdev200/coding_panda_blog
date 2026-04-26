@@ -73,7 +73,7 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
   return (
     <div className="w-full">
       {/* Page header - RetroUI styled hero */}
-      <header className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
+      <header className="relative min-h-[calc(100vh-var(--header-height))] flex flex-col justify-center max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-24 overflow-hidden">
         {/* Background Decorative Elements */}
         <div className="absolute top-10 right-10 w-32 h-32 bg-retro-pink/20 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-20 left-10 w-48 h-48 bg-retro-blue/20 rounded-full blur-3xl -z-10" />
@@ -114,12 +114,12 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
               </span>
             </div>
             
-            <p className="font-space text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-retro-black dark:text-retro-white leading-tight font-bold">
+            <p className="font-space text-display text-retro-black dark:text-retro-white leading-tight font-bold">
               I build intelligent web experiences — where code meets AI.
             </p>
             
-            <p className="font-space text-xl sm:text-2xl text-retro-black/90 dark:text-retro-white/90 leading-relaxed border-l-8 border-retro-green pl-6 py-2">
-              <span className="">Frontend Engineering,</span>System design, and hands-on Generative AI experiments that actually ship.
+            <p className="font-space text-h3 text-retro-black/90 dark:text-retro-white/90 leading-relaxed border-l-8 border-retro-green pl-6 py-2">
+              <span className="">Frontend Engineering,</span> System design, and hands-on Generative AI experiments that actually ship.
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
@@ -134,9 +134,9 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
         </div>
       </header>
 
-      <div ref={blogGridRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 scroll-mt-20">
+      <div ref={blogGridRef} className="max-w-7xl mx-auto px-[var(--container-padding)] pb-[var(--section-gap)] scroll-mt-20">
         {/* Category filter */}
-        <section className="mb-10" aria-label="Filter posts by category">
+        <section className="mb-[var(--grid-gap)]" aria-label="Filter posts by category">
         <CategoryFilter
           categories={categories}
           activeCategory={activeCategory}
