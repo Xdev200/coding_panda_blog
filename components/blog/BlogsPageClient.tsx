@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { CategoryFilter } from "@/components/blog/CategoryFilter";
 import { BlogGrid } from "@/components/blog/BlogGrid";
@@ -16,6 +16,7 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
   const [activeCategory, setActiveCategory] = useState("all");
   const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
   const [isLoading, setIsLoading] = useState(false);
+  const blogGridRef = useRef<HTMLDivElement>(null);
 
   // Fetch posts when category changes
   useEffect(() => {
@@ -35,6 +36,10 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
 
   const handleCategorySelect = (categoryId: string) => {
     setActiveCategory(categoryId);
+  };
+
+  const scrollToGrid = () => {
+    blogGridRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -77,24 +82,23 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="inline-block px-4 py-2 bg-retro-yellow border-4 border-retro-black shadow-[4px_4px_0_0_#0A0A0A] mb-4">
               <span className="font-archivo text-retro-black uppercase tracking-widest text-sm font-bold">
-                Developer Journal
+                Frontend & AI Journal
               </span>
             </div>
             
             <p className="font-space text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-retro-black dark:text-retro-white leading-tight font-bold">
-              I code, <span className="bg-retro-pink dark:text-retro-black px-2 py-0.5 border-b-4 border-retro-black inline-block transform -rotate-1">design</span>, and build{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">Generative AI</span>
-                <span className="absolute bottom-1 left-0 w-full h-4 bg-retro-blue/40 -z-10" />
-              </span> — bridging the gap between code and creativity.
+              I build intelligent web experiences — where code meets AI.
             </p>
             
             <p className="font-space text-xl sm:text-2xl text-retro-black/90 dark:text-retro-white/90 leading-relaxed border-l-8 border-retro-green pl-6 py-2">
-              Deep dives into <span className="font-bold underline decoration-retro-yellow">Frontend Engineering</span>, cloud architectures, and the future of web experiences.
+              <span className="">Frontend Engineering,</span>System design, and hands-on Generative AI experiments that actually ship.
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <button className="px-8 py-4 bg-retro-black dark:bg-retro-white text-retro-white dark:text-retro-black font-archivo uppercase text-lg border-4 border-transparent hover:bg-retro-yellow hover:text-retro-black hover:border-retro-black shadow-[8px_8px_0_0_#FDE047] hover:shadow-none transition-all duration-200">
+              <button 
+                onClick={scrollToGrid}
+                className="px-8 py-4 bg-retro-black dark:bg-retro-white text-retro-white dark:text-retro-black font-archivo uppercase text-lg border-4 border-transparent hover:bg-retro-yellow hover:text-retro-black hover:border-retro-black shadow-[8px_8px_0_0_#FDE047] hover:shadow-none transition-all duration-200"
+              >
                 Start Reading
               </button>
             </div>
@@ -102,7 +106,7 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div ref={blogGridRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         {/* Category filter */}
         <section className="mb-10" aria-label="Filter posts by category">
         <CategoryFilter
@@ -130,7 +134,7 @@ export default function BlogsPageClient({ initialPosts, categories }: BlogsPageC
       )}
 
       {/* Blog grid */}
-      <BlogGrid posts={posts} />
+      <BlogGrid posts={posts}  />
 
       {isLoading && (
         <div className="flex justify-center items-center py-20">
