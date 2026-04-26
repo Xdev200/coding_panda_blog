@@ -22,7 +22,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
   const categoryVariant =
     CATEGORY_VARIANT_MAP[post.category] ?? "default";
 
-  const imageSrc = post.thumbnailImage || post.coverImage;
+  const imageSrc = post.useStaticImage ? "/readme-banner.png" : (post.thumbnailImage || post.coverImage);
   const hasImage = !!imageSrc;
 
   return (

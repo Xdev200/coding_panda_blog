@@ -12,6 +12,7 @@ export const blogService = {
     const { data, error } = await supabase
       .from("posts")
       .select("*")
+      .eq("is_published", true)
       .lte("date", new Date().toISOString().split("T")[0])
       .order("date", { ascending: false });
 
@@ -26,13 +27,17 @@ export const blogService = {
   /**
    * Fetches a single post by slug.
    */
-  async getPostBySlug(slug: string): Promise<BlogPost | undefined> {
-    const { data, error } = await supabase
+  async getPostBySlug(slug: string, showUnpublished = false): Promise<BlogPost | undefined> {
+    let query = supabase
       .from("posts")
       .select("*")
-      .eq("slug", slug)
-      .lte("date", new Date().toISOString().split("T")[0])
-      .single();
+      .eq("slug", slug);
+    
+    if (!showUnpublished) {
+      query = query.eq("is_published", true).lte("date", new Date().toISOString().split("T")[0]);
+    }
+
+    const { data, error } = await query.single();
 
     if (error) {
       console.error(`Error fetching post with slug ${slug}:`, error);
@@ -52,6 +57,7 @@ export const blogService = {
       .from("posts")
       .select("*")
       .eq("category", category)
+      .eq("is_published", true)
       .lte("date", new Date().toISOString().split("T")[0])
       .order("date", { ascending: false });
 
@@ -73,6 +79,7 @@ export const blogService = {
       .from("posts")
       .select("*")
       .contains("tags", [tag])
+      .eq("is_published", true)
       .lte("date", new Date().toISOString().split("T")[0])
       .order("date", { ascending: false });
 
@@ -92,6 +99,7 @@ export const blogService = {
       .from("posts")
       .select("*")
       .eq("featured", true)
+      .eq("is_published", true)
       .lte("date", new Date().toISOString().split("T")[0])
       .order("date", { ascending: false });
 
@@ -108,7 +116,11 @@ export const blogService = {
    */
   async getAllTags(): Promise<BlogCategory[]> {
     const today = new Date().toISOString().split("T")[0];
-    const { data: posts } = await supabase.from("posts").select("id").lte("date", today);
+    const { data: posts } = await supabase
+      .from("posts")
+      .select("id")
+      .eq("is_published", true)
+      .lte("date", today);
     const totalPosts = posts?.length || 0;
 
     const { data: tags, error } = await supabase
@@ -124,12 +136,12 @@ export const blogService = {
     ];
 
     // For each tag, we want the count of posts that contain it
-    // This is a bit expensive if done individually, so we can fetch all posts and count or do a count query
     for (const tag of tags || []) {
       const { count } = await supabase
         .from("posts")
         .select("id", { count: "exact", head: true })
         .contains("tags", [tag.name])
+        .eq("is_published", true)
         .lte("date", today);
       
       categories.push({
@@ -163,6 +175,8 @@ export const blogService = {
       dislikesCount: dbPost.dislikes_count || 0,
       tags: dbPost.tags || [],
       featured: dbPost.featured,
+      isPublished: dbPost.is_published || false,
+      useStaticImage: dbPost.use_static_image || false,
     };
   },
 };

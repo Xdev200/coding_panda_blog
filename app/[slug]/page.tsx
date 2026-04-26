@@ -9,6 +9,7 @@ import { ImagePreloader } from "@/components/ui/ImagePreloader";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateStaticParams() {
@@ -16,25 +17,32 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const sParams = await searchParams;
+  const isPreview = sParams.preview === "true";
+  
+  const post = await getPostBySlug(slug, isPreview);
   if (!post) return { title: "Post Not Found" };
 
   const url = `https://codingpanda.taqnik.in/${slug}`;
 
+  // Handle static images for metadata
+  const coverImage = post.useStaticImage ? "/readme-banner.png" : post.coverImage;
+  const thumbImage = post.useStaticImage ? "/readme-banner.png" : post.thumbnailImage;
+
   const images = [];
-  if (post.thumbnailImage) {
+  if (thumbImage) {
     images.push({
-      url: post.thumbnailImage,
+      url: thumbImage,
       width: 400,
       height: 400,
       alt: `Thumbnail for ${post.title}`,
     });
   }
-  if (post.coverImage) {
+  if (coverImage) {
     images.push({
-      url: post.coverImage,
+      url: coverImage,
       width: 1200,
       height: 630,
       alt: post.title,
@@ -73,21 +81,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
+export default async function BlogPostPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const sParams = await searchParams;
+  const isPreview = sParams.preview === "true";
+  
+  const post = await getPostBySlug(slug, isPreview);
 
   if (!post) notFound();
 
-  const categoryVariant = CATEGORY_VARIANT_MAP[post.category] ?? "default";
-
+  // Handle static images
+  const coverImage = post.useStaticImage ? "/readme-banner.png" : post.coverImage;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "image": post.coverImage || "https://codingpanda.taqnik.in/readme-banner.png",
+    "image": coverImage || "https://codingpanda.taqnik.in/readme-banner.png",
     "datePublished": post.date,
     "author": {
       "@type": "Person",
@@ -114,9 +125,18 @@ export default async function BlogPostPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      {/* Preview Banner */}
+      {isPreview && (
+        <div className="bg-retro-yellow border-b-4 border-retro-black dark:border-retro-white py-2 px-4 text-center sticky top-0 z-50">
+          <p className="font-space font-bold text-retro-black">
+            PREVIEW MODE: This post is not yet published.
+          </p>
+        </div>
+      )}
+
       {/* Preload critical cover image for LCP optimization */}
-      {post.coverImage && (
-        <ImagePreloader src={post.coverImage} />
+      {coverImage && (
+        <ImagePreloader src={coverImage} />
       )}
 
       <article className="max-w-3xl mt-8 mx-auto px-4 sm:px-6 lg:px-0 pb-16">
@@ -178,11 +198,11 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* ── Banner Image — original database URL with perf hints ── */}
+      {/* ── Banner Image ── */}
       <div className="relative w-full mb-10 border-2 border-retro-black dark:border-retro-white shadow-neo dark:shadow-neo-dark overflow-hidden bg-retro-white dark:bg-retro-dark-surface">
-        {post.coverImage ? (
+        {coverImage ? (
           <img
-            src={post.coverImage}
+            src={coverImage}
             alt={post.title}
             width={1280}
             height={720}
@@ -227,8 +247,6 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </>
         )}
-
-
       </div>
 
       {/* ── Article Content ── */}

@@ -25,6 +25,8 @@ export interface BlogPost {
   dislikesCount?: number; // New: Dislike count
   tags: string[];
   featured?: boolean;
+  isPublished: boolean; // New: Draft/Publish status
+  useStaticImage: boolean; // New: Static vs Database image
 }
 
 /**
@@ -60,6 +62,8 @@ export interface CreatePostInput {
   category: string;
   tags: string[];
   featured: boolean;
+  is_published: boolean; // New
+  use_static_image: boolean; // New
   cover_color: string;
   cover_image?: string;
   thumbnail_image?: string; // New
@@ -80,6 +84,8 @@ export interface UpdatePostInput {
   category?: string;
   tags?: string[];
   featured?: boolean;
+  is_published?: boolean; // New
+  use_static_image?: boolean; // New
   cover_color?: string;
   cover_image?: string;
   thumbnail_image?: string; // New

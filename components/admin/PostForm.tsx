@@ -409,20 +409,54 @@ export function PostForm({ post, formAction, isPending }: PostFormProps) {
         </div>
 
         {/* Featured Toggle */}
-        <div className="flex items-center gap-3">
-          <input
-            id="featured"
-            name="featured"
-            type="checkbox"
-            defaultChecked={post?.featured || false}
-            className="w-5 h-5 border-2 border-retro-black dark:border-retro-white accent-retro-yellow"
-          />
-          <label
-            htmlFor="featured"
-            className="font-space font-bold text-sm text-retro-black dark:text-retro-white"
-          >
-            Featured Post
-          </label>
+        <div className="flex flex-wrap gap-6">
+          <div className="flex items-center gap-3">
+            <input
+              id="featured"
+              name="featured"
+              type="checkbox"
+              defaultChecked={post?.featured || false}
+              className="w-5 h-5 border-2 border-retro-black dark:border-retro-white accent-retro-yellow"
+            />
+            <label
+              htmlFor="featured"
+              className="font-space font-bold text-sm text-retro-black dark:text-retro-white"
+            >
+              Featured Post
+            </label>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <input
+              id="is_published"
+              name="is_published"
+              type="checkbox"
+              defaultChecked={post?.isPublished || false}
+              className="w-5 h-5 border-2 border-retro-black dark:border-retro-white accent-retro-green"
+            />
+            <label
+              htmlFor="is_published"
+              className="font-space font-bold text-sm text-retro-black dark:text-retro-white"
+            >
+              Published
+            </label>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <input
+              id="use_static_image"
+              name="use_static_image"
+              type="checkbox"
+              defaultChecked={post?.useStaticImage || false}
+              className="w-5 h-5 border-2 border-retro-black dark:border-retro-white accent-retro-blue"
+            />
+            <label
+              htmlFor="use_static_image"
+              className="font-space font-bold text-sm text-retro-black dark:text-retro-white"
+            >
+              Use Static Image
+            </label>
+          </div>
         </div>
 
         {/* Tags */}

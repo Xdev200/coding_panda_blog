@@ -10,8 +10,8 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
   return blogService.getAllPosts();
 };
 
-export const getPostBySlug = async (slug: string): Promise<BlogPost | undefined> => {
-  return blogService.getPostBySlug(slug);
+export const getPostBySlug = async (slug: string, showUnpublished = false): Promise<BlogPost | undefined> => {
+  return blogService.getPostBySlug(slug, showUnpublished);
 };
 
 export const getPostsByCategory = async (category: string): Promise<BlogPost[]> => {

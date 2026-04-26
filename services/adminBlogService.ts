@@ -50,6 +50,8 @@ function mapSupabasePost(dbPost: Record<string, unknown>): BlogPost {
     dislikesCount: (dbPost.dislikes_count as number) || 0,
     tags: (dbPost.tags as string[]) || [],
     featured: dbPost.featured as boolean | undefined,
+    isPublished: (dbPost.is_published as boolean) || false,
+    useStaticImage: (dbPost.use_static_image as boolean) || false,
   };
 }
 
@@ -123,6 +125,8 @@ export const adminBlogService = {
         category: input.category,
         tags: input.tags,
         featured: input.featured,
+        is_published: input.is_published,
+        use_static_image: input.use_static_image,
         cover_color: input.cover_color,
         cover_image: input.cover_image,
         thumbnail_image: input.thumbnail_image,
@@ -161,6 +165,8 @@ export const adminBlogService = {
     if (input.category !== undefined) updateData.category = input.category;
     if (input.tags !== undefined) updateData.tags = input.tags;
     if (input.featured !== undefined) updateData.featured = input.featured;
+    if (input.is_published !== undefined) updateData.is_published = input.is_published;
+    if (input.use_static_image !== undefined) updateData.use_static_image = input.use_static_image;
     if (input.cover_color !== undefined)
       updateData.cover_color = input.cover_color;
     if (input.cover_image !== undefined)
