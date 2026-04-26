@@ -1,0 +1,128 @@
+
+> coding-panda-blog@1.0.0 test
+> jest --coverage __tests__/app/BlogPostPage.test.tsx
+
+FAIL __tests__/app/BlogPostPage.test.tsx
+  BlogPostPage
+    ✓ renders the blog post correctly (33 ms)
+    ✓ calls notFound if post is missing (2 ms)
+    ✕ renders fallback when cover image and content are missing (4 ms)
+    generateStaticParams
+      ✓ returns slugs for all posts
+    generateMetadata
+      ✓ returns correct metadata for a post (1 ms)
+      ✓ returns 'Post Not Found' title if post missing
+
+  ● BlogPostPage › renders fallback when cover image and content are missing
+
+    expect(received).toBeInTheDocument()
+
+    received value must be an HTMLElement or an SVGElement.
+    Received has value: null
+
+      105 |     expect(screen.getByText(/This is a demo article page/i)).toBeInTheDocument();
+      106 |     // Verify fallback heart pattern / svg exists
+    > 107 |     expect(document.querySelector('svg')).toBeInTheDocument();
+          |                                           ^
+      108 |   });
+      109 |
+      110 |   describe("generateStaticParams", () => {
+
+      at __EXTERNAL_MATCHER_TRAP__ (node_modules/expect/build/index.js:325:30)
+      at Object.throwingMatcher [as toBeInTheDocument] (node_modules/expect/build/index.js:326:15)
+      at Object.toBeInTheDocument (__tests__/app/BlogPostPage.test.tsx:107:43)
+
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------|---------|----------|---------|---------|-------------------
+All files               |    5.86 |     5.71 |    5.07 |    5.79 |                   
+ app                    |       0 |      100 |       0 |       0 |                   
+  robots.ts             |       0 |      100 |       0 |       0 | 4                 
+  sitemap.ts            |       0 |      100 |       0 |       0 | 5-17              
+ app/[slug]             |   93.93 |    78.94 |     100 |   93.33 |                   
+  page.tsx              |   93.93 |    78.94 |     100 |   93.33 | 36,44             
+ app/admin              |       0 |        0 |       0 |       0 |                   
+  layout.tsx            |       0 |        0 |       0 |       0 | 26-55             
+  loading.tsx           |       0 |      100 |       0 |       0 | 7                 
+  page.tsx              |       0 |      100 |       0 |       0 | 22-27             
+ app/admin/posts        |       0 |        0 |       0 |       0 |                   
+  actions.ts            |       0 |        0 |       0 |       0 | 26-222            
+  loading.tsx           |       0 |      100 |       0 |       0 | 7                 
+  page.tsx              |       0 |      100 |       0 |       0 | 19-21             
+ app/admin/posts/[id]   |       0 |        0 |       0 |       0 |                   
+  page.tsx              |       0 |        0 |       0 |       0 | 24-31             
+ app/admin/posts/new    |       0 |      100 |       0 |       0 |                   
+  page.tsx              |       0 |      100 |       0 |       0 | 17                
+ app/admin/users        |       0 |      100 |       0 |       0 |                   
+  actions.ts            |       0 |      100 |       0 |       0 | 24-65             
+  page.tsx              |       0 |      100 |       0 |       0 | 19-21             
+ app/admin/users/[id]   |       0 |        0 |       0 |       0 |                   
+  page.tsx              |       0 |        0 |       0 |       0 | 24-31             
+ app/admin/users/new    |       0 |      100 |       0 |       0 |                   
+  page.tsx              |       0 |      100 |       0 |       0 | 17                
+ app/api/blogs          |       0 |        0 |       0 |       0 |                   
+  route.ts              |       0 |        0 |       0 |       0 | 5-20              
+ app/auth/callback      |       0 |        0 |       0 |       0 |                   
+  route.ts              |       0 |        0 |       0 |       0 | 18-31             
+ app/login              |       0 |        0 |       0 |       0 |                   
+  actions.ts            |       0 |        0 |       0 |       0 | 24-56             
+  page.tsx              |       0 |        0 |       0 |       0 | 16-33             
+ components             |       0 |        0 |       0 |       0 |                   
+  GoogleAnalytics.tsx   |       0 |        0 |       0 |       0 | 5-17              
+  ThemeProvider.tsx     |       0 |      100 |       0 |       0 | 7                 
+ components/admin       |       0 |        0 |       0 |       0 |                   
+  AdminSidebar.tsx      |       0 |        0 |       0 |       0 | 34-79             
+  DataTable.tsx         |       0 |        0 |       0 |       0 | 64-131            
+  PostForm.tsx          |       0 |        0 |       0 |       0 | 36-485            
+  PostsTable.tsx        |       0 |        0 |       0 |       0 | 25-213            
+  StatsCard.tsx         |       0 |        0 |       0 |       0 | 38                
+  UserForm.tsx          |       0 |        0 |       0 |       0 | 35-125            
+  UsersTable.tsx        |       0 |        0 |       0 |       0 | 20-99             
+ components/blog        |       0 |        0 |       0 |       0 |                   
+  BlogCard.tsx          |       0 |        0 |       0 |       0 | 23-28             
+  BlogGrid.tsx          |       0 |        0 |       0 |       0 | 9-32              
+  BlogsPageClient.tsx   |       0 |        0 |       0 |       0 | 18-73             
+  CategoryFilter.tsx    |       0 |        0 |       0 |       0 | 17-25             
+  LikeDislike.tsx       |       0 |        0 |       0 |       0 | 13-72             
+  PostActions.tsx       |       0 |      100 |       0 |       0 | 14-15             
+  ShareButtons.tsx      |       0 |        0 |       0 |       0 | 20-36             
+ components/layout      |       0 |        0 |       0 |       0 |                   
+  Footer.tsx            |       0 |      100 |       0 |       0 | 4-28              
+  Navbar.tsx            |       0 |      100 |       0 |       0 | 7-16              
+  SocialLinks.tsx       |       0 |        0 |       0 |       0 | 9-34              
+ components/ui          |     7.4 |     3.57 |      10 |       8 |                   
+  Badge.tsx             |       0 |        0 |       0 |       0 | 3-28              
+  Button.tsx            |       0 |        0 |       0 |       0 | 4-31              
+  ImagePreloader.tsx    |   66.66 |       50 |     100 |     100 | 26                
+  Pagination.tsx        |       0 |        0 |       0 |       0 | 30-57             
+  Spinner.tsx           |       0 |        0 |       0 |       0 | 35-63             
+  ThemeToggle.tsx       |       0 |        0 |       0 |       0 | 8-26              
+ lib                    |       0 |        0 |       0 |       0 |                   
+  posts.ts              |       0 |        0 |       0 |       0 | 9-40              
+  supabase.ts           |       0 |        0 |     100 |       0 | 3-6               
+  utils.ts              |       0 |        0 |       0 |       0 | 3-26              
+ lib/images             |   22.95 |    11.76 |    5.88 |      25 |                   
+  LazyImageObserver.ts  |    6.45 |        0 |       0 |     7.4 | 39-138            
+  constants.ts          |     100 |      100 |     100 |     100 |                   
+  imageUtils.ts         |      10 |       25 |    9.09 |   10.52 | 34-204            
+  index.ts              |       0 |        0 |       0 |       0 |                   
+ lib/supabase           |       0 |        0 |       0 |       0 |                   
+  admin.ts              |       0 |        0 |       0 |       0 | 21-30             
+  client.ts             |       0 |      100 |       0 |       0 | 19                
+  middleware.ts         |       0 |        0 |       0 |       0 | 21-84             
+  server.ts             |       0 |      100 |       0 |       0 | 20-33             
+ services               |       0 |        0 |       0 |       0 |                   
+  adminBlogService.ts   |       0 |        0 |       0 |       0 | 23-241            
+  blogService.ts        |       0 |        0 |       0 |       0 | 7-161             
+  interactionService.ts |       0 |        0 |       0 |       0 | 7-121             
+  userService.ts        |       0 |        0 |       0 |       0 | 18-190            
+------------------------|---------|----------|---------|---------|-------------------
+Jest: "global" coverage threshold for statements (90%) not met: 5.86%
+Jest: "global" coverage threshold for branches (85%) not met: 5.71%
+Jest: "global" coverage threshold for lines (90%) not met: 5.79%
+Jest: "global" coverage threshold for functions (90%) not met: 5.07%
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        1.226 s
+Ran all test suites matching /__tests__\/app\/BlogPostPage.test.tsx/i.
