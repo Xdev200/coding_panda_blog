@@ -86,6 +86,8 @@ export async function createPost(formData: FormData) {
     category: formData.get("category") as string,
     tags: JSON.parse((formData.get("tags") as string) || "[]"),
     featured: formData.get("featured") === "on",
+    is_published: formData.get("is_published") === "on",
+    use_static_image: formData.get("use_static_image") === "on",
     cover_color: "#FDE047",
     cover_image: coverImageUrl,
     thumbnail_image: thumbImageUrl,
@@ -136,6 +138,8 @@ export async function updatePost(formData: FormData) {
     category: formData.get("category") as string,
     tags: JSON.parse((formData.get("tags") as string) || "[]"),
     featured: formData.get("featured") === "on",
+    is_published: formData.get("is_published") === "on",
+    use_static_image: formData.get("use_static_image") === "on",
     cover_image: coverImageUrl,
     thumbnail_image: thumbImageUrl,
     read_time: parseInt(formData.get("read_time") as string) || 5,
@@ -166,4 +170,55 @@ export async function deletePost(formData: FormData) {
   revalidatePath("/admin/posts");
   revalidatePath("/");
   redirect("/admin/posts");
+}
+
+/**
+ * Toggles the featured status of a post.
+ * 
+ * @param id - The post ID
+ * @param currentStatus - Current featured status
+ */
+export async function togglePostFeatured(id: string, currentStatus: boolean) {
+  try {
+    await adminBlogService.updatePost(id, { featured: !currentStatus });
+    revalidatePath("/admin/posts");
+    revalidatePath("/");
+  } catch (error) {
+    console.error("Error toggling featured status:", error);
+    throw error;
+  }
+}
+
+/**
+ * Toggles the published status of a post.
+ * 
+ * @param id - The post ID
+ * @param currentStatus - Current published status
+ */
+export async function togglePostPublished(id: string, currentStatus: boolean) {
+  try {
+    await adminBlogService.updatePost(id, { is_published: !currentStatus });
+    revalidatePath("/admin/posts");
+    revalidatePath("/");
+  } catch (error) {
+    console.error("Error toggling published status:", error);
+    throw error;
+  }
+}
+
+/**
+ * Toggles the image source setting of a post.
+ * 
+ * @param id - The post ID
+ * @param currentStatus - Current static image status
+ */
+export async function togglePostImageSetting(id: string, currentStatus: boolean) {
+  try {
+    await adminBlogService.updatePost(id, { use_static_image: !currentStatus });
+    revalidatePath("/admin/posts");
+    revalidatePath("/");
+  } catch (error) {
+    console.error("Error toggling image setting:", error);
+    throw error;
+  }
 }

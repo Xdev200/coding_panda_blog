@@ -10,7 +10,12 @@
 "use client";
 
 import { DataTable, type Column } from "@/components/admin/DataTable";
-import { deletePost } from "@/app/admin/posts/actions";
+import { 
+  deletePost, 
+  togglePostFeatured, 
+  togglePostPublished, 
+  togglePostImageSetting 
+} from "@/app/admin/posts/actions";
 import Link from "next/link";
 import type { BlogPost } from "@/types/blog";
 
@@ -48,6 +53,19 @@ const columns: Column<BlogPost>[] = [
         </div>
       </div>
     ),
+  },
+  {
+    header: "Img Source",
+    accessor: (row) => (
+      <button 
+        onClick={() => row.id && togglePostImageSetting(row.id, row.useStaticImage)}
+        title="Click to toggle image source"
+        className={`inline-block px-2 py-1 border-2 border-retro-black dark:border-retro-white text-[10px] font-space font-bold transition-all active:scale-95 hover:shadow-neo-sm ${row.useStaticImage ? "bg-retro-pink shadow-neo-sm" : "bg-retro-green shadow-neo-sm"}`}
+      >
+        {row.useStaticImage ? "Static" : "Database"}
+      </button>
+    ),
+    className: "hidden md:table-cell",
   },
   {
     header: "Category",
@@ -98,20 +116,39 @@ const columns: Column<BlogPost>[] = [
   {
     header: "Featured",
     accessor: (row) => (
-      <span
-        className={`inline-block px-2 py-1 border-2 border-retro-black dark:border-retro-white text-xs font-space font-bold ${
+      <button
+        onClick={() => row.id && togglePostFeatured(row.id, !!row.featured)}
+        title="Click to toggle featured status"
+        className={`inline-block px-2 py-1 border-2 border-retro-black dark:border-retro-white text-xs font-space font-bold transition-all active:scale-95 hover:shadow-neo-sm ${
           row.featured
-            ? "bg-retro-green"
-            : "bg-retro-white dark:bg-retro-dark-surface"
+            ? "bg-retro-green shadow-neo-sm"
+            : "bg-retro-white dark:bg-retro-dark-surface shadow-neo-sm"
         }`}
       >
         {row.featured ? "Yes" : "No"}
-      </span>
+      </button>
     ),
     className: "hidden sm:table-cell",
   },
   {
-    header: "Status",
+    header: "Published",
+    accessor: (row) => (
+      <button
+        onClick={() => row.id && togglePostPublished(row.id, row.isPublished)}
+        title="Click to toggle published status"
+        className={`inline-block px-2 py-1 border-2 border-retro-black dark:border-retro-white text-xs font-space font-bold transition-all active:scale-95 hover:shadow-neo-sm ${
+          row.isPublished
+            ? "bg-retro-green shadow-neo-sm"
+            : "bg-retro-white dark:bg-retro-dark-surface shadow-neo-sm"
+        }`}
+      >
+        {row.isPublished ? "Yes" : "No"}
+      </button>
+    ),
+    className: "hidden sm:table-cell",
+  },
+  {
+    header: "Schedule",
     accessor: (row) => {
       const today = new Date().toISOString().split("T")[0];
       const isFuture = row.date > today;
@@ -123,7 +160,7 @@ const columns: Column<BlogPost>[] = [
               : "bg-retro-green"
           }`}
         >
-          {isFuture ? "Scheduled" : "Published"}
+          {isFuture ? "Scheduled" : "Active"}
         </span>
       );
     },
@@ -152,7 +189,14 @@ export function PostsTable({ posts }: PostsTableProps) {
       keyAccessor="id"
       emptyMessage="No posts yet. Create your first post!"
       renderActions={(post) => (
-        <>
+        <div className="flex gap-2 items-center">
+          <Link
+            href={`/${post.slug}?preview=true`}
+            target="_blank"
+            className="px-3 py-1 border-2 border-retro-black dark:border-retro-white bg-retro-green text-retro-black font-space text-xs font-bold shadow-neo dark:shadow-neo-dark hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover transition-all"
+          >
+            Preview
+          </Link>
           <Link
             href={`/admin/posts/${post.id}`}
             className="px-3 py-1 border-2 border-retro-black dark:border-retro-white bg-retro-yellow text-retro-black font-space text-xs font-bold shadow-neo dark:shadow-neo-dark hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-neo-hover dark:hover:shadow-neo-dark-hover transition-all"
@@ -173,7 +217,7 @@ export function PostsTable({ posts }: PostsTableProps) {
               Delete
             </button>
           </form>
-        </>
+        </div>
       )}
     />
   );
