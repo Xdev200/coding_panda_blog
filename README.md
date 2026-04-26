@@ -14,11 +14,11 @@
 [![Supabase](https://img.shields.io/badge/Supabase-Realtime-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 [![PWA](https://img.shields.io/badge/PWA-Installable-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
 [![Test Coverage](https://img.shields.io/badge/Coverage-90%25+-22C55E?style=for-the-badge&logo=jest&logoColor=white)](https://jestjs.io/)
-[![License](https://img.shields.io/badge/License-MIT-FDE047?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-FDE047?style=for-the-badge)](./LICENSE)
 
 <br />
 
-[**🚀 Live Demo**](https://codingpanda.dev) · [**📖 Read the Blog**](https://codingpanda.dev) · [**🐛 Report Bug**](https://github.com/XDEV200/coding-panda-blog/issues) · [**✨ Request Feature**](https://github.com/XDEV200/coding-panda-blog/issues)
+[**🚀 Live Demo**](https://codingpanda.dev) · [**📖 Read the Blog**](https://codingpanda.dev) · [**🤝 Contribute**](./CONTRIBUTING.md) · [**🐛 Report Bug**](https://github.com/XDEV200/coding-panda-blog/issues) · [**✨ Request Feature**](https://github.com/XDEV200/coding-panda-blog/issues)
 
 <br />
 
@@ -66,21 +66,31 @@
 ## ⚡ Get Running in 30 Seconds
 
 ```bash
-# Clone it
+# 1. Clone & Install
 git clone https://github.com/XDEV200/coding-panda-blog.git
 cd coding-panda-blog
-
-# Install dependencies
 npm install
 
-# Set up environment (Supabase credentials)
-cp .env.example .env.local
+# 2. Database Setup (Supabase)
+# Create a new project at supabase.com and run the schema found in:
+# ./supabase/schema.sql (SQL Editor in Supabase Dashboard)
 
-# Launch 🚀
+# 3. Environment Config
+cp .env.example .env.local
+# Update .env.local with your PROJECT_URL and ANON_KEY
+
+# 4. Launch 🚀
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) and witness the brutalism.
+### 🗃️ Required Database Tables
+
+To ensure all features work (Likes, Tags, PWA, Admin), execute the SQL in [schema.sql](./supabase/schema.sql). The essential tables are:
+
+- `posts`: Core blog content (title, slug, markdown, etc.)
+- `tags`: Dynamic category/tag management
+- `post_interactions`: Session-based likes and dislikes
+- `profiles`: Admin and user roles for dashboard access
 
 <br />
 
@@ -448,11 +458,16 @@ blogService.ts  →  Your CMS / REST API / GraphQL / local MDX
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
+We love contributors! Whether you're fixing a bug, suggesting a feature, or improving documentation, your help is welcome.
 
+Please read our [**Contributing Guide**](./CONTRIBUTING.md) to get started with the development process and understand our engineering standards.
+
+All contributors are expected to follow our [**Code of Conduct**](./CODE_OF_CONDUCT.md).
+
+### Quick Start for Contributors
 1. **Fork** the repo
 2. **Create** your feature branch (`git checkout -b feature/awesome-feature`)
-3. **Commit** your changes (`git commit -m 'Add awesome feature'`)
+3. **Commit** your changes (`git commit -m 'feat: add awesome feature'`)
 4. **Push** to the branch (`git push origin feature/awesome-feature`)
 5. **Open** a Pull Request
 
@@ -460,7 +475,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
 
 <br />
 
