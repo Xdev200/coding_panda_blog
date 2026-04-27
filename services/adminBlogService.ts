@@ -8,6 +8,7 @@
  */
 
 import { createClient } from "@/lib/supabase/server";
+import { getTable } from "@/lib/supabase/tables";
 import type { BlogPost, CreatePostInput, UpdatePostInput } from "@/types/blog";
 
 /**
@@ -68,7 +69,7 @@ export const adminBlogService = {
   async getAllPosts(): Promise<BlogPost[]> {
     const supabase = await createClient();
     const { data, error } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .select("*")
       .order("date", { ascending: false });
 
@@ -89,7 +90,7 @@ export const adminBlogService = {
   async getPostById(id: string): Promise<BlogPost | null> {
     const supabase = await createClient();
     const { data, error } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .select("*")
       .eq("id", id)
       .single();
@@ -115,7 +116,7 @@ export const adminBlogService = {
     const slug = input.slug || generateSlug(input.title);
 
     const { data, error } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .insert({
         title: input.title,
         slug,
@@ -177,7 +178,7 @@ export const adminBlogService = {
     if (input.date !== undefined) updateData.date = input.date;
 
     const { data, error } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .update(updateData)
       .eq("id", id)
       .select()
@@ -199,7 +200,7 @@ export const adminBlogService = {
    */
   async deletePost(id: string): Promise<void> {
     const supabase = await createClient();
-    const { error } = await supabase.from("posts").delete().eq("id", id);
+    const { error } = await supabase.from(getTable("POSTS")).delete().eq("id", id);
 
     if (error) {
       console.error(`Admin: Error deleting post ${id}:`, error);
@@ -224,12 +225,12 @@ export const adminBlogService = {
       { count: featuredPosts },
       { data: categoryData },
     ] = await Promise.all([
-      supabase.from("posts").select("*", { count: "exact", head: true }),
+      supabase.from(getTable("POSTS")).select("*", { count: "exact", head: true }),
       supabase
-        .from("posts")
+        .from(getTable("POSTS"))
         .select("*", { count: "exact", head: true })
         .eq("featured", true),
-      supabase.from("posts").select("category"),
+      supabase.from(getTable("POSTS")).select("category"),
     ]);
 
     const uniqueCategories = new Set(

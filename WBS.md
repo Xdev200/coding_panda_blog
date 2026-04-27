@@ -202,3 +202,11 @@
 - [x] 32.4 Update `README.md` with contribution and license links <!-- id: 143 -->
 - [x] 32.5 Create `.env.example` for environment configuration <!-- id: 144 -->
 - [x] 32.6 Create `supabase/schema.sql` and add DB setup instructions to README <!-- id: 145 -->
+
+## Phase 33: Dev/Prod Database Separation [COMPLETED]
+- [x] 33.1 Create duplicate tables in Supabase (dev_ prefix) <!-- id: 146 -->
+- [x] 33.2 Implement table name resolution logic in `lib/supabase/tables.ts` <!-- id: 147 -->
+- [x] 33.3 Refactor services to use dynamic table names <!-- id: 148 -->
+- [x] 33.4 Update environment variables and documentation <!-- id: 149 -->
+- [x] 33.5 Verify data isolation between local and production <!-- id: 150 -->
+

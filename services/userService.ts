@@ -9,6 +9,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { getTable } from "@/lib/supabase/tables";
 import type { UserProfile, CreateUserInput, UpdateUserInput } from "@/types/user";
 
 /**
@@ -25,7 +26,7 @@ export const userService = {
   async getAllUsers(): Promise<UserProfile[]> {
     const supabase = await createClient();
     const { data, error } = await supabase
-      .from("profiles")
+      .from(getTable("PROFILES"))
       .select("*")
       .order("created_at", { ascending: false });
 
@@ -46,7 +47,7 @@ export const userService = {
   async getUserById(id: string): Promise<UserProfile | null> {
     const supabase = await createClient();
     const { data, error } = await supabase
-      .from("profiles")
+      .from(getTable("PROFILES"))
       .select("*")
       .eq("id", id)
       .single();
@@ -91,7 +92,7 @@ export const userService = {
     // The trigger should auto-create the profile, but let's fetch it
     // Wait a moment for the trigger to execute
     const { data: profile, error: profileError } = await supabase
-      .from("profiles")
+      .from(getTable("PROFILES"))
       .select("*")
       .eq("id", authData.user.id)
       .single();
@@ -122,7 +123,7 @@ export const userService = {
     if (input.avatar_url !== undefined) updateData.avatar_url = input.avatar_url;
 
     const { data, error } = await supabase
-      .from("profiles")
+      .from(getTable("PROFILES"))
       .update(updateData)
       .eq("id", id)
       .select()
@@ -175,7 +176,7 @@ export const userService = {
     viewerCount: number;
   }> {
     const supabase = await createClient();
-    const { data, error } = await supabase.from("profiles").select("role");
+    const { data, error } = await supabase.from(getTable("PROFILES")).select("role");
 
     if (error) {
       console.error("Error fetching user stats:", error);
