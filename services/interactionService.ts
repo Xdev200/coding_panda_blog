@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+import { getTable } from "@/lib/supabase/tables";
 import type { PostInteraction } from "@/types/blog";
 
 /**
@@ -18,7 +19,7 @@ export const interactionService = {
     try {
       // 1. Get existing interaction
       const { data: existing, error: fetchError } = await supabase
-        .from('post_interactions')
+        .from(getTable('POST_INTERACTIONS'))
         .select('*')
         .eq('post_id', postId)
         .eq('session_id', sessionId)
@@ -36,7 +37,7 @@ export const interactionService = {
         if (existing.type === type) {
           // Remove interaction
           const { error: deleteError } = await supabase
-            .from('post_interactions')
+            .from(getTable('POST_INTERACTIONS'))
             .delete()
             .eq('id', existing.id);
           
@@ -49,7 +50,7 @@ export const interactionService = {
         } else {
           // Switch interaction
           const { error: updateError } = await supabase
-            .from('post_interactions')
+            .from(getTable('POST_INTERACTIONS'))
             .update({ type })
             .eq('id', existing.id);
 
@@ -66,7 +67,7 @@ export const interactionService = {
       } else {
         // Create new interaction
         const { error: insertError } = await supabase
-          .from('post_interactions')
+          .from(getTable('POST_INTERACTIONS'))
           .insert({ post_id: postId, session_id: sessionId, type });
 
         if (insertError) throw insertError;
@@ -79,7 +80,7 @@ export const interactionService = {
       // We use rpc or fetch + update. For simplicity here, fetch + update but ideally an atomic increment/decrement.
       // Since we don't have a stored procedure yet, let's just fetch and update.
       const { data: post, error: postError } = await supabase
-        .from('posts')
+        .from(getTable('POSTS'))
         .select('likes_count, dislikes_count')
         .eq('id', postId)
         .single();
@@ -90,7 +91,7 @@ export const interactionService = {
       const newDislikes = Math.max(0, (post.dislikes_count || 0) + dislikesDelta);
 
       const { error: finalUpdateError } = await supabase
-        .from('posts')
+        .from(getTable('POSTS'))
         .update({
           likes_count: newLikes,
           dislikes_count: newDislikes
@@ -111,7 +112,7 @@ export const interactionService = {
    */
   async getInteractionStatus(postId: string, sessionId: string): Promise<'like' | 'dislike' | null> {
     const { data, error } = await supabase
-      .from('post_interactions')
+      .from(getTable('POST_INTERACTIONS'))
       .select('type')
       .eq('post_id', postId)
       .eq('session_id', sessionId)

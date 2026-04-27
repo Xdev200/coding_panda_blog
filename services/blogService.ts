@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+import { getTable } from "@/lib/supabase/tables";
 import type { BlogPost, BlogCategory } from "@/types/blog";
 
 /**
@@ -10,7 +11,7 @@ export const blogService = {
    */
   async getAllPosts(): Promise<BlogPost[]> {
     const { data, error } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .select("*")
       .eq("is_published", true)
       .lte("date", new Date().toISOString().split("T")[0])
@@ -29,7 +30,7 @@ export const blogService = {
    */
   async getPostBySlug(slug: string, showUnpublished = false): Promise<BlogPost | undefined> {
     let query = supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .select("*")
       .eq("slug", slug);
     
@@ -54,7 +55,7 @@ export const blogService = {
     if (category === "all") return this.getAllPosts();
 
     const { data, error } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .select("*")
       .eq("category", category)
       .eq("is_published", true)
@@ -76,7 +77,7 @@ export const blogService = {
     if (tag === "all") return this.getAllPosts();
 
     const { data, error } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .select("*")
       .contains("tags", [tag])
       .eq("is_published", true)
@@ -96,7 +97,7 @@ export const blogService = {
    */
   async getFeaturedPosts(): Promise<BlogPost[]> {
     const { data, error } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .select("*")
       .eq("featured", true)
       .eq("is_published", true)
@@ -117,14 +118,14 @@ export const blogService = {
   async getAllTags(): Promise<BlogCategory[]> {
     const today = new Date().toISOString().split("T")[0];
     const { data: posts } = await supabase
-      .from("posts")
+      .from(getTable("POSTS"))
       .select("id")
       .eq("is_published", true)
       .lte("date", today);
     const totalPosts = posts?.length || 0;
 
     const { data: tags, error } = await supabase
-      .from("tags")
+      .from(getTable("TAGS"))
       .select("name");
 
     if (error) {
@@ -138,7 +139,7 @@ export const blogService = {
     // For each tag, we want the count of posts that contain it
     for (const tag of tags || []) {
       const { count } = await supabase
-        .from("posts")
+        .from(getTable("POSTS"))
         .select("id", { count: "exact", head: true })
         .contains("tags", [tag.name])
         .eq("is_published", true)

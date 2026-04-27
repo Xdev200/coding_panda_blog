@@ -78,10 +78,18 @@ npm install
 # 3. Environment Config
 cp .env.example .env.local
 # Update .env.local with your PROJECT_URL and ANON_KEY
+# Set NEXT_PUBLIC_APP_ENV=development to use dev_ prefixed tables
 
 # 4. Launch 🚀
 npm run dev
 ```
+
+### 🛠️ Development Environment (Localhost)
+To prevent polluting production data, this project uses a **table prefixing strategy**:
+- **Localhost**: Uses tables prefixed with `dev_` (e.g., `dev_posts`, `dev_tags`).
+- **Production**: Uses original table names.
+
+Ensure you have created the `dev_` prefixed tables by duplicating the schema in your Supabase dashboard or using provided migrations.
 
 ### 🗃️ Required Database Tables
 
