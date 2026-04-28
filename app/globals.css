@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Merriweather:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,8 +10,14 @@
     --color-retro-black: #0A0A0A;
     --color-retro-white: #FAFAFA;
     --color-bg: #FAFAFA;
+    --color-surface: #FFFFFF;
     --color-text: #0A0A0A;
-
+    --color-muted: #6B7280;
+    --color-accent: #FDE047;
+    --color-border: #E5E7EB;
+    --font-family-body: 'Space Grotesk', sans-serif;
+    --font-family-headings: 'Archivo Black', sans-serif;
+    
     /* Desktop Design System (Default) */
     --header-height: 80px;
     --container-padding: 2rem;
@@ -53,7 +59,155 @@
 
   .dark {
     --color-bg: #1A1A2E;
+    --color-surface: #25253E;
     --color-text: #FAFAFA;
+    --color-muted: #9CA3AF;
+    --color-accent: #FDE047;
+    --color-border: #374151;
+  }
+
+  /* Theme: Medium */
+  [data-theme='medium'] {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-text: #292929;
+    --color-muted: #6b6b6b;
+    --color-accent: #1a8917;
+    --color-border: #e6e6e6;
+    --font-family-body: 'Merriweather', serif;
+    --font-family-headings: 'Merriweather', serif;
+  }
+
+  /* Theme: Substack */
+  [data-theme='substack'] {
+    --color-bg: #faf9f7;
+    --color-surface: #ffffff;
+    --color-text: #0f0f0f;
+    --color-muted: #6b6b6b;
+    --color-accent: #ff6719;
+    --color-border: #e6e6e6;
+    --font-family-body: 'Lora', serif;
+    --font-family-headings: 'Inter', sans-serif;
+  }
+
+  /* Theme: Ghost Casper */
+  [data-theme='ghost'] {
+    --color-bg: #ffffff;
+    --color-surface: #f9f9f9;
+    --color-text: #15171a;
+    --color-muted: #738a94;
+    --color-accent: #3eb0ef;
+    --color-border: #e5eff5;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-headings: 'Inter', sans-serif;
+  }
+
+  /* Theme: Hashnode */
+  [data-theme='hashnode'] {
+    --color-bg: #ffffff;
+    --color-surface: #f8fafc;
+    --color-text: #1e293b;
+    --color-muted: #64748b;
+    --color-accent: #2563eb;
+    --color-border: #e2e8f0;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-headings: 'Inter', sans-serif;
+  }
+
+  /* Theme: Dark Editorial */
+  [data-theme='editorial'] {
+    --color-bg: #0e0e0e;
+    --color-surface: #181818;
+    --color-text: #f0ece4;
+    --color-muted: #8a8680;
+    --color-accent: #d4a84b;
+    --color-border: #2e2e2e;
+    --font-family-body: 'Playfair Display', serif;
+    --font-family-headings: 'Playfair Display', serif;
+  }
+
+  /* Theme: Notion */
+  [data-theme='notion'] {
+    --color-bg: #ffffff;
+    --color-surface: #f7f6f3;
+    --color-text: #37352f;
+    --color-muted: #9b9a97;
+    --color-accent: #37352f;
+    --color-border: #e9e9e7;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-headings: 'Inter', sans-serif;
+  }
+
+  /* Theme: Typographic Brutalist */
+  [data-theme='brutalist'] {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-text: #111111;
+    --color-muted: #666666;
+    --color-accent: #f5e642;
+    --color-border: #111111;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-headings: 'Archivo Black', sans-serif; /* Impact alternative */
+  }
+
+  /* Theme: Pastel Personal */
+  [data-theme='pastel'] {
+    --color-bg: #fdf8f1;
+    --color-surface: #ffffff;
+    --color-text: #3d2c1e;
+    --color-muted: #a08c7a;
+    --color-accent: #d4847a;
+    --color-border: #efdfcf;
+    --font-family-body: 'Lora', serif;
+    --font-family-headings: 'Playfair Display', serif;
+  }
+
+  /* Theme: DEV Community */
+  [data-theme='devto'] {
+    --color-bg: #0a0a0a;
+    --color-surface: #1c1c1c;
+    --color-text: #d6d6d7;
+    --color-muted: #717171;
+    --color-accent: #3b49df;
+    --color-border: #2e2e2e;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-headings: 'Inter', sans-serif;
+  }
+
+  /* Theme: Full-bleed Magazine */
+  [data-theme='magazine'] {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-muted: #666666;
+    --color-accent: #0f2744;
+    --color-border: #eeeeee;
+    --font-family-body: 'Merriweather', serif;
+    --font-family-headings: 'Inter', sans-serif;
+  }
+
+  /* Theme: Micro-blog Atomic */
+  [data-theme='atomic'] {
+    --color-bg: #ffffff;
+    --color-surface: #f7f7f7;
+    --color-text: #0f0f0f;
+    --color-muted: #536471;
+    --color-accent: #1d9bf0;
+    --color-border: #eff3f4;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-headings: 'Inter', sans-serif;
+  }
+
+  /* Theme: Colorful Topic-first */
+  [data-theme='colorful'] {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-text: #1a1a2e;
+    --color-muted: #6b7280;
+    --color-accent: #3b82f6;
+    --color-border: #e5e7eb;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-headings: 'Inter', sans-serif;
   }
 
   * {
@@ -65,13 +219,13 @@
   }
 
   body {
-    @apply bg-retro-white text-retro-black transition-colors duration-300;
-    font-family: 'Space Grotesk', sans-serif;
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300;
+    font-family: var(--font-family-body);
     -webkit-font-smoothing: antialiased;
   }
 
   .dark body {
-    @apply bg-retro-dark-bg text-retro-white;
+    @apply bg-[var(--color-bg)] text-[var(--color-text)];
   }
 
   /* Focus ring reset — handled per-component via Tailwind */
@@ -92,6 +246,9 @@
 }
 
 @layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings);
+  }
   h1 { font-size: var(--font-size-h1); line-height: 1.1; font-weight: 900; }
   h2 { font-size: var(--font-size-h2); line-height: 1.2; font-weight: 800; }
   h3 { font-size: var(--font-size-h3); line-height: 1.3; font-weight: 700; }

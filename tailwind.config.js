@@ -13,6 +13,14 @@ module.exports = {
         space: ["'Space Grotesk'", "sans-serif"],
       },
       colors: {
+        theme: {
+          bg: "var(--color-bg)",
+          surface: "var(--color-surface)",
+          text: "var(--color-text)",
+          muted: "var(--color-muted)",
+          accent: "var(--color-accent)",
+          border: "var(--color-border)",
+        },
         retro: {
           yellow: "#FDE047",
           black: "#0A0A0A",
