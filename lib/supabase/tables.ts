@@ -11,6 +11,7 @@ export const TABLES = {
   TAGS: 'tags',
   PROFILES: 'profiles',
   POST_INTERACTIONS: 'post_interactions',
+  SITE_SETTINGS: 'site_settings',
 } as const;
 
 export type TableKey = keyof typeof TABLES;

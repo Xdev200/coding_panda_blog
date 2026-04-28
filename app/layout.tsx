@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeApplier } from "@/components/ThemeApplier";
+import { settingsService } from "@/services/settingsService";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
@@ -74,16 +76,19 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const settings = await settingsService.getSettings();
+  
   return (
     <html lang="en" suppressHydrationWarning>
       <GoogleAnalytics />
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeApplier activeTheme={settings.activeTheme} />
           <Navbar />
           <main id="main-content">{children}</main>
           <Footer />

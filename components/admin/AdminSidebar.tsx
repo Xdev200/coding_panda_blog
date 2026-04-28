@@ -15,6 +15,7 @@ import {
   LayoutDashboard,
   FileText,
   Users,
+  Settings,
   LogOut,
 } from "lucide-react";
 import { signOut } from "@/app/login/actions";
@@ -35,6 +36,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/admin", label: "Dashboard", icon: <LayoutDashboard size={20} /> },
   { href: "/admin/posts", label: "Posts", icon: <FileText size={20} /> },
   { href: "/admin/users", label: "Users", icon: <Users size={20} /> },
+  { href: "/admin/settings", label: "Settings", icon: <Settings size={20} /> },
 ];
 
 /**
